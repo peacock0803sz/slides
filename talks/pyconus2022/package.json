@@ -1,5 +1,6 @@
 {
   "name": "pycon-us-2022",
+  "private": true,
   "engines": {
     "node": ">=v18.12.0"
   },
@@ -10,6 +11,8 @@
     "export": "slidev export pyconus2022.md --output ./dist/pyconus2022.pdf"
   },
   "dependencies": {
-    "@slidev/theme-bricks": "^0.0.2"
+    "@slidev/cli": "^0.43.7",
+    "@slidev/theme-bricks": "^0.0.2",
+    "@slidev/types": "^0.43.7"
   }
 }
