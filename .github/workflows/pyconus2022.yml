@@ -41,14 +41,15 @@ jobs:
     - name: Setup node
       uses: actions/setup-node@v3
       with:
+        cache: 'pnpm'
         node-version: '18'
 
     - name: Build and deploy to s3 bucket
       env:
         S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
       run: |
-        mkdir -p ./dist/
         cd talks/pyconus2022
+        mkdir -p ./dist/
         pnpm install
         pnpm run build:aws
         aws s3 sync ./dist $S3_REPOSITORY/pyconus2022/
