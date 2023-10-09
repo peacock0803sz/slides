@@ -2,7 +2,7 @@
 title: Comparison of Packaging Tools in 2023
 titleTemplate: "[PyCon TW 2023] %s"
 lineNumbers: true
-theme: ./theme
+theme: "../../themes/watercolors"
 presenter: dev
 aspectRatio: 16/9
 favicon: https://peacock0803sz.com/favicon.ico

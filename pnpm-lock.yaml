@@ -22,13 +22,32 @@ importers:
         specifier: ^1.27.1
         version: 1.38.1
 
-  talks/pycontw2023: {}
+  talks/pycontw2023:
+    dependencies:
+      '@peacock0803sz/theme-watercolors':
+        specifier: workspace:*
+        version: link:../../themes/watercolors
 
   talks/pyconus2022:
     dependencies:
       '@slidev/theme-bricks':
         specifier: ^0.0.2
         version: 0.0.2
+
+  themes/watercolors:
+    dependencies:
+      '@slidev/types':
+        specifier: ^0.22.7
+        version: 0.22.7
+      codemirror-theme-vars:
+        specifier: ^0.1.1
+        version: 0.1.2
+      prism-theme-vars:
+        specifier: ^0.2.2
+        version: 0.2.4
+      theme-vitesse:
+        specifier: ^0.1.12
+        version: 0.1.14
 
 packages:
 
