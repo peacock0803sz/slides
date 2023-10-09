@@ -52,5 +52,6 @@ jobs:
         cd talks/pyconus2022
         mkdir -p ./dist/
         pnpm run build:aws
+        pnpm run render:cover
         aws s3 sync ./dist $S3_REPOSITORY/pyconus2022/
         aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/pyconus2022/*"
