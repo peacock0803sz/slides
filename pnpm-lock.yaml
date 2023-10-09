@@ -22,6 +22,12 @@ importers:
         specifier: ^1.27.1
         version: 1.38.1
 
+  talks/pyconapac2023:
+    dependencies:
+      '@peacock0803sz/theme-watercolors':
+        specifier: workspace:*
+        version: link:../../themes/watercolors
+
   talks/pycontw2023:
     dependencies:
       '@peacock0803sz/theme-watercolors':
