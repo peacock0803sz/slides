@@ -48,7 +48,7 @@ jobs:
       env:
         S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
       run: |
-        pnpm install
+        pnpm install -D
         cd talks/pyconus2022
         mkdir -p ./dist/
         pnpm run build:aws
