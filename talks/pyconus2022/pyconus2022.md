@@ -4,7 +4,7 @@ titleTemplate: '%s'
 lineNumbers: true
 theme: bricks
 aspectRatio: 16/9
-favicon: https://peacock0803sz.com/favicon.ico
+favicon: https://p3ac0ck.net/favicon.ico
 defaults:
   layout: default
 layout: cover
@@ -30,7 +30,7 @@ layout: intro
 
 <div class="text-2xl">
 
-Slides: [slides.peacock0803sz.com/pyconus2022/index.html](https://slides.peacock0803sz.com/pyconus2022/index.html)
+Slides: [slides.p3ac0ck.net/pyconus2022/index.html](https://slides.p3ac0ck.net/pyconus2022/index.html)
 
 Expected: Google Chrome
 

@@ -1,6 +1,6 @@
 {
-  "name": "pycontw2023-slides",
-  "license": "MIT",
+  "name": "pycontw2023",
+  "private": true,
   "scripts": {
     "build": "slidev build pycontw2023.md",
     "build:aws": "slidev build pycontw2023.md --base /pycontw2023/",

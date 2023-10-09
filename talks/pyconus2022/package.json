@@ -1,9 +1,6 @@
 {
-  "name": "pycon-us-2022",
+  "name": "pyconus2022",
   "private": true,
-  "engines": {
-    "node": ">=v18.12.0"
-  },
   "scripts": {
     "build": "slidev build pyconus2022.md",
     "build:aws": "slidev build pyconus2022.md --base /pyconus2022/",

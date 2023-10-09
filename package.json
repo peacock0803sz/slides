@@ -1,7 +1,6 @@
 {
   "name": "slidev-slides",
   "private": true,
-  "license": "MIT",
   "dependencies": {
     "@slidev/cli": "^0.43.7",
     "@iconify-json/twemoji": "^1.1.5"
