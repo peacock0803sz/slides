@@ -35,6 +35,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8
     - name: Setup node
       uses: actions/setup-node@v3
       with:
