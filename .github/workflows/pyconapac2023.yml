@@ -39,7 +39,7 @@ jobs:
         env:
           S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
         run: |
-          pnpm install
+          pnpm install && pnpm exec playwright install
           cd talks/pyconapac2023
           mkdir -p ./dist/
           pnpm run build:aws
