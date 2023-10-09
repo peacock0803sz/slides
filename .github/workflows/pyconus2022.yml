@@ -48,9 +48,9 @@ jobs:
       env:
         S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
       run: |
+        pnpm install
         cd talks/pyconus2022
         mkdir -p ./dist/
-        pnpm install
         pnpm run build:aws
         aws s3 sync ./dist $S3_REPOSITORY/pyconus2022/
         aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/pyconus2022/*"

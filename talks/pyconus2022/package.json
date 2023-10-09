@@ -11,8 +11,6 @@
     "export": "slidev export pyconus2022.md --output ./dist/pyconus2022.pdf"
   },
   "dependencies": {
-    "@slidev/cli": "^0.43.7",
-    "@slidev/theme-bricks": "^0.0.2",
-    "@slidev/types": "^0.43.7"
+    "@slidev/theme-bricks": "^0.0.2"
   }
 }
