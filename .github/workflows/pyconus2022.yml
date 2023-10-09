@@ -1,10 +1,10 @@
 on:
   push:
     branches:
-    - main
+      - main
     paths:
-    - ".github/workflows/pyconus2022.yml"
-    - "talks/pyconus2022/**"
+      - ".github/workflows/pyconus2022.yml"
+      - "talks/pyconus2022/**"
 
 env:
   AWS_REGION: ap-northeast-1
@@ -25,33 +25,30 @@ jobs:
       CF_DISTRIBUTION_ID: E2T87ZLQYFG0XY
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Configure AWS Credentials From Web Identity
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
-    - uses: pnpm/action-setup@v2
-      with:
-        version: 8
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-        cache: 'pnpm'
-        node-version: '18'
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          cache: "pnpm"
+          node-version: "18"
 
-    - name: Build and deploy to s3 bucket
-      env:
-        S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
-      run: |
-        pnpm install
-        cd talks/pyconus2022
-        mkdir -p ./dist/
-        pnpm run build:aws
-        pnpm run render:cover
-        aws s3 sync ./dist $S3_REPOSITORY/pyconus2022/
-        aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/pyconus2022/*"
+      - shell: bash
+        env:
+          S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
+        run: |
+          pnpm install
+          cd talks/pyconus2022
+          mkdir -p ./dist/
+          pnpm run build:aws
+          pnpm run render:cover
+          aws s3 sync ./dist $S3_REPOSITORY/pyconus2022/
+          aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/pyconus2022/*"

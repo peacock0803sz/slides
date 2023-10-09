@@ -3,15 +3,14 @@ on:
     branches:
       - main
     paths:
-    - ".github/workflows/pycontw2023.yml"
-    - "talks/pycontw2023/**"
+      - ".github/workflows/pycontw2023.yml"
+      - "talks/pycontw2023/**"
 
 env:
   AWS_REGION: ap-northeast-1
 
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -42,8 +41,8 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          cache: 'pnpm'
-          node-version: '18'
+          cache: "pnpm"
+          node-version: "18"
 
       - name: Build and deploy to s3 bucket
         env:
@@ -55,3 +54,4 @@ jobs:
           pnpm run build:aws
           pnpm run render:cover
           aws s3 sync ./dist $S3_REPOSITORY/pycontw2023/
+          aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/pycontw2023/*"
