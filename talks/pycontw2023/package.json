@@ -7,14 +7,5 @@
     "dev": "slidev pycontw2023.md",
     "export": "slidev export pycontw2023.md --output ./dist/pycontw2023.pdf",
     "render:cover": "slidev export pycontw2023.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
-  },
-  "dependencies": {
-    "@slidev/cli": "^0.40.16",
-    "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
-  },
-  "devDependencies": {
-    "@iconify-json/twemoji": "^1.1.11",
-    "playwright-chromium": "^1.37.0"
   }
 }

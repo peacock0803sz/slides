@@ -7,10 +7,17 @@ settings:
 importers:
 
   .:
-    devDependencies:
+    dependencies:
       '@iconify-json/twemoji':
         specifier: ^1.1.5
         version: 1.1.12
+      '@slidev/cli':
+        specifier: ^0.43.7
+        version: 0.43.7(@types/markdown-it@13.0.2)(playwright-chromium@1.38.1)(postcss@8.4.31)
+    devDependencies:
+      '@slidev/types':
+        specifier: ^0.43.7
+        version: 0.43.7
       playwright-chromium:
         specifier: ^1.27.1
         version: 1.38.1
@@ -19,15 +26,9 @@ importers:
 
   talks/pyconus2022:
     dependencies:
-      '@slidev/cli':
-        specifier: ^0.43.7
-        version: 0.43.7(@types/markdown-it@13.0.2)(playwright-chromium@1.38.1)(postcss@8.4.31)
       '@slidev/theme-bricks':
         specifier: ^0.0.2
         version: 0.0.2
-      '@slidev/types':
-        specifier: ^0.43.7
-        version: 0.43.7
 
 packages:
 
@@ -593,10 +594,11 @@ packages:
     resolution: {integrity: sha512-8F3z+0+NYO/qeCiyjeWJ9ozkBvPmXsK+4pkQynUuILyXDIi8ddBHb1DJ6O2Qp5M23LzaA/Gkg8/8CQwgGslGmQ==}
     dependencies:
       '@iconify/types': 2.0.0
-    dev: true
+    dev: false
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: false
 
   /@iconify/utils@2.1.11:
     resolution: {integrity: sha512-M/w3PkN8zQYXi8N6qK/KhnYMfEbbb6Sk8RZVn8g+Pmmu5ybw177RpsaGwpziyHeUsu4etrexYSWq3rwnIqzYCg==}
@@ -945,7 +947,6 @@ packages:
   /@slidev/types@0.43.7:
     resolution: {integrity: sha512-EtX6p5K6neCF7IcnFfq41ASytWANVJlZLhWh+TAtBsNCFCSi694XdD2juF8Z4R1hVXrRxBMyMUwLZM/OxgU1og==}
     engines: {node: '>=18.0.0'}
-    dev: false
 
   /@types/d3-scale-chromatic@3.0.0:
     resolution: {integrity: sha512-dsoJGEIShosKVRBZB0Vo3C8nqSDqVGujJU6tPznsBJxNJNwMF8utmS83nvCBKQYPpjCzaaHcrf66iTRpZosLPw==}
