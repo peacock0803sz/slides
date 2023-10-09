@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-    - master
+    - main
     paths:
     - ".github/workflows/pyconus2022.yml"
     - "talks/pyconus2022/**"
