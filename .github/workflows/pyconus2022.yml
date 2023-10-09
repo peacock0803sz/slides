@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - ".github/workflows/pyconus2022.yml"
+    - "talks/pyconus2022/**"
+
+env:
+  AWS_REGION: ap-northeast-1
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    outputs:
+      status: ${{ job.status }}
+    env:
+      AWS_REGION: ap-northeast-1
+      AWS_ROLE_ARN: arn:aws:iam::981709652793:role/PipelineUploadS3
+      S3_BUCKET: slides.peacock0803sz.com
+      CF_DISTRIBUTION_ID: E2T87ZLQYFG0XY
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS Credentials From Web Identity
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Build and deploy to s3 bucket
+      env:
+        S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
+      run: |
+        mkdir -p ./dist/
+        yarn
+        yarn build:aws
+        aws s3 sync ./dist $S3_REPOSITORY/pyconus2022/
+        aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION_ID} --paths "/pyconus2022/*"

@@ -1,0 +1,52 @@
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_REGION: ap-northeast-1
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      packages: read
+
+    outputs:
+      status: ${{ job.status }}
+    env:
+      AWS_REGION: ap-northeast-1
+      AWS_ROLE_ARN: arn:aws:iam::981709652793:role/PipelineUploadS3
+      S3_BUCKET: slides.peacock0803sz.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials From Web Identity
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          registry-url: "https://npm.pkg.github.com"
+          always-auth: true
+          token: ${{ github.token }}
+          scope: "@peacock0803sz"
+
+      - name: Build and deploy to s3 bucket
+        env:
+          S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
+        run: |
+          mkdir -p ./dist/
+          yarn
+          yarn build:aws
+          yarn render:cover
+          aws s3 sync ./dist $S3_REPOSITORY/pycontw2023/

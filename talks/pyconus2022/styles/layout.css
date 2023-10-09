@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&display=swap');
+
+:root {
+  color: #2f2f2f;
+  --slidev-theme-primary: #5d8392;
+}
+
+/* Global {{{ */
+.slidev-layout h1 {
+  font-family: "Saira", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+  font-weight: 700 !important;
+}
+.slidev-layout h2, h3 {
+  font-family: "Saira", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+}
+.slidev-layout h1 + p, p, div {
+  font-family: "Saira", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
+  font-weight: 400;
+  opacity: 1;
+}
+.slidev-layout strong {
+  font-weight: 500 !important;
+}
+.slidev-layout code {
+  font-variant-ligatures: none;
+  font-family: "JetBrains Mono", ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-weight: 600;
+}
+.slidev-layout strong > code {
+  font-weight: 700 !important;
+}
+/* }}} */
+
+/* Cover {{{ */
+.slidev-layout.cover h1 {
+  @apply text-right absolute top-20 right-10;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+}
+.slidev-layout.cover h2 {
+  @apply text-right absolute bottom-10 right-10;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+/* }}} */
+
+/* Intro {{{ */
+.slidev-layout.intro h1 {
+  font-size: 6rem;
+}
+.slidev-layout.intro h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+/* }}} */
+
+/* Section {{{ */
+.slidev-layout.section-1 {
+  @apply grid-cols-[75%,25%];
+}
+.slidev-layout.section-1 div {
+  @apply absolute bottom-40 px-2 pr-50;
+}
+.slidev-layout.section-1 h1 {
+  @apply text-6xl;
+}
+.slidev-layout.section-1 h2 {
+  @apply text-4xl;
+}
+/* }}} */
+
+/* default {{{ */
+.slidev-layout.default {
+  @apply px-20 py-5 leading-normal;
+  font-size: 2rem;
+}
+.slidev-layout.default h1 {
+  @apply my-5;
+  font-size: 2.3rem;
+  line-height: 2.3rem;
+}
+.slidev-layout.default h2 {
+  @apply my-5 text-gray-750;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+.slidev-layout.default p, div {
+  @apply my-0 py-1 leading-normal;
+}
+.slidev-layout.default li {
+  @apply my-0 py-0 leading-normal;
+}
+.slidev-layout.default table {
+  @apply mb-5;
+}
+.slidev-layout.default table > tbody > tr > td {
+  @apply text-2xl px-1 py-1;
+}
+.slidev-layout.default table > thead > tr > th {
+  @apply text-xl px-1 py-0;
+}
+.slidev-layout.default code {
+  font-size: 1.8rem;
+}
+.slidev-layout.default h1 > code {
+  font-size: 2rem;
+}
+.slidev-layout.default pre > code {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+/* }}} */
+
+/* Fact {{{ */
+.slidev-layout.fact h1 {
+  font-size: 7rem;
+  line-height: 7rem;
+}
+.slidev-layout.fact h2 {
+  font-size: 3rem;
+}
+.slidev-layout.fact h3 {
+  @apply fixed left-25 bottom-10;
+  font-size: 1.75rem;;
+  opacity: 1;
+}
+/* }}} */
