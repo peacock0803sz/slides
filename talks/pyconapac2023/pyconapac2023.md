@@ -32,21 +32,22 @@ Slides: [slides.p3ac0ck.net/pyconapac2023/index.html](https://slides.p3ac0ck.net
 
 Feel Free to Take Pictures <twemoji-camera />
 
-Hashtag: `#pyconapac_2`
+Social Hashtags:
+
+- `#pyconapac_2`
+- `#pyconapac2023`
 
 </div>
 
 <img src="/images/qrcode.svg" />
 </div>
 
-<div class="arrow">^ Slides ^</div>
-
 <!--
 Slides are uploaded, so you can see them via the URL or QR code. 
 
 And, feel free to take pictures and share them on social media.
 
-If you have any questions, please ask me on Discord or slido.
+If you have any questions, please ask me on un-conference.
 -->
 
 ---
@@ -283,6 +284,8 @@ layout: section
 </div>
 
 <!--
+**手短に、たくさん話さない**
+
 First is Pipenv.
 
 It was very popular around 2018, Although its popularity seems to have settled down, it is still maintained.
@@ -546,12 +549,12 @@ If you want to use a task-runner like npm-task, you should write Makefile...
 layout: section
 ---
 
-# Summary
+# SUMMARY
 
 ## What is the best tool? (In some use cases)
 
 <!--
-Now finally, what you've all been waiting for, I'll introduce the best tool for each use case.
+**Now finally, what you've all been waiting for, I'll introduce the best tool for each use case.**
 -->
 
 ---
@@ -560,7 +563,7 @@ Now finally, what you've all been waiting for, I'll introduce the best tool for 
 
 -> **Hatch** (with pip-tools): Very configurable and flexible
 
-## Grounds
+## Reasons
 
 - Almost what you need is included
     - ex: Task-runner, wheel builder and publisher
@@ -568,11 +571,11 @@ Now finally, what you've all been waiting for, I'll introduce the best tool for 
 - Works with `pyproject.toml` spec, [PEP 621](https://peps.python.org/pep-0621/) style
 
 <!--
-First. If you are a library developer, I recommend Hatch.
+First. If you are a library developer, **I recommend Hatch.**
 
 You can choose to use this with pip-tools, to manage dependencies.
 
-You should understand the pip and backend you choose, But you will be able to do most of what you want to do.
+You should understand the pip and back-end you choose, But you will be able to do most of what you want to do.
 -->
 
 ---
@@ -581,17 +584,15 @@ You should understand the pip and backend you choose, But you will be able to do
 
 -> **PDM**: All-in-one tool and easy to use
 
-## Grounds
+## Reasons
 
 - Fast dependency resolver
 - Support [PEP 621](https://peps.python.org/pep-0621/) style `pyproject.toml`
 - Included Task-runner (`pdm run`)
 
 <!--
-Second. If you are an application developer lightweight, I recommend PDM.
-
-I think it's needed everything is included and easy to use.
-
+Second. If you are an application developer, **I recommend PDM.**  
+I think it's needed everything is included and easy to use.  
 It will be especially value-able if you are developing a large project or many people are involved in the project.
 -->
 
@@ -601,17 +602,32 @@ It will be especially value-able if you are developing a large project or many p
 
 -> **pip**: Simply to use, Non-dependency (built-in in Python)
 
-## Grounds
+## Reasons
 
 - Lightweight, Non-dependency to install itself
 - Simple to use, There are many know-hows and examples
 
 <!--
-Third. If you are an automation script developer, I recommend just using pip.
-
-The first two are suitable for large projects or libraries that also manage their versions, but many features are not needed for small projects.
+Third. If you are an automation script developer, **I recommend just using pip.**  
+The first two are suitable for large projects or libraries that also manage their versions,  
+but many features are not needed for small projects.
 
 It is not too late to switch to PDM or other methods when you feel that it is becoming too complex.
+-->
+
+---
+
+# CONCLUSION
+
+- Library Developer: **Hatch** (with pip-tools)
+    - Very configurable and flexible
+- Application Developer: **PDM**
+    - All-in-one tool and easy to use
+- Automation / Scripting Developer: **pip**
+    - Simply to use, Non-dependency (built-in in Python)
+
+<!--
+So, I've introduced the best tool for each use case.
 -->
 
 ---
@@ -630,10 +646,8 @@ layout: section
 </div>
 
 <!--
-This is an extra section, so don't take it carefully.
-
-I can't help but take up the Rye that has emerged in the last half year. I'll give you a summary of my opinion.
-
+This is an extra section, so don't take it carefully.  
+I can't help but take up the Rye that has emerged in the last half year. I'll give you a summary of my opinion.  
 It's written by Armin Ronacher known as Mitsuhiko, who is famous for Flask, Jinja2, Click, and more.
 -->
 
@@ -653,16 +667,12 @@ It's written by Armin Ronacher known as Mitsuhiko, who is famous for Flask, Jinj
 - **EXPERIMENTAL**, not stable
 
 <!--
-Now let's compare the pros and cons of the same.
-
-The biggest advantage is that it is single-binary so easy to install and use.
-
-Surely it supports PEP six-hundred twenty-one style `pyproject.toml` spec and wraps virtualenv, including package builder and publisher.
-
-And, it includes a Python version manager, so you can install and switch Python versions easily like pyenv.
+Now let's compare the pros and cons of the same.  
+The biggest advantage is that it is single-binary so easy to install and use.  
+Surely it supports PEP six-hundred twenty-one style `pyproject.toml` spec and wraps virtualenv, including package builder and publisher.  
+And, it includes a Python version manager, so you can install and switch Python versions easily like pyenv.  
 
 Needless to say, it's very experimental, and not stable.
-
 I think it is not yet ready to be used with co-workers, especially at work.
 -->
 
