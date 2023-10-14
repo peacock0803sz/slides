@@ -2,11 +2,6 @@
   "name": "slidev-slides",
   "private": true,
   "dependencies": {
-    "@slidev/cli": "^0.43.7",
-    "@iconify-json/twemoji": "^1.1.5"
-  },
-  "devDependencies": {
-    "@slidev/types": "^0.43.7",
     "playwright-chromium": "^1.27.1"
   }
 }

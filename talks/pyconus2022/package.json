@@ -9,6 +9,9 @@
     "render:cover": "slidev export pyconus2022.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
   },
   "dependencies": {
-    "@slidev/theme-bricks": "^0.0.2"
+    "@slidev/cli": "^0.36.9",
+    "@iconify-json/twemoji": "^1.1.12",
+    "@slidev/theme-bricks": "^0.0.2",
+    "@slidev/types": "^0.36.9"
   }
 }

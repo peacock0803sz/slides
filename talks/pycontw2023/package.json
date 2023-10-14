@@ -9,6 +9,11 @@
     "render:cover": "slidev export pycontw2023.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
   },
   "dependencies": {
+    "@slidev/cli": "^0.43.7",
+    "@iconify-json/twemoji": "^1.1.5",
     "@peacock0803sz/theme-watercolors": "workspace:*"
+  },
+  "devDependencies": {
+    "@slidev/types": "^0.43.7"
   }
 }
