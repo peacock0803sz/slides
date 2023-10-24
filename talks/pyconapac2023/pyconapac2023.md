@@ -1,8 +1,8 @@
 ---
 title: Comparison of Packaging Tools in 2023
-titleTemplate: "[PyCon APAC 2023] %s"
+titleTemplate: '[PyCon APAC 2023] %s'
 lineNumbers: true
-theme: "../../themes/watercolors"
+theme: ../../themes/watercolors
 presenter: dev
 aspectRatio: 16/9
 favicon: https://peacock0803sz.com/favicon.ico
@@ -43,11 +43,9 @@ Social Hashtags:
 </div>
 
 <!--
-Slides are uploaded, so you can see them via the URL or QR code. 
-
-And, feel free to take pictures and share them on social media.
-
-If you have any questions, please ask me on un-conference.
+Slides are uploaded, so you can see them via the URL or QR code.  
+And, feel free to take pictures and share them on social media.  
+If you have any questions, please ask me on open space after this talk.
 -->
 
 ---
@@ -66,22 +64,21 @@ First of all, I'll explain why I made this talk, and who is target audience.
 
 # Backgrounds and Motivations
 
-- There are so many packaging tools in Python
-- Around these tools are changing dramatically
-    - Adopted several big PEPs; [517](https://peps.python.org/pep-0517/), [621](https://peps.python.org/pep-0621/), and [660](https://peps.python.org/pep-0660/)
-    - **`pyproject.toml` format was defined**
+- Situation of Python packaging was changed dramatically - Adopted 3 PEPs;
+    - [PEP 517](https://peps.python.org/pep-0517/): build system specification format
+    - [PEP 621](https://peps.python.org/pep-0621/): **Standardized `pyproject.toml` format**
+    - [PEP 660](https://peps.python.org/pep-0660/): `pyproject.toml` based editable installs
 
-<!-- 
-My motivation for this talk is here...
+<!--
+At first, my motivation for this talk is here...  
+There are so many packaging tools in Python, but those are different in designs/objectives...  
+So If you are not professional for python packaging, It's very hard to choose the best one for your project.
 
-There are so many packaging tools in Python, but those are different in designs/objectives...
-so It's very hard to choose the best one for your project.
-
-Over the last few years, around these tools have changed dramatically, because of the adoption and increase of implemented several big PEPs.
-There are three PEPs have been particularly influential;
-first, 517(five-hundred seventeen), build system specification format,
-second, 621(six-hundred twenty-one), Standardized `pyproject.toml` format,
-and finally, 660(six-hundred sixty), pyproject.toml based editable installs.
+Over the last few years, around these tools have changed dramatically, because of the adoption and increase of supporting several big PEPs specifications.  
+There are three PEPs have been particularly influential;  
+first, 517(**five-hundred seventeen**), build system specification format,  
+second, 621(**six-hundred twenty-one**), Standardized `pyproject.toml` format,  
+and finally, 660(**six-hundred sixty**), pyproject.toml based editable installs.
 -->
 
 ---
@@ -93,11 +90,10 @@ layout: statement
 # Needed a **Pros-Cons comparison** in now?
 
 <!--
-So, I felt needed a Pros-Cons comparison in 2023,
+I often see and am asked the question, **"Which packaging tool should I use?"** in the Python community or elsewhere.  
+So, I felt needed a Pros-Cons based comparison in 2023,  
 
-I often see and am asked the question, "Which packaging tool should I use?" in the Python community or elsewhere.
-
-But please note that all opinions are my own, since I'm a not developer of any packaging tools.
+Please note that all opinions are my own, since I'm a not developer of any packaging tools.
 -->
 
 ---
@@ -109,14 +105,16 @@ layout: statement
 ## Struggling with choosing packaging tools:
 
 - for 3 types of Pythonistas:
-    - Library Developer
-    - Application Developer
-    - Automation / Scripting Developer
+    - Library / Framework Developer (Complex Project)
+    - Application Developer (Many People Project)
+    - Single or Few Files Scripts Developer (Small Project)
 
 <!--
-So, I'll compare these tools for 3 types of Pythonistas
+Okay, I'll compare these tools for 3 types of Pythonistas
 
-first, Library (or Framework) Developer, second, Application Developer, and finally, Automation / Scripting Developer.
+First, Library (or Framework) Developer to complex project structures.  
+Second is Application Developer, who is developing a large project or many people different skills are involved in the project.  
+And finally is One-shot or Scripting Developer, who is limited scopes or small projects.
 -->
 
 ---
@@ -143,11 +141,10 @@ layout: toc
 </ol>
 
 <!--
-This is today's agenda.
+This is today's agenda.  
+I'll tell you the pros/cons of each tool. and finally, introduce the best tool and why for 3 types of Pythonistas.
 
-I'll tell you the pros/cons of each tool. and finally, introduce the best tool for 3 types of Pythonistas.
-
-and then, I'll introduce Rye as an appendix.
+and then, If you might be watching, I'll introduce Rye as an appendix.
 -->
 
 ---
@@ -166,11 +163,9 @@ layout: table
 | [pip](https://pip.pypa.io/en/stable/index.html)          | PyPA              | 2008/12 (First GitHub commit) | MIT          |
 
 <!--
-These are the tools I'll compare today.
-
-There are 6 tools, Pipenv, Poetry, PDM, pip-tools, Hatch, and pip.
-
-There are a few tools that we did not cover, but I think I have covered the most well-known ones.
+These are the tools I'll compare today.  
+There are 6 tools, Pipenv, Poetry, PDM, pip-tools, Hatch, and pip.  
+Few tools that I do not mention today, but I think I have covered the most well-known or useful ones.
 -->
 
 ---
@@ -185,7 +180,7 @@ layout: profile
 - Name: Peacock / Yoichi Takai
 - Social media names: `peacock0803sz`
 - 23 Years Old, 5+ Years of Python Ex
-- Work: [TOPGATE, Inc.](https://topgate.co.jp)
+- Work: [TOPGATE, Inc.](https://topgate.co.jp) (2022/12 ~)
 - Vice-Chair of [PyCon APAC 2023](https://2023-apac.pycon.jp)
 - Likes: Listening to Music <twemoji-musical-note /> / Cameras <twemoji-camera /> / Audios <twemoji-studio-microphone /> / Drinking <twemoji-clinking-beer-mugs />
 
@@ -194,21 +189,14 @@ layout: profile
 </div>
 
 <!--
-Let me introduce myself.
-
-I'm Yoichi Takai also known as Peacock, so please call me Peacock.
-
+Let me introduce myself briefly. I'm Yoichi Takai as known as Peacock, so please call me Peacock.  
 Since December 2022, I've been working at TOPGATE, Inc. as an IaC / DevOps engineer.
 
-and, I've been a staff of PyCon JP since 2020 and Vice-Chair since last year.
+While my working, I've been a volunteer staff of PyCon JP since 2020(twenty-twenty) and Vice-Chair since last year.  
+In addition, I'm a director of PyCon JP TV as an Operating member of the PyCon JP Association, for a YouTube Live director held a once per month.
 
-In addition, I'm a director of PyCon JP TV as an Operating member of the PyCon JP Association,
-
-My hobbies are listening to music, gadgets, skiing, eating and drinking.
-
-And then, this is my first visit to Taipei and attending PyCon APAC!
-
-I've talked 3 times before here since 2021, 2 online and 1 in-person, but this is my first time at PyCon APAC.
+My hobbies are listening to music, gadgets, skiing, eating and drinking.  
+And then, this is my first talk opportunity in PyCon held in Japan, so I feel very honored.
 -->
 
 ---
@@ -218,6 +206,10 @@ layout: section
 # Pre-explain
 
 ## About [PEP 621](https://peps.python.org/pep-0621/) style `pyproject.toml`
+
+<!--
+Before starting to compare tools, I'd like to explain about the most important PEP I think, six-hundred twenty-one was what defined `pyproject.toml`.
+-->
 
 ---
 
@@ -243,18 +235,17 @@ dev = ["black", "flake8", "mypy"] # list dev-dependencies here
 ```
 
 <!--
-Before starting to compare tools, I'd like to explain about PEP six-hundred twenty-one style pyproject.toml.
+It's the new standard for defining Python package meta-data and build-time dependencies. There are three points for defining dependencies.
 
-It's the new standard for defining Python package metadata and build-time dependencies.
+First, the `build-system` table is for defining build-time dependencies.  
+Next, the `dependencies` property in the `project` table is for defining dependencies.  
+And Lastly, the `project.optional-dependencies` table is for defining optional dependencies.
 
-There are three points for defining dependencies.
-
-First, the `build-system` table is for defining build-time dependencies.
-
-Next, the `dependencies` property in the `project` table is for defining dependencies.
-
-and Lastly, the `project.optional-dependencies` table is for defining optional dependencies.
+But please do not think that "requrements.txt is dead?", it's not.  
+It's a another dimension and I will not explain in this talk.  
+If you are interested in that, let's discuss it in open space after this talk.
 -->
+
 ---
 layout: section
 ---
@@ -264,7 +255,7 @@ layout: section
 ## Main comparison points
 
 <!--
-Okay, now let's start the main section of this talk.
+Okay, now let's start the main section of this talk.  
 I'll introduce the pros/cons of each tool.
 -->
 
@@ -288,9 +279,8 @@ layout: section
 
 First is Pipenv.
 
-It was very popular around 2018, Although its popularity seems to have settled down, it is still maintained.
-
-Who doesn't know this? It was a game-changer.
+It was very popular around 2018, Although its popularity seems to have settled down, it is still maintained.  
+Who doesn't know this? It was a game-changer. But I will not explain a lot because I don't recommend it.
 -->
 
 ---
@@ -303,19 +293,16 @@ Who doesn't know this? It was a game-changer.
 
 # Pipenv: Cons
 
-- Slow dependency resolver
+- Slow dependency resolver (improved?)
 - LIMITED support PEP 621 style `pyproject.toml`
 
 <!--
-It has been very progressive. And it brought the lock-file to the Python community.
+It has been very progressive, because it brought the lock-file to the Python community.  
+With `pipenv upgrade` command, you can upgrade dependencies easily.  
+And, Wrapping virtualenv was also revolutionary. You can forget to activate and deactivate virtualenv.  
 
-With `pipenv upgrade` command, you can upgrade dependencies easily.
-
-And, Wrapping virtualenv was also revolutionary. You can forget to activate and deactivate virtualenv.
-
-But, it's a slow dependency resolver, and LIMITED support PEP six-hundred twenty-one style `pyproject.toml`.
-
-It was the first tool to become famous with everything in it, so I don't blame them, but the slowness is stressful.
+But, **LIMITED support PEP six-hundred twenty-one** style `pyproject.toml`.  
+I think it's no longer a good idea to use it for new projects.
 -->
 
 ---
@@ -337,9 +324,9 @@ layout: section
 <!--
 Next is Poetry.
 
-I remember it becoming famous around 2020, but I think it is still a popular tool.
-
+I remember it becoming famous around 2020, but I think it is still a popular tool.  
 How many of you use it for work or other projects? Raise your hand if you use this.
+Oh, so many people. I think it's the most popular tool in this talk, but I will not recommend it.
 -->
 
 ---
@@ -356,18 +343,13 @@ How many of you use it for work or other projects? Raise your hand if you use th
 - NOT support [PEP 621](https://peps.python.org/pep-0621/) style `pyproject.toml`
 
 <!--
-Poetry has so many features to I can't explain all of them, but I'll introduce some of them.
+Poetry has so many features to I can't explain all of them, but I'll introduce some of mainly.  
+Needless to say, it was later than Pipenv, so it supports lock-file and wraps virtualenv.  
 
-Needless to say, it was later than Pipenv, so it supports lock-file and wraps virtualenv.
+And as you may know, the points that Poetry was very revolutionary it included Task-runner and helper for the building wheels. It helps package publishers to build, test and publish packages.
 
-As you may know, the points that Poetry was very revolutionary it included Task-runner and helper for the building wheels.
-
-This helps package publishers to build, test and publish packages.
-
-One thing of cons is that it does not support PEP six-hundred twenty-one style `pyproject.toml`.
-
-Poetry appeared before the accepted PEP six-hundred twenty-one, but discussions are still ongoing.
-
+One thing of cons is that it does not support PEP six-hundred twenty-one style `pyproject.toml`.  
+Poetry appeared before the accepted PEP six-hundred twenty-one, but discussions are still ongoing.  
 Please note that there will be conflicts because there are many dependent packages if you install them in a project with virtualenv.
 -->
 
@@ -407,19 +389,11 @@ I did not know this tool until I wrote this talk proposal, but it seems to be a 
 - not Included helper for the building wheels
 
 <!--
-It has two points of advantages.
+It has two points of advantages.  
+The first one is the fast dependency resolver. It is the fastest of the tools I introduce today. But, you can choose the another dependency resolver.  
+Next point, it supports PEP six-hundred twenty-one style `pyproject.toml`, The two previous ones had limited or no support, but this one is already supported. So, its format is Standardized by PEP, you may transfer to other tools easily.
 
-The first one is the fast dependency resolver. It is the fastest of the tools I introduce today.
-
-but, you can choose the another dependency resolver.
-
-Next point, it supports PEP six-hundred twenty-one style `pyproject.toml`, The two previous ones had limited or no support, but this one is already supported.
-
-So, its format is Standardized by PEP, you may transfer to other tools easily.
-
-One drawback is that it does not include a helper for the building wheels.
-
-But it's not a big problem if you do not publish packages frequently.
+Just one drawback, I think is that it does not include a helper for the building wheels. But it's not a big problem if you do not publish packages frequently.
 -->
 
 ---
@@ -450,12 +424,10 @@ Please note that The following tools, pip-tools, hatch, and pip are not all-incl
 - not Included Task-runner, wheel builder and package publisher
 
 <!--
-It's very simple to use, with only 2 commands, `pip-compile` and `pip-sync`, and also supports PEP six-hundred twenty-one style `pyproject.toml` dependency definition.
-
+It's very simple to use, with only 2 commands, `pip-compile` and `pip-sync`, and also supports PEP six-hundred twenty-one style `pyproject.toml` dependency definition.  
 One more advantage is that it's maintained by the Jazzband community, and has many Django utilities. I think governance by the community is very important.
 
-But, needless to say, it does not include a task-runner, wheel builder and package publisher.
-
+But, needless to say, it does not include a task-runner, wheel builder and package publisher.  
 So I'll recommend using it with Hatch, next one.
 -->
 
@@ -495,15 +467,13 @@ It was published very recently and may be of interest to many folks.
 - Not supporting lock-file
 
 <!--
-It's very configurable to a back-end for building projects, you can use it with other tools like pip-tools.
-
+It's very configurable to a back-end for building projects, you can use it with other tools like pip-tools.  
 And, it's maintained actively by PyPA, nearly official.
 
-Because it's a newcomer, of course, it works with `pyproject.toml` spec, the PEP six-hundred twenty-one style.
-
+Because it's a newcomer, of course, it works with `pyproject.toml` spec, the PEP six-hundred twenty-one style.  
 But, I think configurable is nearly equal to complex. You will need to read and understand the documentation carefully to use it.
 
-Also, it does not include a dependency updater and lock-file.
+And also, it does not include a dependency updater and lock-file.
 -->
 
 ---
@@ -692,6 +662,26 @@ layout: refs
     - [Isn't venv + pip good for Python package management? in 2023/1](https://zenn.dev/peacock0803sz/articles/python-packaging-2023-01)
     - [Are you using the -c/--constraint option of pip install?](https://zenn.dev/peacock0803sz/articles/acd723d5a5fa0b)
 
+
+---
+layout: pyconapac2023
+---
+
+<div class="box">
+<div class="inner">
+
+# Thank You PyCon Community!
+
+</div>
+<img src="/images/long_light.svg" />
+</div>
+
+<!--
+Thank you for listening so much. That's all for my talk.  
+Finally, I'd like to say thank you to all of the PyCon APAC participants, speakers, sponsors, and volunteers.  
+I hope you have a great time at PyCon APAC 2023!
+-->
+
 ---
 layout: thanks
 ---
@@ -704,3 +694,7 @@ layout: thanks
 ## Hashtag: `#pyconapac_2`
 
 </div>
+
+<!--
+I'll be in open space after this, so please feel free to ask me any questions or discussions.
+-->

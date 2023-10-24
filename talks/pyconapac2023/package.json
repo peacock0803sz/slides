@@ -5,6 +5,7 @@
     "build": "slidev build pyconapac2023.md",
     "build:aws": "slidev build pyconapac2023.md --base /pyconapac2023/",
     "dev": "slidev pyconapac2023.md",
+    "format": "slidev format pyconapac2023.md",
     "export": "slidev export pyconapac2023.md --output ./dist/pyconapac2023.pdf",
     "render:cover": "slidev export pyconapac2023.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
   },
