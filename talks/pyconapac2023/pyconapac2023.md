@@ -382,18 +382,19 @@ I did not know this tool until I wrote this talk proposal, but it seems to be a 
 - Fast dependency resolver
     - But you can choose another resolver
 - Support [PEP 621](https://peps.python.org/pep-0621/) style `pyproject.toml`
-- Included Task-runner (`pdm run`)
+- Included Task-runner (`pdm run`), package publisher
 
 # PDM: Cons
 
-- not Included helper for the building wheels
+- Few GitHub Stars / not Famous
 
 <!--
 It has two points of advantages.  
 The first one is the fast dependency resolver. It is the fastest of the tools I introduce today. But, you can choose the another dependency resolver.  
-Next point, it supports PEP six-hundred twenty-one style `pyproject.toml`, The two previous ones had limited or no support, but this one is already supported. So, its format is Standardized by PEP, you may transfer to other tools easily.
+Next point, it supports PEP six-hundred twenty-one style `pyproject.toml`, The two previous ones had limited or no support, but this one is already supported. So, its format is Standardized by PEP, you may transfer to other tools easily.  
+It also includes a task-runner, wheels builder and package publisher.
 
-Just one drawback, I think is that it does not include a helper for the building wheels. But it's not a big problem if you do not publish packages frequently.
+I think one drawback point is that it is not famous, so there are maybe few users and not enough knowledge.
 -->
 
 ---
@@ -468,7 +469,7 @@ It was published very recently and may be of interest to many folks.
 
 <!--
 It's very configurable to a back-end for building projects, you can use it with other tools like pip-tools.  
-And, it's maintained actively by PyPA, nearly official.
+And, it's maintained actively by PyPA - Python Packaging Authority, nearly official.
 
 Because it's a newcomer, of course, it works with `pyproject.toml` spec, the PEP six-hundred twenty-one style.  
 But, I think configurable is nearly equal to complex. You will need to read and understand the documentation carefully to use it.
@@ -485,14 +486,15 @@ layout: section
 ## <https://pip.pypa.io/en/stable/index.html>
 
 <!--
-Thanks for listening this far, but please don't leave! Now the last tool is pip.
+Thanks for listening, but **PLEASE DO NOT LEAVE!** Now the last tool is pip.  
+It maybe no need to explain, but I'll introduce it briefly.
 -->
 
 ---
 
 # pip: Pros
 
-- Build-in in Python, very simple
+- (Almost) Build-in in Python, very simple
 - Works with `pyproject.toml` spec, [PEP 621](https://peps.python.org/pep-0621/) style
 
 # pip: Cons
@@ -502,17 +504,15 @@ Thanks for listening this far, but please don't leave! Now the last tool is pip.
 - Not included task-runner and wheel builder
 
 <!--
-Goes without saying. I don't know any Pythonistas who haven't used this.
+Goes without saying. I don't know any Pythonistas who haven't used this. Since `ensurepip` module is built-in in Python, so you can use pip as built-in in tool.  
+By the way, I'm newcomer Since I started using Python in 2018, I don't know the old days when pip was not built-in. Haha...  
 
-It comes with Python with **NO INSTALLATION** required and is the ONLY official tool.
+Since it is maintained by PyPA, `pyproject.toml` based on PEP six-hundred twenty-one is also supported.
+Please note that **pip is not a packaging tool, just a package installer** wraps setuptools.
 
-Since it is official, `pyproject.toml` based on PEP six-hundred twenty-one is also supported.
-
-Please note that pip is not a packaging tool, just a package installer wraps setuptools.
-
-I'm sure you all know the cons too, it does not wrap virtualenv, does not support file-managed dependency, and does not include task-runner and wheel builder.
-
-If you want to use a task-runner like npm-task, you should write Makefile...
+I'm sure you all know the cons too, it does not wrap virtualenv, does not support file-managed dependency, and does not include task-runner and wheel builder.  
+If you want to use a task-runner like npm-task, you might write Makefile...  
+And if you want to build your wheels, you might use `twine` or `build`, maybe it is lazy.
 -->
 
 ---
@@ -543,9 +543,11 @@ layout: section
 <!--
 First. If you are a library developer, **I recommend Hatch.**
 
-You can choose to use this with pip-tools, to manage dependencies.
+I'll recommend to use this with pip-tools, managing dependencies.  
+But you should understand the pip and back-end you choose, but you will be able to do most of what you want to do.
 
-You should understand the pip and back-end you choose, But you will be able to do most of what you want to do.
+It's maintained actively by PyPA, so I think it's a good idea to use it for work or other projects.  
+And surely, it works with `pyproject.toml` spec, the PEP six-hundred twenty-one style.
 -->
 
 ---
@@ -562,8 +564,12 @@ You should understand the pip and back-end you choose, But you will be able to d
 
 <!--
 Second. If you are an application developer, **I recommend PDM.**  
+
 I think it's needed everything is included and easy to use.  
-It will be especially value-able if you are developing a large project or many people are involved in the project.
+It will be especially value-able if you are developing a large project or many people with different Python skill are involved in the project.  
+It's very easy to use, and you can use it with `pyproject.toml` spec, the PEP six-hundred twenty-one style.  
+And it has a task-runner, so you can use it like npm/nodejs task-scripts.   
+There are few knowledge and examples, but I think it's worth a try.
 -->
 
 ---
@@ -579,10 +585,10 @@ It will be especially value-able if you are developing a large project or many p
 
 <!--
 Third. If you are an automation script developer, **I recommend just using pip.**  
-The first two are suitable for large projects or libraries that also manage their versions,  
-but many features are not needed for small projects.
+The first two are suitable for large projects or libraries that also manage their versions, but many features are not needed for small projects.  
+I think it's better to use pip for small projects, because it's lightweight and non-dependency to install itself.
 
-It is not too late to switch to PDM or other methods when you feel that it is becoming too complex.
+It is not too late to switch to PDM, Poetry, or other tool when you feel that it is becoming too complex.
 -->
 
 ---
@@ -597,7 +603,11 @@ It is not too late to switch to PDM or other methods when you feel that it is be
     - Simply to use, Non-dependency (built-in in Python)
 
 <!--
-So, I've introduced the best tool for each use case.
+Okay, let's summarize the best tool for each use case.
+
+If you are a library developer, I recommend Hatch with pip-tools, because it is very configurable and flexible.  
+Next, if you are an application developer, I recommend PDM, because it is an all-in-one tool and easy to use.  
+And finally if you are an automation or scripting developer, I recommend just using pip, because it is simply to use and non-dependency to install itself.
 -->
 
 ---
@@ -616,34 +626,42 @@ layout: section
 </div>
 
 <!--
-This is an extra section, so don't take it carefully.  
+This is an extra section  
 I can't help but take up the Rye that has emerged in the last half year. I'll give you a summary of my opinion.  
-It's written by Armin Ronacher known as Mitsuhiko, who is famous for Flask, Jinja2, Click, and more.
+It's written by Armin Ronacher known as Mitsuhiko, who is famous for author of Flask, Jinja2, Click, and more.
 -->
 
 ---
 
-# Rye: Pros/Cons
-
-## Pros
+# Rye: Pros
 
 - **Single-binary**, easy to install and use
 - Works with `pyproject.toml` spec, [PEP 621](https://peps.python.org/pep-0621/) style
-- Wraps virtualenv, Including Package Builder and Publisher
-- Included Python version manager
-
-## Cons
-
-- **EXPERIMENTAL**, not stable
+- Almost what you want is included; 
+    - virtualenv wrapper, Package Builder, Publisher and Python version manager
 
 <!--
 Now let's compare the pros and cons of the same.  
 The biggest advantage is that it is single-binary so easy to install and use.  
 Surely it supports PEP six-hundred twenty-one style `pyproject.toml` spec and wraps virtualenv, including package builder and publisher.  
 And, it includes a Python version manager, so you can install and switch Python versions easily like pyenv.  
+-->
 
-Needless to say, it's very experimental, and not stable.
-I think it is not yet ready to be used with co-workers, especially at work.
+---
+
+# Rye: Cons
+
+- **EXPERIMENTAL**, not stable
+    - Too early to use in production
+- Mitsuhiko's personally project
+- Just a wrapper of pip-tools? 
+    - for the dependency manager
+
+<!--
+Needless to say, it's very experimental and his personally project, equals not stable.
+It's too early to use in production, so I think it's not yet ready to be used with co-workers, especially at work.  
+
+And, I felt it's just a wrapper of pip-tools?, as a dependency manager. If you know the its implementation, please tell me after this... haha
 -->
 
 ---
