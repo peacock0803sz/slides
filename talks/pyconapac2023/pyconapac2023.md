@@ -11,7 +11,7 @@ layout: cover
 
 # Comparison of <br> Packaging Tools in 2023
 
-## Peacock (Yoichi Takai), <br> at PyCon APAC 2023 (2023/09/01)
+## Peacock (Yoichi Takai), <br> at PyCon APAC 2023 (2023/10/28)
 
 <!--
 ..., thank you introduce!
