@@ -1,6 +1,6 @@
 ---
-title: '技術イベント運営は楽しい!'
-titleTemplate: '[SEB Year-end MEETUP] %s'
+title: イベント運営の喜びを伝えたい!
+titleTemplate: '[#seb_yearend] %s'
 lineNumbers: true
 theme: ../../themes/watercolors
 presenter: dev
@@ -22,7 +22,6 @@ layout: intro
 # まえおき
 
 <div class="head">
-
 <div class="inner">
 
 本日の資料 (URL or QRコードから)
@@ -66,8 +65,39 @@ layout: profile
 </div>
 
 ---
+layout: statement
+---
 
-# 私と技術イベント・カンファレンス (1/3)
+## 今日一番伝えたいこと
+
+# 技術イベントの運営は**楽しい!**
+
+### *昨今「タダ飯おじさん」が目立っていますが、本来は楽しい活動のはず*
+
+---
+layout: section
+---
+
+# イベント運営を続けている<br>モチベーション
+
+---
+
+# 運営を始めるきっかけは些細な出来事
+
+<div class="flex flex-row">
+<div class="basis-1/2">
+<Tweet scale="0.9" id="1173885943821955074" />
+<Tweet scale="0.9" id="1173895063052546048" />
+</div>
+
+<div class="basis-1/2">
+<Tweet scale="0.9" id="1173888748523675650" />
+</div>
+</div>
+
+---
+
+# そこから今まで約5年、運営を続けてきた
 
 ## 運営スタッフとしての実績 (1/2)
 
@@ -79,7 +109,7 @@ layout: profile
 
 ---
 
-# 私と技術イベント・カンファレンス (2/3)
+# そこから今まで約5年、運営を続けてきた
 
 ## 運営スタッフとしての実績 (2/2)
 
@@ -89,12 +119,12 @@ layout: profile
 - [高専カンファレンスin房総 (2019-09-01)](https://connpass.com/event/125100/): 運営スタッフ
 
 ---
-layout: table
----
 
-# 私と技術イベント・カンファレンス (3/3)
+# 登壇者としても参加
 
 ## 15分以上の登壇実績
+
+<div class="text-2xl">
 
 - 2023-10-28: [PyCon APAC 2023](https://2023-apac.pycon.jp/timetable?id=XEGZUD)
 - 2023-09-02: [PyCon TW 2023](https://tw.pycon.org/2023/en-us/conference/talk/274)
@@ -104,29 +134,64 @@ layout: table
 - 2021-07-29: [EuroPython 2021 (オンライン)](https://ep2021.europython.eu/talks/ASCmqFk-getting-started-with-statically-typed-programming-in-python-310/)
 - 2021-06-21: [Open Source Conference 2021 Hokkaido](https://event.ospn.jp/osc2021-online-do/)
 
----
-layout: statement
----
-
-## 今日一番伝えたいこと
-
-# 技術イベントの運営は**楽しい!**
-
-### *昨今「タダ飯おじさん」が目立っていますが、本来は楽しい活動のはず*
+</div>
 
 ---
 
-# なぜイベント運営をやっているのか
+# 継続するモチベーションは「参加者の声」
+
+- 「楽しかった!」
+- 「また来年もやってほしい!」
+- 「また来年も参加する!」
+
+開催までの運営期間は大変だけど、<br>開催後の声を聞くと次回もやろうと思える
+
+-> **PDCAサイクルが回る**
+
+---
+layout: section
+---
+
+# 大切にしていること
 
 ---
 
-# 約5年、運営を続けてきた最近の想い
+# 初心者でも主催できる
 
-## 運営への参加ハードルを低くしたい
+- その技術に詳しくなくても運営はできる
+- 発言権が上級者に偏ると長続きしない (要出典)
+- むしろ「分からないので教えて」の精神で主催すべき
 
 ---
 
-# まとめ
+# 無理をしない・頑張りすぎない
+
+- OSSに「燃え尽き症候群」という言葉がある [^1]
+    - イベント運営にも当てはまる
+    - イベント開催の直後に疲れてしまい、続けられない状態
+- 常にバックアップを持っておく [^2]
+    - 必要最低限を考える・休息を取る・核になる仲間を作る
+
+[^1]: https://opensource.guide/ja/maintaining-balance-for-open-source-maintainers/
+[^2]: https://slides.com/codemickeycode/pythonph-one-does-not-simply#/32
+---
+
+# 一人で抱え込まない
+
+- 悩んだ時に抱え込まず、相談・議論できる環境にする
+- **一緒にやる仲間(できれば合計3人)で分担する**
+    - 2人だと、意見が割れた時に収集が付かない場合がある
+
+---
+
+# まとめ: コミュニティ運営は楽しい!
+
+- **技術イベント運営は楽しい活動**
+- 参加者の声がモチベーション源 (私の場合)
+- 運営をやっていくのに大事な考え方
+    - その言語や技術に詳しい必要はない
+    - 一人で抱え込まず、仲間を見つける
+    - 無理をしないことを続けることが大事
 
 ---
 layout: thanks
