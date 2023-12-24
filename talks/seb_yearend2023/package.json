@@ -1,0 +1,20 @@
+{
+  "name": "seb_yearend2023",
+  "private": true,
+  "scripts": {
+    "build": "slidev build seb_yearend2023.md",
+    "build:aws": "slidev build seb_yearend2023.md --base /seb_yearend2023/",
+    "dev": "slidev seb_yearend2023.md",
+    "format": "slidev format seb_yearend2023.md",
+    "export": "slidev export seb_yearend2023.md --output ./dist/seb_yearend2023.pdf",
+    "render:cover": "slidev export seb_yearend2023.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
+  },
+  "dependencies": {
+    "@iconify-json/twemoji": "^1.1.15",
+    "@peacock0803sz/theme-watercolors": "workspace:*",
+    "@slidev/cli": "^0.46.1"
+  },
+  "devDependencies": {
+    "@slidev/types": "^0.46.1"
+  }
+}
