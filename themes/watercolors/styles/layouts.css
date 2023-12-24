@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Mali&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500&display=swap");
+
 :root {
   --fg-black: #222;
   --fg-bold: #132;
@@ -8,6 +10,12 @@
   --font-title: "Sue Ellen Francisco", sans-serif;
   --font-h1: "Mali", sans-serif;
   --font-main: "Avenir Next,Nunito Sans" sans;
+
+  :lang(ja) {
+    --font-title: "Kaisei Decol", sans-serif;
+    --font-h1: "Mali","Zen Maru Gothic", sans-serif;
+    --font-main: "Nunito Sans","Nunito Sans,Zen Kaku Gothic" sans;
+  }
 
   --opacity0: rgba(255, 255, 255, 0%);
   --opacity25: rgba(255, 255, 255, 25%);
@@ -17,8 +25,8 @@
 
   --bg-image-cover: linear-gradient(
       to bottom,
-      var(--opacity0),
-      var(--opacity25)
+      var(--opacity25),
+      var(--opacity50)
     ),
     url("../assets/1.svg");
   --bg-image-section: linear-gradient(
@@ -46,6 +54,7 @@
     ),
     url("../assets/8.svg");
 }
+
 footer {
   font-weight: 500;
   font-size: 20px;
@@ -72,6 +81,7 @@ footer {
     margin-left: 0;
     line-height: 1.25;
   }
+
   h1 {
     font-family: var(--font-h1);
     margin-bottom: 20px;
@@ -80,6 +90,7 @@ footer {
     font-size: 42px;
     color: var(--fg-bold);
   }
+
   h2 {
     font-family: var(--font-h1);
     margin-top: 20px;
@@ -87,12 +98,14 @@ footer {
     font-weight: 600;
     font-size: 36px;
   }
+
   a {
     @apply border-none;
     text-decoration: underline dashed 1.5px !important;
     text-underline-offset: 0.5rem;
     font-weight: 500;
   }
+
   strong {
     font-weight: 650;
     color: var(--fg-bold);
@@ -103,6 +116,7 @@ footer {
     margin-bottom: 0;
     padding-bottom: 0;
   }
+
   li {
     margin-top: 0;
     margin-bottom: 0;
@@ -119,6 +133,7 @@ footer {
     margin-bottom: 0.1em;
     font-size: 40px;
   }
+
   ol > li.gray {
     color: #aaa;
   }
@@ -136,27 +151,36 @@ footer {
 }
 
 .slidev-layout.intro {
+  h1 {
+    font-size: 60px;
+  }
+
   p {
     line-height: 1.5;
   }
+
   .head {
     margin-top: 10px;
-    font-size: 34px;
+    font-size: 30px;
   }
+
   .box {
     margin-top: 25px;
     display: grid;
     grid-template-columns: 600px 300px;
     column-gap: 25px;
   }
+
   .inner {
     grid-column: 1;
     font-size: 42px;
   }
+
   img {
     grid-column: 2;
     width: 200px;
   }
+
   .arrow {
     margin-top: 25px;
     font-size: 42px;
@@ -172,15 +196,18 @@ footer {
     margin-top: 5px;
     font-size: 42px;
   }
+
   .box {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 580px 270px;
     column-gap: 25px;
   }
+
   .inner {
     grid-column: 1;
   }
+
   img {
     margin-top: 10px;
     grid-column: 2;
@@ -204,6 +231,7 @@ footer {
     line-height: 1.6;
     padding-bottom: 20px;
   }
+
   h2 {
     font-family: var(--font-h1);
     font-weight: 700;
@@ -221,6 +249,7 @@ footer {
   justify-content: center;
   padding-top: 50px;
   padding-bottom: 50px;
+
   * {
     font-family: var(--font-main);
   }
@@ -231,6 +260,7 @@ footer {
     line-height: 1;
     font-weight: 500;
   }
+
   h1 > strong {
     color: var(--fg-bold);
     font-size: 96px;
@@ -244,6 +274,7 @@ footer {
 
 .slidev-layout.quote {
   background-image: var(--bg-image-statement);
+
   * {
     font-family: var(--font-main);
   }
@@ -270,15 +301,18 @@ footer {
     font-weight: 700;
     font-size: 60px;
   }
+
   h2 {
     font-weight: 400;
     font-size: 32px;
   }
+
   .box {
     display: grid;
     grid-template-columns: 250px 600px;
     column-gap: 25px;
   }
+
   .inner {
     display: flex;
     flex-direction: column;
@@ -286,6 +320,7 @@ footer {
     grid-column: 2;
     grid-row: 1;
   }
+
   img {
     display: flex;
     flex-direction: column;
@@ -294,6 +329,7 @@ footer {
     grid-row: 1;
     width: 250px;
   }
+
   img.rye {
     background-color: #333;
     padding: 10px;
@@ -319,12 +355,14 @@ footer {
     grid-row: 1;
     width: 200px;
   }
+
   h1 {
     grid-row: 1;
     margin: 0;
     font-size: 96px;
     line-height: 1;
   }
+
   h2 {
     grid-row: 2;
     grid-column: 2;
@@ -346,17 +384,21 @@ footer {
     text-align: center;
     font-size: 56px;
   }
+
   h2 {
     text-align: center;
     font-size: 48px;
   }
+
   .box {
     display: grid;
     grid-template-rows: 100px;
   }
+
   .inner {
     grid-row: 1;
   }
+
   img {
     grid-row: 2;
   }
