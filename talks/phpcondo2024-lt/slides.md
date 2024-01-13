@@ -37,7 +37,7 @@ layout: intro
 
 **写真撮影もご自由にどうぞ <twemoji-camera />**
 
-ハッシュタグ: `#seb_yearend`
+ハッシュタグ: `#phpcondo`
 
 </div>
 
