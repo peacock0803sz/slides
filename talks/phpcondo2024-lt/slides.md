@@ -123,7 +123,7 @@ layout: statement
 
 ---
 
-# 便利リンク
+# 便利リンク (ダイレクトマーケティング)
 
 - PyCon JP TV #15: 体験談から知る海外登壇
     - <https://tv.pycon.jp/episode/15.html>
@@ -135,7 +135,5 @@ layout: thanks
 <img src="/images/qrcode.svg" />
 
 # Thank you!
-
-## 質問は懇親会でどうぞ
 
 </div>
