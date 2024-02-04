@@ -1,5 +1,5 @@
 ---
-title: 海外に飛び出してみませんか?
+title: 海外登壇に挑戦しませんか?
 titleTemplate: '[#phpcondo 2024 LT] %s'
 lineNumbers: true
 theme: ../../themes/watercolors
