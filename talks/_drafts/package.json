@@ -1,0 +1,18 @@
+{
+  "name": "_drafts",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev",
+    "format": "slidev format",
+    "export": "slidev export --output ./dist/stapy101-lt.pdf",
+  },
+  "dependencies": {
+    "@iconify-json/twemoji": "^1.1.15",
+    "@peacock0803sz/theme-watercolors": "workspace:*",
+    "@slidev/cli": "^0.46.3"
+  },
+  "devDependencies": {
+    "@slidev/types": "^0.46.3"
+  }
+}
