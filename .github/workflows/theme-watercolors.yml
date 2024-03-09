@@ -22,9 +22,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          cache: "pnpm"
           node-version: "18"
-          
+
       - shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,4 +37,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           cwd: themes/watercolors
-          publish: pnpm publish
+          publish: pnpm publish --no-git-checks
