@@ -12,6 +12,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      packages: read
     env:
       AWS_REGION: ap-northeast-1
       AWS_ROLE_ARN: arn:aws:iam::981709652793:role/PipelineUploadS3
@@ -31,6 +32,8 @@ jobs:
         with:
           version: 8
       - uses: actions/setup-node@v3
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           cache: "pnpm"
           node-version: "18"

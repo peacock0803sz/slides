@@ -12,6 +12,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      packages: read
     env:
       AWS_REGION: ap-northeast-1
       AWS_ROLE_ARN: arn:aws:iam::981709652793:role/PipelineUploadS3
@@ -37,6 +38,7 @@ jobs:
 
       - shell: bash
         env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
         run: |
           pnpm install && pnpm exec playwright install
