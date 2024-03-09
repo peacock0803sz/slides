@@ -4,8 +4,7 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev",
-    "format": "slidev format",
-    "export": "slidev export --output ./dist/stapy101-lt.pdf",
+    "format": "slidev format"
   },
   "dependencies": {
     "@iconify-json/twemoji": "^1.1.15",
