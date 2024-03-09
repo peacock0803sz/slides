@@ -3,7 +3,7 @@ on:
     branches: ["main"]
     paths:
       - ".github/workflows/theme-watercolors.yml"
-      - "themes/watercolors"
+      - "themes/watercolors/**"
 
 jobs:
   release:
