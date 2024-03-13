@@ -3,6 +3,7 @@ title: Getting Started with Statically Typed Programming in Python 3.10
 titleTemplate: '%s'
 lineNumbers: true
 theme: bricks
+presenter: dev
 aspectRatio: 16/9
 favicon: https://p3ac0ck.net/favicon.ico
 defaults:
