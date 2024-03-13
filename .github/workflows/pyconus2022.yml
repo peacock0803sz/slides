@@ -36,11 +36,11 @@ jobs:
           node-version: "18"
 
       - shell: bash
+        working-directory: talks/pyconus2022
         env:
           S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
         run: |
           pnpm install && pnpm exec playwright install
-          cd talks/pyconus2022
           mkdir -p ./dist/
           pnpm run build:aws
           pnpm run render:cover

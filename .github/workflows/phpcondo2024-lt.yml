@@ -37,12 +37,13 @@ jobs:
           node-version: "18"
 
       - shell: bash
+        working-directory: talks/phpcondo2024-lt
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           S3_REPOSITORY: s3://${{ env.S3_BUCKET }}
         run: |
+          echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc
           pnpm install && pnpm exec playwright install
-          cd talks/phpcondo2024-lt
           mkdir -p ./dist/
           pnpm run build:aws
           pnpm run render:cover
