@@ -16,7 +16,7 @@
         formatter = pkgs.nixpkgs-fmt;
         flakedPkgs = pkgs;
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
+          packages = with pkgs; [
             nodejs_20 corepack_20
           ];
         };
