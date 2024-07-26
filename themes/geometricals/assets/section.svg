@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 10px;
+      }
+
+      .cls-3 {
+        fill: #2d7f00;
+      }
+
+      .cls-4 {
+        fill: #b8db00;
+      }
+
+      .cls-5 {
+        fill: #666;
+      }
+
+      .cls-6 {
+        fill: #efffff;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-7 {
+        fill: #005783;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1">
+    <rect class="cls-6" width="1920" height="1080"/>
+    <rect class="cls-4" x="160" y="990" width="800" height="90"/>
+    <rect class="cls-5" x="1760" y="990" width="160" height="90"/>
+  </g>
+  <g id="Layer_3">
+    <rect class="cls-7" y="180" width="160" height="360"/>
+    <rect class="cls-3" x="960" y="0" width="800" height="180" transform="translate(2720 180) rotate(-180)"/>
+    <line class="cls-1" x1="1760" y1="0" x2="1760" y2="1080"/>
+    <line class="cls-1" x1="1920" y1="990" x2="0" y2="990"/>
+    <line class="cls-1" x1="160" y1="1080" x2="160" y2="0"/>
+    <line class="cls-2" x1="1920" y1="180" x2="0" y2="180"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Murecho&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap");
+
+:root {
+  color: #333333;
+
+  :lang(ja) {
+    --font-title: "Murecho", sans-serif;
+    --font-main: "BIZ UDPGothic", sans-serif;
+  }
+}
+
+.slidev-layout {
+  background-image: linear-gradient(to bottom,
+      rgba(255, 255, 255, 25%),
+      rgba(255, 255, 255, 25%)),
+    url("../assets/default.svg");
+
+  font-size: 28px;
+  font-family: var(--font-main);
+
+  padding-top: 60px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.slidev-layout h1 {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.2;
+}

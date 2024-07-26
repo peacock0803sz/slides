@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 10px;
+      }
+
+      .cls-3 {
+        fill: #efffef;
+      }
+
+      .cls-4 {
+        fill: #2d7f00;
+      }
+
+      .cls-5 {
+        fill: #b8db00;
+      }
+
+      .cls-6 {
+        fill: #666;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-7 {
+        fill: #005783;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1">
+    <rect class="cls-3" width="1920" height="1080"/>
+    <rect class="cls-6" y="970" width="160" height="110"/>
+    <rect class="cls-5" x="160" y="0" width="800" height="90"/>
+    <rect class="cls-7" x="1833" y="90" width="87" height="450"/>
+    <rect class="cls-4" x="960" y="970" width="683" height="110"/>
+  </g>
+  <g id="Layer_3">
+    <line class="cls-1" x1="160" y1="1080" x2="160" y2="0"/>
+    <line class="cls-1" x1="0" y1="90" x2="1920" y2="90"/>
+    <line class="cls-1" x1="1833" y1="0" x2="1833" y2="1080"/>
+    <line class="cls-2" x1="0" y1="970" x2="1920" y2="970"/>
+  </g>
+</svg>

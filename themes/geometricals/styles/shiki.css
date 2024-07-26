@@ -1,0 +1,39 @@
+:root {
+  --bg-code: #fcfcfc;
+}
+
+.shiki-light {
+  font-variant-ligatures: none;
+  background-color: var(--bg-code) !important;
+}
+
+code::before,
+code::after {
+  content: "";
+}
+code {
+  background-color: var(--bg-code) !important;
+  border-radius: 0.25em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+pre.shiki-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+pre > code {
+  font-size: 20px;
+  line-height: 1.25;
+  padding: 0;
+}
+strong > code {
+  font-weight: 700;
+  color: var(--fg-green-bold);
+}
+h1 > code {
+  font-weight: 700;
+  font-size: 0.9em;
+}
+h2 > code {
+  font-size: 0.9em;
+}

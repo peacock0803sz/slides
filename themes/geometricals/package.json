@@ -1,0 +1,37 @@
+{
+  "name": "@peacock0803sz/theme-geometricals",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=14.0.0",
+    "slidev": ">=0.19.2"
+  },
+  "scripts": {
+    "dev": "slidev example.md",
+    "format": "slidev format"
+  },
+  "publishConfig": {
+    "@peacock0803sz:registry": "https://npm.pkg.github.com"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "highlighter": "shiki",
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 960,
+      "fonts": {
+        "mono": "JetBrains Mono",
+        "sans": "Avenir Next,Murecho",
+        "local": "Avenir Next"
+      }
+    }
+  },
+  "dependencies": {
+    "@slidev/types": "^0.22.7",
+    "codemirror-theme-vars": "^0.1.1",
+    "prism-theme-vars": "^0.2.2",
+    "theme-vitesse": "^0.1.12"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1"
+  }
+}
