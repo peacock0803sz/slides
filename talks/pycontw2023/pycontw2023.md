@@ -5,7 +5,7 @@ lineNumbers: true
 theme: "../../themes/watercolors"
 presenter: dev
 aspectRatio: 16/9
-favicon: https://peacock0803sz.com/favicon.ico
+favicon: https://media.p3ac0ck.net/icons/peacock.jpg
 layout: cover
 ---
 

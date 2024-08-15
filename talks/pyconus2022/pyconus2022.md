@@ -5,7 +5,7 @@ lineNumbers: true
 theme: bricks
 presenter: dev
 aspectRatio: 16/9
-favicon: https://p3ac0ck.net/favicon.ico
+favicon: https://media.p3ac0ck.net/icons/peacock.jpg
 defaults:
   layout: default
 layout: cover
