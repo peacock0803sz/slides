@@ -11,7 +11,7 @@
   "dependencies": {
     "@slidev/cli": "^0.36.9",
     "@iconify-json/twemoji": "^1.1.12",
-    "@slidev/theme-bricks": "^0.0.2",
+    "@slidev/theme-bricks": "0.0.2",
     "@slidev/types": "^0.36.9"
   }
 }
