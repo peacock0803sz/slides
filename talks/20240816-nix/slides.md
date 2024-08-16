@@ -295,4 +295,8 @@ pkgs.mkShell {
 - [Nix package manager - NixOS Wiki](https://nixos.wiki/wiki/Nix_package_manager)
 - [Multi-User Mode - Nix Reference Manual](https://nix.dev/manual/nix/2.18/installation/multi-user.html)
 - [Install Nix — nix.dev documentation](https://nix.dev/install-nix)
+- [Nix command - NixOS Wiki](https://nixos.wiki/wiki/Nix_command)
+- [flake.nix - peacock0803sz/dotfiles (GitHub)](https://github.com/peacock0803sz/dotfiles/blob/master/flake.nix)
 - [GitHub - nix-community/nix-direnv](https://github.com/nix-community/nix-direnv)
+
+<PoweredBySlidev class="text-lg absolute top-5 right-5" />
