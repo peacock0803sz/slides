@@ -107,7 +107,7 @@ layout: section
 
 > (前略) Nix stores the results of the build in unique addresses specified by a hash of the complete dependency tree, creating an immutable package store that allows for atomic upgrades, rollbacks and concurrent installation of different versions of a package, essentially eliminating dependency hell.
 
-出典: <https://nixos.wiki/wiki/Nix_package_manager>
+出典: <https://wiki.nixos.org/wiki/Nix_package_manager>
 
 
 <!--
@@ -223,7 +223,7 @@ dotfilesリポジトリを運用している(設定ファイルがGit管理さ�
 
 - プロジェクト毎で依存パッケージを管理する場合は [nix-direnv](https://github.com/nix-community/nix-direnv) を使うと便利
     - グローバル空間にインストールしない、プロジェクト毎に違う言語環境など
-    - nix-direnv: [direnv](https://direnv.net) の仕組みでNix式を評価し、パッケージの取得と配置を実行するプラグイン的な存在
+    - nix-direnv: [direnv](https://direnv.net) の仕組みでNix式の結果をキャッシュしつつパスを通すなどを自動的に実施してくれる
 - -> anyenv, asdf, miseのような対象を(付随パッケージも含め)管理可能
     - プロジェクトA: Java 18, Nodejs 18
     - プロジェクトB: Java 20, Nodejs 20
@@ -257,8 +257,13 @@ dotfilesリポジトリを運用している(設定ファイルがGit管理さ�
 
 -> `default.nix` をリポジトリ直下に配置して `use nix` を `.envrc` に追記
 
-```nix{all|3-7|all}
-{ pkgs ? import <nixpkgs> {}}:
+```nix{all|8-12|all}
+{ 
+  pkgs ? 
+  import (
+    fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz"
+  ) {}
+}:
 
 pkgs.mkShell {
   packages = with pkgs; [
@@ -272,7 +277,7 @@ pkgs.mkShell {
 # 参考文献・リンクまとめ
 
 - [デスクトップ環境をdisposableに保つ - あんパン](https://masawada.hatenablog.jp/entry/2022/09/09/234159)
-- [Nix package manager - NixOS Wiki](https://nixos.wiki/wiki/Nix_package_manager)
+- [Nix package manager - NixOS Wiki](https://wiki.nixos.org/wiki/Nix_package_manager)
 - [Multi-User Mode - Nix Reference Manual](https://nix.dev/manual/nix/2.18/installation/multi-user.html)
 - [Install Nix — nix.dev documentation](https://nix.dev/install-nix)
 - [Nix command - NixOS Wiki](https://nixos.wiki/wiki/Nix_command)
