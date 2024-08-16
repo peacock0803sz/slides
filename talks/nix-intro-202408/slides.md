@@ -1,6 +1,7 @@
 ---
 theme: "../../themes/simple"
-titleTemplate: "[G-gen社内LT] %s"
+titleTemplate: "%s"
+favicon: https://media.p3ac0ck.net/icons/peacock.jpg
 layout: cover
 lineNumbers: true
 htmlAttrs:
