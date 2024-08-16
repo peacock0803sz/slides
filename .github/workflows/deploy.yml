@@ -72,10 +72,10 @@ jobs:
         run: |
           echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc
           pnpm install
-          # pnpm exec playwright install --with-deps
+          pnpm exec playwright install --with-deps
           mkdir -p ./dist/
           pnpm run build:aws
-          # pnpm run render:cover
+          pnpm run render:cover
           export TALK_SLUG=$(echo $TALK_DIR | sed -E 's/[0-9]{4}-[0-9]{2}-[0-9]{2}_//g')
           aws s3 sync ./dist "$S3_BUCKET/$TALK_SLUG/"
           aws cloudfront create-invalidation --distribution-id $CF_DISTRIBUTION_ID --paths "/$TALK_SLUG/*"
