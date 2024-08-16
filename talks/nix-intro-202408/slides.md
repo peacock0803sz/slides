@@ -1,6 +1,6 @@
 ---
 theme: "../../themes/simple"
-titleTemplate: "%s"
+titleTemplate: "入門 Nix - 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩"
 favicon: https://media.p3ac0ck.net/icons/peacock.jpg
 layout: cover
 lineNumbers: true
