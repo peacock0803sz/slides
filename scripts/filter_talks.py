@@ -24,7 +24,7 @@ def main():
         sys.exit(1)
 
     input_: list[str] = json.load(sys.stdin)
-    output = [normalize_title(s) for s in input_]
+    output = list({normalize_title(s) for s in input_})
 
     result = "result=" + json.dumps({"talks": output})
     print(result)
