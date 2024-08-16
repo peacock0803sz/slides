@@ -12,28 +12,7 @@ hideInToc: true
 
 ## 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩
 
-### 2024-08-16 株式会社G-gen社内LT<br>SE本部 クラウド支援部 カスタマーサポート課 高井 陽一 (Peacock)
-
----
-layout: profile
----
-
-<div class="box">
-<div class="inner">
-
-# 自己紹介
-
-- 2000年8月生まれ(24歳)
-- 所属: SE本部 クラウド支援部
-    - 普段の業務: リセール事業の技術サポート
-- 技術的にはIaCやバックエンド(Python)がメイン
-    - 昨年の案件ではTerraformの設計構築・運用が主
-- **エディタ・シェルなど環境構築や設定が好き**
-    - Neovim, fish使い
-
-</div>
-<img src="https://media.p3ac0ck.net/icons/PyConAPAC2023.jpg" />
-</div>
+### 2024-08-16 株式会社G-gen社内LT<br>所属部門(公開用にマスク) 高井 陽一 (Peacock)
 
 ---
 layout: toc
