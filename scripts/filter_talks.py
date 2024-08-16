@@ -23,7 +23,7 @@ def main():
         print("Output has been already set")
         sys.exit(1)
 
-    input_: list[str] = json.load(sys.stdin).get("talks", [])
+    input_: list[str] = json.load(sys.stdin)
     output = [normalize_title(s) for s in input_]
 
     result = "result=" + json.dumps({"talks": output})
