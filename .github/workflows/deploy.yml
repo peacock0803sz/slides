@@ -14,6 +14,9 @@ jobs:
       talks: ${{ steps.result.outputs.result }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - id: filter
         uses: dorny/paths-filter@v3
@@ -27,8 +30,7 @@ jobs:
       - id: result
         shell: bash
         run: |
-          export _out=$(echo '${{ steps.filter.outputs.talks_files }}' | jq -cr '[.[] | sub("talks\/(?<x>([0-9a-z_-])+)\/.*"; "\(.x)")] | unique')
-          echo "result=$_out" >> "$GITHUB_OUTPUT"
+          echo '${{ steps.filter.outputs.talks_files }}' | python3 scripts/filter_talks.py > $GITHUB_OUTPUT
 
   deploy:
     runs-on: ubuntu-latest
