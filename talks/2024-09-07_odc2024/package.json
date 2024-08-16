@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@peacock0803sz/theme-geometricals": "workspace:*",
-    "@slidev/cli": "^0.49.25"
+    "@slidev/cli": "^0.49.26"
   },
   "devDependencies": {
     "playwright-chromium": "^1.46.0"
