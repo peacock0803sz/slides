@@ -63,14 +63,15 @@ jobs:
           cache: "pnpm"
           node-version: "20"
 
-      - shell: bash
+      - name: "Build and Publish"
+        shell: bash
         working-directory: talks/${{ matrix.talk_dir }}
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALK: ${{ matrix.talk_dir }}
         run: |
           echo "//npm.pkg.github.com/:_authToken=$NPM_TOKEN" >> .npmrc
-          pnpm install && pnpm exec playwright install
+          pnpm install && pnpm exec playwright install --with-deps
           mkdir -p ./dist/
           pnpm run build:aws
           pnpm run render:cover
