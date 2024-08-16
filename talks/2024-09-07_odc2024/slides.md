@@ -9,8 +9,6 @@ htmlAttrs:
 hideInToc: true
 ---
 
-# Pythonパッケージマネージャー最新事情2024
+# Pythonパッケージ管理<br>最新事情2024
 
-## 今風なPythonの環境構築方法、教えます
-
-### 2024-09-07 Open Developers Conference 2024, Peacock (Yoichi Takai) @peacock0803sz
+## 2024-09-07 Open Developers Conference 2024, Peacock (Yoichi Takai) @peacock0803sz
