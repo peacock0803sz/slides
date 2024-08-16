@@ -13,7 +13,7 @@ jobs:
     outputs:
       talks: ${{ steps.result.outputs.result }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - id: filter
         uses: dorny/paths-filter@v3
@@ -47,7 +47,7 @@ jobs:
       matrix:
         talk_dir: ${{ fromJSON(needs.changes.outputs.talks) }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: aws-actions/configure-aws-credentials@v1
         with:
