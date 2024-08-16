@@ -1,11 +1,11 @@
 {
-  "name": "20240816-nix",
+  "name": "nix-intro-202408",
   "private": true,
   "scripts": {
     "build": "slidev build",
     "dev": "slidev",
-    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/20240816-nix.pdf",
-    "build:aws": "slidev build --base /20240816-nix/",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-intro-202408.pdf",
+    "build:aws": "slidev build --base /nix-intro-202408/",
     "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rmdir dist/_img"
   },
   "dependencies": {
