@@ -12,7 +12,7 @@ hideInToc: true
 
 ## 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩
 
-### 2024-08-16 株式会社G-gen社内LT<br>所属部門(公開用にマスク) 高井 陽一 (Peacock)
+### 2024-08-16 株式会社G-gen 社内LT<br>高井 陽一 (Peacock)
 
 ---
 layout: toc
