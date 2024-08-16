@@ -1,0 +1,18 @@
+{
+  "name": "odc2024",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/odc2024.pdf",
+    "build:aws": "slidev build --base /odc2024/",
+    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rmdir dist/_img"
+  },
+  "dependencies": {
+    "@peacock0803sz/theme-geometricals": "workspace:*",
+    "@slidev/cli": "^0.49.25"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.46.0"
+  }
+}
