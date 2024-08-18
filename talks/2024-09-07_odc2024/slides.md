@@ -37,12 +37,6 @@ layout: intro
 </div>
 
 ---
-
-# おしながき
-
-1. 今はPythonパッケージ管理ツール戦国時代!?
-
----
 layout: profile
 ---
 
