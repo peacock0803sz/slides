@@ -11,7 +11,7 @@
 <style>
 .slidev-layout.cover {
   background-image: url("../assets/cover.svg");
-  font-family: var(--font-main);
+  font-family: var(--font-main-family);
 }
 
 .slidev-layout.cover div {
@@ -22,7 +22,7 @@
 }
 
 .slidev-layout.cover h1 {
-  font-family: var(--font-title);
+  font-family: var(--font-title-family);
   font-size: 56px;
   font-weight: 600;
   line-height: 1.3;
@@ -32,7 +32,7 @@
 }
 
 .slidev-layout.cover h2 {
-  font-family: var(--font-title);
+  font-family: var(--font-title-family);
   font-size: 36px;
   font-weight: 400;
   line-height: 1.1;
@@ -42,6 +42,7 @@
 }
 
 .slidev-layout.cover h3 {
+  font-family: var(--font-main-family);
   font-size: 24px;
   font-weight: 400;
   line-height: 1.3;
