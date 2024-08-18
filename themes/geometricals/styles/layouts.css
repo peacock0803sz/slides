@@ -9,7 +9,9 @@
 }
 
 .slidev-layout:not(.override) {
-  color: #333333;
+  --color-fg-black: #333333;
+
+  color: var(--color-fg-black);
   background-image: linear-gradient(to bottom,
       rgba(255, 255, 255, 25%),
       rgba(255, 255, 255, 25%)),
@@ -35,4 +37,18 @@ h3 {
   font-weight: var(--font-title-weight);
   font-size: 36px;
   line-height: 1.2;
+}
+
+.slidev-layout:not(.override) a {
+  border-style: none;
+
+  text-decoration: underline dashed 1.5px;
+  text-underline-offset: 5px;
+}
+
+.slidev-layout.cover {
+  background-image: url("../assets/cover.svg");
+  font-family: var(--font-main-family);
+  padding-left: 130px;
+  padding-right: 180px;
 }
