@@ -9,13 +9,9 @@ htmlAttrs:
 hideInToc: true
 ---
 
-<div class="box">
-
 # Pythonパッケージ管理<br>最新事情 2024
 
 ### 2024-09-07<br>Open Developers Conference 2024,<br>Peacock (Yoichi Takai) @peacock0803sz
-
-</div>
 
 ---
 layout: intro
