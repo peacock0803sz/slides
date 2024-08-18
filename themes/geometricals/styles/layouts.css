@@ -1,33 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Murecho&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap");
 
-:root {
-  color: #333333;
-
-  :lang(ja) {
-    --font-title: "Murecho", sans-serif;
-    --font-main: "BIZ UDPGothic", sans-serif;
-  }
+.slidev-layout:lang(ja) {
+  --font-title-family: "Murecho", sans-serif;
+  --font-title-weight: 600;
+  --font-main-family: "IBM Plex Sans JP", sans-serif;
+  --font-main-weight: 500;
 }
 
-.slidev-layout {
+.slidev-layout:not(.override) {
+  color: #333333;
   background-image: linear-gradient(to bottom,
       rgba(255, 255, 255, 25%),
       rgba(255, 255, 255, 25%)),
     url("../assets/default.svg");
 
   font-size: 28px;
-  font-family: var(--font-main);
+  font-family: var(--font-main-family);
+  font-weight: var(--font-main-weight);
 
   padding-top: 60px;
   padding-bottom: 50px;
   padding-left: 100px;
-  padding-right: 100px;
+  padding-right: 60px;
 }
 
-.slidev-layout h1 {
-  font-family: var(--font-title);
-  font-weight: 600;
-  font-size: 48px;
+.slidev-layout:not(.override) h1,
+h2,
+h3 {
+  font-family: var(--font-title-family);
+}
+
+.slidev-layout:not(.override) h1 {
+  font-weight: var(--font-title-weight);
+  font-size: 36px;
   line-height: 1.2;
 }

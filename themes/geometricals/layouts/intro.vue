@@ -7,31 +7,30 @@
 <style>
 .slidev-layout.intro h1 {
   font-size: 48px;
+  margin-bottom: 20px;
 }
 
-.slidev-layout.intro p {
-  line-height: 1.5;
-}
-
-.slidev-layout.intro.head {
+.slidev-layout.intro>div.head {
   margin-top: 10px;
+  font-size: 28px;
+}
+
+.slidev-layout.intro>div.url {
   font-size: 30px;
 }
 
-.slidev-layout.intro.box {
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: 600px 300px;
-  column-gap: 25px;
-}
+.slidev-layout.intro>div.box {
+  margin-top: 50px;
+  font-size: 42px;
 
-.slidev-layout.intro.inner {
-  grid-column: 1;
-  font-size: 30px;
+  * {
+    line-height: 1.7;
+  }
 }
 
 .slidev-layout.intro img {
-  grid-column: 2;
-  width: 200px;
+  float: right;
+  width: 250px;
+  height: 250px;
 }
 </style>

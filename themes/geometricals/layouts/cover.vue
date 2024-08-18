@@ -14,31 +14,40 @@
   font-family: var(--font-main);
 }
 
-.slidev-layout.cover h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 70px;
+.slidev-layout.cover div {
+  padding-left: 15px;
   padding-right: 100px;
+
+  position: relative;
 }
 
 .slidev-layout.cover h1 {
   font-family: var(--font-title);
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 600;
   line-height: 1.3;
+
+  position: absolute;
+  top: 0px;
 }
 
 .slidev-layout.cover h2 {
+  font-family: var(--font-title);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1;
+
+  position: absolute;
+  top: 200px;
+}
+
+.slidev-layout.cover h3 {
   font-size: 24px;
   font-weight: 400;
   line-height: 1.3;
-  padding-right: 250px;
+  padding-right: 50px;
+
   position: absolute;
-  bottom: -300px;
+  bottom: -420px;
 }
 </style>
