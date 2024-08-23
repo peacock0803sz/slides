@@ -1,17 +1,18 @@
 ---
 theme: "../../themes/geometricals"
-titleTemplate: "[ODC2024] %s"
+titleTemplate: "[ODC2024] Pythonパッケージ管理ツールの最新情報 (Version 2024.09)"
 favicon: https://media.p3ac0ck.net/icons/peacock.jpg
 layout: cover
 lineNumbers: true
 htmlAttrs:
   lang: ja
-hideInToc: true
 ---
 
-# Pythonパッケージ管理<br>最新事情 2024
+# Pythonパッケージ管理<br>ツールの最新情報
 
-### 2024-09-07<br>Open Developers Conference 2024,<br>Peacock (Yoichi Takai) @peacock0803sz
+## Version 2024.09
+
+### 2024-09-07<br />[Open Developers Conference 2024](https://event.ospn.jp/odc2024/),<br />Peacock (Yoichi Takai) @peacock0803sz
 
 ---
 layout: intro

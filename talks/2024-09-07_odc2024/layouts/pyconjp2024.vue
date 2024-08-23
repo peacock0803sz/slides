@@ -1,6 +1,6 @@
 <template>
   <div class="slidev-layout override pyconjp2024">
-    <h1>PyCon JP 2024 チケット好評発売中!</h1>
+    <h1><twemoji-megaphone /> PyCon JP 2024 チケット発売中!</h1>
     <div class="box">
       <img src="/PyConJP2024_tate.svg" />
       <div class="info">
@@ -8,19 +8,18 @@
           <img class="qrcode" src="/pyconjp2024-qrcode.svg" />
           <div class="connpass-inner">
             <p class="date">
-            <span class="mmdd">9.27<span class="weekday">(金)</span> - 29<span class="weekday">(日)</span></span><br />
-            <span class="conference-days">※カンファレンスは27, 28の2日間</span>
+              <span class="mmdd">9.27<span class="weekday">(金)</span> - 29<span class="weekday">(日)</span></span><br />
+              <span class="conference-days">※カンファレンスは27, 28の2日間</span>
             </p>
-            <p>
-              @TOC有明コンベンションホール
-            </p>
+            <p>@TOC有明コンベンションホール</p>
           </div>
         </div>
-        <p class="discount">学生・若者(U25)は割引アリ</p>
-        <p class="ticket">
-          チケット情報はconnpass (QRコード)から!
-          <a href="https://pyconjp.connpass.com/event/324211/">https://pyconjp.connpass.com/event/324211/</a>
+        <p class="more">
+          <span class="ticket">チケットはconnpass (QRコード)から</span><br />
+          <span class="website">詳細(公式Webサイト):
+            <a href="https://2024.pycon.jp/">https://2024.pycon.jp</a></span>
         </p>
+        <p class="discount">学生・25歳以下は割引アリ</p>
       </div>
     </div>
   </div>
@@ -87,14 +86,18 @@
   }
 
   p.discount {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 40px;
     font-weight: 800;
   }
 
-  p.ticket {
-    line-height: 1.5;
+  p.more {
+    line-height: 2;
+
+    span.ticket {
+      font-weight: 600;
+    }
   }
 
   div.connpass-box {
