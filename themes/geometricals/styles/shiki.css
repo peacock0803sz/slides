@@ -1,10 +1,5 @@
-:root {
-  --bg-code: #fcfcfc;
-}
-
 .shiki-light {
   font-variant-ligatures: none;
-  background-color: var(--bg-code) !important;
 }
 
 code::before,
@@ -12,7 +7,6 @@ code::after {
   content: "";
 }
 code {
-  background-color: var(--bg-code) !important;
   border-radius: 0.25em;
   padding-left: 0.25em;
   padding-right: 0.25em;
@@ -22,7 +16,7 @@ pre.shiki-container {
   padding-bottom: 15px;
 }
 pre > code {
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.25;
   padding: 0;
 }

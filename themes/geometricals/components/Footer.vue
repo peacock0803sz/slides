@@ -24,6 +24,6 @@ footer>div.progress {
   text-align: right;
   bottom: 10px;
   right: 60px;
-  font-size: 24px;
+  font-size: 22px;
 }
 </style>

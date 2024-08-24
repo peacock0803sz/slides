@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Murecho&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&&display=swap");
 
 .slidev-layout:lang(ja) {
   --font-title-family: "Murecho", sans-serif;
   --font-title-weight: 600;
   --font-main-family: "IBM Plex Sans JP", sans-serif;
-  --font-main-weight: 500;
+  --font-main-weight: 400;
 }
 
 .slidev-layout:not(.override) {
@@ -37,6 +37,26 @@ h3 {
   font-weight: var(--font-title-weight);
   font-size: 36px;
   line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.slidev-layout.default h2 {
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.slidev-layout:not(.override) p {
+  line-height: 1.5;
+}
+
+.slidev-layout:not(.override) li {
+  line-height: 1.7;
+}
+
+
+.slidev-layout:not(.override) strong {
+  font-weight: 700;
 }
 
 .slidev-layout:not(.override) a {
