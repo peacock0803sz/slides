@@ -54,9 +54,12 @@ h3 {
   line-height: 1.7;
 }
 
-
 .slidev-layout:not(.override) strong {
   font-weight: 700;
+}
+
+.slidev-layout:not(.override) code {
+  font-variant-ligatures: none;
 }
 
 .slidev-layout:not(.override) a {
