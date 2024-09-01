@@ -276,10 +276,10 @@ layout: section
 
 # バージョンを細かく指定したい場合
 
-- `numpy>=2.1.0` のように記載する必要がある
+- `numpy~=2.1.0` のように記載する必要がある
     - [バージョン指定子は `~=`, `==`, `!=`, `<=`, `>` などが使用可能](https://packaging.python.org/en/latest/specifications/version-specifiers/#id5)
     - Node.jsでよく見る `^` 表記は `~=` に相当する
-- コマンド例: `uv add 'numpy ~= 2.1.*'`
+- コマンド例: `uv add 'numpy ~= 2.1.0'`
     - Node.jsの `"numpy": "^2.1.0"` と等価
     - 文字列として評価されるなら指定子の間のスペースは任意
 
