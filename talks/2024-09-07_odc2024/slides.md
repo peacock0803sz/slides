@@ -37,6 +37,8 @@ layout: intro
 
 </div>
 
+※ 内容は個人の見解であり、この発表の所属としての<br />一般社団法人PyCon JP Associationを代表するものではありません
+
 ---
 layout: profile
 ---
@@ -73,11 +75,17 @@ layout: profile
 - PEP (Python Enhancement Proposal)の詳細や経緯
 - 複数バージョンのテスト実行など、ライブラリ作者向け情報
     - アプリケーションの開発プロジェクトに絞って話す予定
-- Anacondaの使用方法・開発フローなど
+- Anacondaを用いた方法・開発フローなど
+
+<!--
+今日はPEP 621しか個別の番号に言及しません
+-->
 
 ---
+layout: toc
+---
 
-# 今日話すこと
+# 目次: 今日話すこと 
 
 1. Python本体のバージョンを管理する方法
 2. プロジェクト別に必要なものを管理する方法
@@ -85,17 +93,19 @@ layout: profile
     2. 一つのPythonパッケージにする
     3. 必要な依存ライブラリを追加・管理する
 3. 他の言語でやっている手順をPythonではどうやるか
-4. おまけ: Linter & Formatterのベストプラクティス
+4. おまけ1: Linter & Formatterのベストプラクティス
+4. おまけ2: Pythonパッケージングの歴史概要
 
 ---
 
 # 誤解を解くために: 各種ツールの目的・対象
 
-- `pip`:
-- `pyenv`:
-- `Pipenv`:
-- `Poetry`:
-- `Hatch`:
+- `pip`: Python 3系から同梱のパッケージインストーラー
+- `pyenv`: Python本体を複数バージョン使えるようにするもの
+- `Pipenv`: 仮想環境・依存パッケージ管理ツール
+- `Poetry`: 仮想環境・依存パッケージ管理ツール (後発)
+- `Hatch`: Pythonプロジェクト管理ツールでPyPAが開発元
+    - [PyPA](https://www.pypa.io/en/latest/): Python Packaging Authority, PyPIや周辺ツールを開発・メンテナンスしている
 
 ---
 layout: section
@@ -144,8 +154,14 @@ Python.jpの「非公式Pythonダウンロードリンク」が便利
 layout: pyconjp2024
 ---
 
+# <twemoji-megaphone /> PyCon JP 2024 チケット発売中!
+
 <!--
 ここで番宣を挟みます
+
+さて、今月末に迫ってきたPyCon JP 2024ですがチケットは購入いただけましたか?  
+初心者から上級者まで様々なPythonユーザー向けにトークが2日間たくさんあります  
+今年は公式パーティーもチケットに含まれています。
 -->
 
 ---
@@ -189,6 +205,13 @@ layout: section
 ---
 
 # なぜパッケージングすることが必要なのか
+
+- Pythonのimport文は複雑。相対importも可能だが難しい
+- なるべく絶対importを使いたい
+    - 絶対import: パッケージ名から記載していく方法
+    - 相対import: カレントファイルを起点に探索する方法
+- ので、現在のプロジェクトをインストールする必要がある
+- つまりプロジェクトをパッケージとして作成する必要がある
 
 ---
 
@@ -251,13 +274,13 @@ layout: section
 
 ---
 
-# 手動でバージョンを指定したい場合
+# バージョンを細かく指定したい場合
 
 - `numpy>=2.1.0` のように記載する必要がある
     - [バージョン指定子は `~=`, `==`, `!=`, `<=`, `>` などが使用可能](https://packaging.python.org/en/latest/specifications/version-specifiers/#id5)
     - Node.jsでよく見る `^` 表記は `~=` に相当する
 - コマンド例: `uv add 'numpy ~= 2.1.*'`
-    - Node.js (`package.json`)の `"numpy": "^2.1.0"` と等価
+    - Node.jsの `"numpy": "^2.1.0"` と等価
     - 文字列として評価されるなら指定子の間のスペースは任意
 
 ---
@@ -283,7 +306,7 @@ layout: section
 
 # 他の言語ユーザー向けの情報
 
-## Pythonパッケージ内で可能なこと・不可能なこと
+## Pythonパッケージ内で不可能なこと
 
 ---
 
@@ -297,6 +320,15 @@ layout: section
 - **->** 現状だと[tox](https://tox.wiki/en/stable/)か[nox](https://nox.thea.codes/en/stable/)を使用するのが無難
 
 ---
+
+# その他、他の言語では可能な未実装の機能
+
+- `site_packages` の実態を1箇所にまとめられるツール(bundlerやpnpmのようなもの)
+- `cargo doc` のようなドキュメント生成機能
+    - docstringはある仕組みだが、ドキュメント生成は不可能
+    - [Sphinx](https://www.sphinx-doc.org/en/master/), [MkDocs](https://www.mkdocs.org)のようなツールが必要
+
+---
 layout: section
 ---
 
@@ -304,11 +336,36 @@ layout: section
 
 ---
 
-# Linter, FormatterはRuffが主流
+# Linter(静的解析), FormatterはRuffが主流
+
+- Linter(静的解析)は[Flake8](https://pypi.org/project/flake8/), Formatterは[Black](https://pypi.org/project/black/)が主流だった
+- 現在はどちらも[Ruff](https://docs.astral.sh/ruff/)に移行したプロジェクトが多い
+    - Rust製で高速でモダンなLinter & Formatter
+    - uvと同じ開発元のAstralが作っている
+    - isort(import文の順番をFormatする)相当の機能もある
+    - `setup.cfg` ではなく `pyproject.toml` で設定可能
 
 ---
 
-# Ruffのルールについて
+# Ruffのルール・実行の手順
+
+設定ファイル(`pyproject.toml`)の例:
+
+```toml{all|4|5|all}
+[tool.ruff]
+target-version = "py311"
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+unfixable = ["F401", "F841"]
+```
+
+- `ruff check .` でLinter実行(`--fix` で修正も可能)
+- `ruff format .` でFormat実行(`--diff` で差分確認など)
+
+<!--
+- デフォルトで1行は88文字(Blackと同じ)
+- Lintのルールは `E`, `F` でFlake8相当で `I` も含めるとisort互換
+-->
 
 ---
 layout: section
@@ -325,8 +382,64 @@ layout: section
     - そこからdistutils, setuptoolsが実装された
         - 注: distutilsは現在Deprecated
 - venvの元となったvirtualenvも2007年
-- 参考: <https://www.youtube.com/watch?v=c5zV9xBP-A0>
+- 参考: [PythonのPackage Managerを深く知るためのリンク集 by @vaaaaanquish | GitHub Gist](https://gist.github.com/vaaaaanquish/1ad9639d77e3a5f0e9fb0e1f8134bc06)
 
 ---
 
-# Pipenv, Poetryでも標準化は達成できなかった
+# Pipenv, Poetryと[PEP 621](https://peps.python.org/pep-0621/)の採択・実装の普及
+
+- Pipenv, Poetryの形式も標準として採用されなかった過去
+    - Pipenvは当初独自のファイルだった(現在はPEP 621準拠)
+    - Poetryも `pyproject.toml` に記述だが、独自の名前空間
+        - こちらは未だにPEP 621準拠していない
+- ここ数年でPEP 621準拠の実装がスタンダードになってきた
+- Astralによって開発されているuvも機能が充実してきた
+    - 一般的な開発プロジェクトでも採用している例が増加
+
+---
+layout: section
+---
+
+# おわりに
+
+## まとめ・参考資料集
+
+---
+
+# まとめ
+
+- Python本体のバージョン管理はuvを使うのがオススメ
+- プロジェクト個別の仮想環境作成もuvがオススメ
+    - 構造はプロジェクト直下にパッケージ名のフォルダを作成
+    - 依存パッケージの追加は `uv add` を使う
+- タスクランナーや依存を1箇所にまとめたり、ドキュメント生成をするような機能は標準では不可能
+- Linter & FormatterはRuffを使うのが高速でモダン
+
+---
+
+# その他の参考資料など (1/2)
+
+- PyCon APAC 2023 (英語発表)
+    - 資料: <https://slides.p3ac0ck.net/pyconapac2023/1>
+    - 動画アーカイブ: <https://www.youtube.com/watch?v=909hErbppUo>
+- uv公式ドキュメント: <https://docs.astral.sh/uv/>
+- venv(Python公式ドキュメント): <https://docs.python.org/3.12/library/venv.html>
+
+---
+
+# その他の参考資料など (2/2)
+
+- Python Packaging User Guide
+    - 英語: <https://packaging.python.org/en/latest/>
+    - 日本語: <https://packaging.python.org/ja/latest/>
+- 筆者のPythonプロジェクト用テンプレート: <https://github.com/peacock0803sz/python-template/>
+
+---
+layout: pyconjp2024
+---
+
+# おしまい / PyCon JP 2024で再開! <twemoji-waving-hand />
+
+<!--
+PyCon JP 2024で再開しましょうー
+-->

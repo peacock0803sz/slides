@@ -20,12 +20,16 @@
 }
 
 .slidev-layout.intro>div.box {
-  margin-top: 50px;
+  margin-top: 10px;
   font-size: 42px;
 
   * {
     line-height: 1.7;
   }
+}
+
+.slidev-layout.intro {
+  font-size: 24px;
 }
 
 .slidev-layout.intro img {
