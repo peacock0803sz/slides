@@ -17,7 +17,7 @@
         flakedPkgs = pkgs;
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            nodejs_20 corepack_20
+            nodejs_20 pnpm
           ];
         };
       }
