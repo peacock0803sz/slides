@@ -117,6 +117,19 @@ importers:
         specifier: ^1.46.1
         version: 1.46.1
 
+  talks/2024-09-27_pyconjp2024:
+    dependencies:
+      '@peacock0803sz/theme-geometricals':
+        specifier: workspace:*
+        version: link:../../themes/geometricals
+      '@slidev/cli':
+        specifier: ^0.49.29
+        version: 0.49.29(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)
+    devDependencies:
+      playwright-chromium:
+        specifier: ^1.46.1
+        version: 1.46.1
+
   talks/_drafts:
     dependencies:
       '@iconify-json/twemoji':
@@ -149,7 +162,7 @@ importers:
     dependencies:
       '@slidev/types':
         specifier: ^0.49.24
-        version: 0.49.25(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.1(@types/node@18.19.48))
+        version: 0.49.25(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))
       shiki:
         specifier: ^1.12.1
         version: 1.13.0
@@ -8818,6 +8831,39 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
+  '@slidev/types@0.49.25(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))':
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@shikijs/markdown-it': 1.13.0
+      '@vitejs/plugin-vue': 5.1.3(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      '@vitejs/plugin-vue-jsx': 4.0.1(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      katex: 0.16.11
+      mermaid: 10.9.1
+      monaco-editor: 0.50.0
+      shiki: 1.13.0
+      unocss: 0.62.2(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      unplugin-icons: 0.19.2(@vue/compiler-sfc@3.4.38)
+      unplugin-vue-markdown: 0.26.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-inspect: 0.8.5(@nuxt/kit@3.12.4(rollup@4.21.2))(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-remote-assets: 0.5.0(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-static-copy: 1.0.6(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-vue-server-ref: 0.4.2(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      vue: 3.4.38(typescript@5.5.4)
+      vue-router: 4.4.3(vue@3.4.38(typescript@5.5.4))
+    transitivePeerDependencies:
+      - '@nuxt/kit'
+      - '@svgr/core'
+      - '@svgx/core'
+      - '@unocss/webpack'
+      - '@vue/compiler-sfc'
+      - postcss
+      - rollup
+      - supports-color
+      - typescript
+      - vite
+      - vue-template-compiler
+      - vue-template-es2015-compiler
+
   '@slidev/types@0.49.29(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))':
     dependencies:
       '@antfu/utils': 0.7.10
@@ -9065,6 +9111,17 @@ snapshots:
       '@unocss/vite': 0.62.2(rollup@4.21.2)(vite@5.4.1(@types/node@18.19.48))
     optionalDependencies:
       vite: 5.4.1(@types/node@18.19.48)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  '@unocss/astro@0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))':
+    dependencies:
+      '@unocss/core': 0.62.2
+      '@unocss/reset': 0.62.2
+      '@unocss/vite': 0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+    optionalDependencies:
+      vite: 5.4.2(@types/node@18.19.48)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -9756,6 +9813,23 @@ snapshots:
       magic-string: 0.30.11
       tinyglobby: 0.2.2
       vite: 5.4.1(@types/node@18.19.48)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  '@unocss/vite@0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
+      '@unocss/config': 0.62.2
+      '@unocss/core': 0.62.2
+      '@unocss/inspector': 0.62.2
+      '@unocss/scope': 0.62.2
+      '@unocss/transformer-directives': 0.62.2
+      chokidar: 3.6.0
+      magic-string: 0.30.11
+      tinyglobby: 0.2.2
+      vite: 5.4.2(@types/node@18.19.48)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -14115,6 +14189,35 @@ snapshots:
       - rollup
       - supports-color
 
+  unocss@0.62.2(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48)):
+    dependencies:
+      '@unocss/astro': 0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      '@unocss/cli': 0.62.2(rollup@4.21.2)
+      '@unocss/core': 0.62.2
+      '@unocss/extractor-arbitrary-variants': 0.62.2
+      '@unocss/postcss': 0.62.2(postcss@8.4.44)
+      '@unocss/preset-attributify': 0.62.2
+      '@unocss/preset-icons': 0.62.2
+      '@unocss/preset-mini': 0.62.2
+      '@unocss/preset-tagify': 0.62.2
+      '@unocss/preset-typography': 0.62.2
+      '@unocss/preset-uno': 0.62.2
+      '@unocss/preset-web-fonts': 0.62.2
+      '@unocss/preset-wind': 0.62.2
+      '@unocss/reset': 0.62.2
+      '@unocss/transformer-attributify-jsx': 0.62.2
+      '@unocss/transformer-attributify-jsx-babel': 0.62.2
+      '@unocss/transformer-compile-class': 0.62.2
+      '@unocss/transformer-directives': 0.62.2
+      '@unocss/transformer-variant-group': 0.62.2
+      '@unocss/vite': 0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+    optionalDependencies:
+      vite: 5.4.2(@types/node@18.19.48)
+    transitivePeerDependencies:
+      - postcss
+      - rollup
+      - supports-color
+
   unocss@0.62.3(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48)):
     dependencies:
       '@unocss/astro': 0.62.3(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
@@ -14479,6 +14582,24 @@ snapshots:
       picocolors: 1.0.1
       sirv: 2.0.4
       vite: 5.4.1(@types/node@18.19.48)
+    optionalDependencies:
+      '@nuxt/kit': 3.12.4(rollup@4.21.2)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  vite-plugin-inspect@0.8.5(@nuxt/kit@3.12.4(rollup@4.21.2))(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48)):
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
+      debug: 4.3.6
+      error-stack-parser-es: 0.1.5
+      fs-extra: 11.2.0
+      open: 10.1.0
+      perfect-debounce: 1.0.0
+      picocolors: 1.0.1
+      sirv: 2.0.4
+      vite: 5.4.2(@types/node@18.19.48)
     optionalDependencies:
       '@nuxt/kit': 3.12.4(rollup@4.21.2)
     transitivePeerDependencies:
