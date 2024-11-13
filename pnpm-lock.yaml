@@ -19,7 +19,7 @@ importers:
         version: 1.1.15
       '@slidev/cli':
         specifier: ^0.36.9
-        version: 0.36.11(@babel/parser@7.25.6)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
+        version: 0.36.11(@babel/parser@7.25.6)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
       '@slidev/theme-bricks':
         specifier: 0.0.2
         version: 0.0.2
@@ -37,7 +37,7 @@ importers:
         version: link:../../themes/watercolors
       '@slidev/cli':
         specifier: ^0.43.7
-        version: 0.43.15(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
+        version: 0.43.15(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
     devDependencies:
       '@slidev/types':
         specifier: ^0.43.7
@@ -53,7 +53,7 @@ importers:
         version: link:../../themes/watercolors
       '@slidev/cli':
         specifier: ^0.43.7
-        version: 0.43.15(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
+        version: 0.43.15(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
     devDependencies:
       '@slidev/types':
         specifier: ^0.43.7
@@ -69,7 +69,7 @@ importers:
         version: link:../../themes/watercolors
       '@slidev/cli':
         specifier: ^0.46.1
-        version: 0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
+        version: 0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
     devDependencies:
       '@slidev/types':
         specifier: ^0.46.1
@@ -85,7 +85,7 @@ importers:
         version: link:../../themes/watercolors
       '@slidev/cli':
         specifier: ^0.46.1
-        version: 0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
+        version: 0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
     devDependencies:
       '@slidev/types':
         specifier: ^0.46.1
@@ -117,6 +117,32 @@ importers:
         specifier: ^1.46.1
         version: 1.46.1
 
+  talks/2024-09-27_pyconjp2024:
+    dependencies:
+      '@peacock0803sz/theme-geometricals':
+        specifier: workspace:*
+        version: link:../../themes/geometricals
+      '@slidev/cli':
+        specifier: ^0.49.29
+        version: 0.49.29(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)
+    devDependencies:
+      playwright-chromium:
+        specifier: ^1.46.1
+        version: 1.46.1
+
+  talks/2024-10-19_pyladiestokyo-10th:
+    dependencies:
+      '@peacock0803sz/theme-geometricals':
+        specifier: workspace:*
+        version: link:../../themes/geometricals
+      '@slidev/cli':
+        specifier: ^0.49.29
+        version: 0.49.29(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)
+    devDependencies:
+      playwright-chromium:
+        specifier: ^1.48.1
+        version: 1.48.1
+
   talks/_drafts:
     dependencies:
       '@iconify-json/twemoji':
@@ -127,7 +153,7 @@ importers:
         version: link:../../themes/watercolors
       '@slidev/cli':
         specifier: ^0.46.3
-        version: 0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
+        version: 0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)
     devDependencies:
       '@slidev/types':
         specifier: ^0.46.3
@@ -149,14 +175,14 @@ importers:
     dependencies:
       '@slidev/types':
         specifier: ^0.49.24
-        version: 0.49.25(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.1(@types/node@18.19.48))
+        version: 0.49.25(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))
       shiki:
         specifier: ^1.12.1
         version: 1.13.0
     devDependencies:
       '@slidev/cli':
         specifier: ^0.49.24
-        version: 0.49.25(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)
+        version: 0.49.25(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)
 
   themes/watercolors:
     dependencies:
@@ -3855,8 +3881,8 @@ packages:
     resolution: {integrity: sha512-1/th4MHjnwncwXsIW6QMzlvYL9kG5e/CpVvLRZe4XPa8TOUNbCELqmvhDmnkNsAjwaG4+I8gJJL0JBvTTLO9qA==}
     engines: {node: '>= 0.4'}
 
-  hast-util-to-html@9.0.2:
-    resolution: {integrity: sha512-RP5wNpj5nm1Z8cloDv4Sl4RS8jH5HYa0v93YB6Wb4poEzgMo/dAAL0KcT4974dCjcNG5pkLqTImeFHHCwwfY3g==}
+  hast-util-to-html@9.0.3:
+    resolution: {integrity: sha512-M17uBDzMJ9RPCqLMO92gNNUDuBSq10a25SDBI08iCCxmorf4Yy6sYHK57n9WAbRAAaU+DuR4W6GN9K4DFZesYg==}
 
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
@@ -4969,6 +4995,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  playwright-chromium@1.48.1:
+    resolution: {integrity: sha512-KUrivSfq8LgOKxA1PO7MdYQ2PP10ZzPf0pedKxJ6LPCsUhckU6chGFum3svuo5HiRtBR0pEK+RPny0HcIRxDeQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   playwright-core@1.42.1:
     resolution: {integrity: sha512-mxz6zclokgrke9p1vtdy/COWBH+eOZgYUVVU34C73M+4j4HLlQJHtfcqiqqxpP0o8HhMkflvfbquLX5dg6wlfA==}
     engines: {node: '>=16'}
@@ -4981,6 +5012,11 @@ packages:
 
   playwright-core@1.46.1:
     resolution: {integrity: sha512-h9LqIQaAv+CYvWzsZ+h3RsrqCStkBHlgo6/TJlFst3cOTlLghBQlJwPOZKQJTKNaD3QIB7aAVQ+gfWbN3NXB7A==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright-core@1.48.1:
+    resolution: {integrity: sha512-Yw/t4VAFX/bBr1OzwCuOMZkY1Cnb4z/doAFSwf4huqAGWmf9eMNjmK7NiOljCdLmxeRYcGPPmcDgU0zOlzP0YA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5355,7 +5391,6 @@ packages:
 
   shikiji@0.6.13:
     resolution: {integrity: sha512-4T7X39csvhT0p7GDnq9vysWddf2b6BeioiN3Ymhnt3xcy9tXmDcnsEFVxX18Z4YcQgEE/w48dLJ4pPPUcG9KkA==}
-    deprecated: Shikiji is merged back to Shiki v1.0, please migrate over to get the latest updates
 
   shikiji@0.9.19:
     resolution: {integrity: sha512-Kw2NHWktdcdypCj1GkKpXH4o6Vxz8B8TykPlPuLHOGSV8VkhoCLcFOH4k19K4LXAQYRQmxg+0X/eM+m2sLhAkg==}
@@ -7935,7 +7970,7 @@ snapshots:
   '@sindresorhus/merge-streams@2.3.0':
     optional: true
 
-  '@slidev/cli@0.36.11(@babel/parser@7.25.6)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)':
+  '@slidev/cli@0.36.11(@babel/parser@7.25.6)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)':
     dependencies:
       '@antfu/utils': 0.6.3
       '@hedgedoc/markdown-it-task-lists': 2.0.1(markdown-it@13.0.2)
@@ -7987,7 +8022,7 @@ snapshots:
       windicss: 3.5.6
       yargs: 17.7.2
     optionalDependencies:
-      playwright-chromium: 1.46.1
+      playwright-chromium: 1.48.1
     transitivePeerDependencies:
       - '@babel/parser'
       - '@nuxt/kit'
@@ -8009,7 +8044,7 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/cli@0.43.15(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)':
+  '@slidev/cli@0.43.15(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)':
     dependencies:
       '@antfu/utils': 0.7.10
       '@hedgedoc/markdown-it-plugins': 2.1.4(markdown-it@13.0.2)
@@ -8074,7 +8109,7 @@ snapshots:
       windicss: 3.5.6
       yargs: 17.7.2
     optionalDependencies:
-      playwright-chromium: 1.46.1
+      playwright-chromium: 1.48.1
     transitivePeerDependencies:
       - '@babel/parser'
       - '@nuxt/kit'
@@ -8099,7 +8134,7 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/cli@0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)':
+  '@slidev/cli@0.46.3(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)':
     dependencies:
       '@antfu/utils': 0.7.7
       '@iconify-json/carbon': 1.1.31
@@ -8169,7 +8204,7 @@ snapshots:
       windicss: 3.5.6
       yargs: 17.7.2
     optionalDependencies:
-      playwright-chromium: 1.46.1
+      playwright-chromium: 1.48.1
     transitivePeerDependencies:
       - '@babel/parser'
       - '@nuxt/kit'
@@ -8293,7 +8328,7 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/cli@0.49.25(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.46.1)(postcss@8.4.44)(rollup@4.21.2)':
+  '@slidev/cli@0.49.25(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)':
     dependencies:
       '@antfu/ni': 0.22.4
       '@antfu/utils': 0.7.10
@@ -8366,7 +8401,7 @@ snapshots:
       vue: 3.4.38(typescript@5.5.4)
       yargs: 17.7.2
     optionalDependencies:
-      playwright-chromium: 1.46.1
+      playwright-chromium: 1.48.1
     transitivePeerDependencies:
       - '@babel/parser'
       - '@nuxt/kit'
@@ -8468,6 +8503,107 @@ snapshots:
       yargs: 17.7.2
     optionalDependencies:
       playwright-chromium: 1.46.1
+    transitivePeerDependencies:
+      - '@babel/parser'
+      - '@nuxt/kit'
+      - '@svgr/core'
+      - '@svgx/core'
+      - '@types/markdown-it'
+      - '@types/node'
+      - '@unocss/webpack'
+      - '@vue/compiler-sfc'
+      - '@vue/composition-api'
+      - less
+      - lightningcss
+      - magicast
+      - postcss
+      - react
+      - rollup
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - svelte
+      - terser
+      - vue-template-compiler
+      - vue-template-es2015-compiler
+
+  '@slidev/cli@0.49.29(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(@types/markdown-it@14.1.2)(@types/node@18.19.48)(@vue/compiler-sfc@3.4.38)(playwright-chromium@1.48.1)(postcss@8.4.44)(rollup@4.21.2)':
+    dependencies:
+      '@antfu/ni': 0.22.4
+      '@antfu/utils': 0.7.10
+      '@iconify-json/carbon': 1.2.1
+      '@iconify-json/ph': 1.2.0
+      '@iconify-json/svg-spinners': 1.2.0
+      '@lillallol/outline-pdf': 4.0.0
+      '@shikijs/markdown-it': 1.16.1
+      '@shikijs/twoslash': 1.16.1(typescript@5.5.4)
+      '@shikijs/vitepress-twoslash': 1.16.1(@nuxt/kit@3.12.4(rollup@4.21.2))(typescript@5.5.4)
+      '@slidev/client': 0.49.29(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      '@slidev/parser': 0.49.29(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))
+      '@slidev/types': 0.49.29(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))
+      '@unocss/extractor-mdc': 0.62.3
+      '@unocss/reset': 0.62.3
+      '@vitejs/plugin-vue': 5.1.3(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      '@vitejs/plugin-vue-jsx': 4.0.1(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      chokidar: 3.6.0
+      cli-progress: 3.12.0
+      connect: 3.7.0
+      debug: 4.3.6
+      fast-deep-equal: 3.1.3
+      fast-glob: 3.3.2
+      fs-extra: 11.2.0
+      get-port-please: 3.1.2
+      global-directory: 4.0.1
+      htmlparser2: 9.1.0
+      is-installed-globally: 1.0.0
+      jiti: 1.21.6
+      katex: 0.16.11
+      kolorist: 1.8.0
+      local-pkg: 0.5.0
+      lz-string: 1.5.0
+      magic-string: 0.30.11
+      magic-string-stack: 0.1.1
+      markdown-it: 14.1.0
+      markdown-it-footnote: 4.0.0
+      markdown-it-mdc: 0.2.5(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+      micromatch: 4.0.8
+      mlly: 1.7.1
+      monaco-editor: 0.51.0
+      open: 10.1.0
+      pdf-lib: 1.17.1
+      plantuml-encoder: 1.4.0
+      postcss-nested: 6.2.0(postcss@8.4.44)
+      pptxgenjs: 3.12.0
+      prismjs: 1.29.0
+      prompts: 2.4.2
+      public-ip: 7.0.1
+      resolve-from: 5.0.0
+      resolve-global: 2.0.0
+      semver: 7.6.3
+      shiki: 1.16.1
+      shiki-magic-move: 0.4.4(shiki@1.16.1)(vue@3.4.38(typescript@5.5.4))
+      sirv: 2.0.4
+      source-map-js: 1.2.0
+      typescript: 5.5.4
+      unocss: 0.62.3(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      unplugin-icons: 0.19.2(@vue/compiler-sfc@3.4.38)
+      unplugin-vue-components: 0.27.4(@babel/parser@7.25.6)(@nuxt/kit@3.12.4(rollup@4.21.2))(rollup@4.21.2)(vue@3.4.38(typescript@5.5.4))
+      unplugin-vue-markdown: 0.26.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      untun: 0.1.3
+      uqr: 0.1.2
+      vite: 5.4.2(@types/node@18.19.48)
+      vite-plugin-inspect: 0.8.7(@nuxt/kit@3.12.4(rollup@4.21.2))(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-remote-assets: 0.5.0(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-static-copy: 1.0.6(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-vue-server-ref: 0.4.2(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      vitefu: 1.0.2(vite@5.4.2(@types/node@18.19.48))
+      vue: 3.4.38(typescript@5.5.4)
+      yaml: 2.5.0
+      yargs: 17.7.2
+    optionalDependencies:
+      playwright-chromium: 1.48.1
     transitivePeerDependencies:
       - '@babel/parser'
       - '@nuxt/kit'
@@ -8818,6 +8954,39 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
+  '@slidev/types@0.49.25(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))':
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@shikijs/markdown-it': 1.13.0
+      '@vitejs/plugin-vue': 5.1.3(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      '@vitejs/plugin-vue-jsx': 4.0.1(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      katex: 0.16.11
+      mermaid: 10.9.1
+      monaco-editor: 0.50.0
+      shiki: 1.13.0
+      unocss: 0.62.2(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      unplugin-icons: 0.19.2(@vue/compiler-sfc@3.4.38)
+      unplugin-vue-markdown: 0.26.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-inspect: 0.8.5(@nuxt/kit@3.12.4(rollup@4.21.2))(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-remote-assets: 0.5.0(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-static-copy: 1.0.6(vite@5.4.2(@types/node@18.19.48))
+      vite-plugin-vue-server-ref: 0.4.2(vite@5.4.2(@types/node@18.19.48))(vue@3.4.38(typescript@5.5.4))
+      vue: 3.4.38(typescript@5.5.4)
+      vue-router: 4.4.3(vue@3.4.38(typescript@5.5.4))
+    transitivePeerDependencies:
+      - '@nuxt/kit'
+      - '@svgr/core'
+      - '@svgx/core'
+      - '@unocss/webpack'
+      - '@vue/compiler-sfc'
+      - postcss
+      - rollup
+      - supports-color
+      - typescript
+      - vite
+      - vue-template-compiler
+      - vue-template-es2015-compiler
+
   '@slidev/types@0.49.29(@nuxt/kit@3.12.4(rollup@4.21.2))(@vue/compiler-sfc@3.4.38)(postcss@8.4.44)(rollup@4.21.2)(typescript@5.5.4)(vite@5.4.2(@types/node@18.19.48))':
     dependencies:
       '@antfu/utils': 0.7.10
@@ -9065,6 +9234,17 @@ snapshots:
       '@unocss/vite': 0.62.2(rollup@4.21.2)(vite@5.4.1(@types/node@18.19.48))
     optionalDependencies:
       vite: 5.4.1(@types/node@18.19.48)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  '@unocss/astro@0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))':
+    dependencies:
+      '@unocss/core': 0.62.2
+      '@unocss/reset': 0.62.2
+      '@unocss/vite': 0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+    optionalDependencies:
+      vite: 5.4.2(@types/node@18.19.48)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -9756,6 +9936,23 @@ snapshots:
       magic-string: 0.30.11
       tinyglobby: 0.2.2
       vite: 5.4.1(@types/node@18.19.48)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  '@unocss/vite@0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
+      '@unocss/config': 0.62.2
+      '@unocss/core': 0.62.2
+      '@unocss/inspector': 0.62.2
+      '@unocss/scope': 0.62.2
+      '@unocss/transformer-directives': 0.62.2
+      chokidar: 3.6.0
+      magic-string: 0.30.11
+      tinyglobby: 0.2.2
+      vite: 5.4.2(@types/node@18.19.48)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -11760,7 +11957,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hast-util-to-html@9.0.2:
+  hast-util-to-html@9.0.3:
     dependencies:
       '@types/hast': 3.0.4
       '@types/unist': 3.0.3
@@ -13105,11 +13302,17 @@ snapshots:
     dependencies:
       playwright-core: 1.46.1
 
+  playwright-chromium@1.48.1:
+    dependencies:
+      playwright-core: 1.48.1
+
   playwright-core@1.42.1: {}
 
   playwright-core@1.46.0: {}
 
   playwright-core@1.46.1: {}
+
+  playwright-core@1.48.1: {}
 
   points-on-curve@0.2.0: {}
 
@@ -13544,7 +13747,7 @@ snapshots:
 
   shikiji@0.6.13:
     dependencies:
-      hast-util-to-html: 9.0.2
+      hast-util-to-html: 9.0.3
 
   shikiji@0.9.19:
     dependencies:
@@ -14115,6 +14318,35 @@ snapshots:
       - rollup
       - supports-color
 
+  unocss@0.62.2(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48)):
+    dependencies:
+      '@unocss/astro': 0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+      '@unocss/cli': 0.62.2(rollup@4.21.2)
+      '@unocss/core': 0.62.2
+      '@unocss/extractor-arbitrary-variants': 0.62.2
+      '@unocss/postcss': 0.62.2(postcss@8.4.44)
+      '@unocss/preset-attributify': 0.62.2
+      '@unocss/preset-icons': 0.62.2
+      '@unocss/preset-mini': 0.62.2
+      '@unocss/preset-tagify': 0.62.2
+      '@unocss/preset-typography': 0.62.2
+      '@unocss/preset-uno': 0.62.2
+      '@unocss/preset-web-fonts': 0.62.2
+      '@unocss/preset-wind': 0.62.2
+      '@unocss/reset': 0.62.2
+      '@unocss/transformer-attributify-jsx': 0.62.2
+      '@unocss/transformer-attributify-jsx-babel': 0.62.2
+      '@unocss/transformer-compile-class': 0.62.2
+      '@unocss/transformer-directives': 0.62.2
+      '@unocss/transformer-variant-group': 0.62.2
+      '@unocss/vite': 0.62.2(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
+    optionalDependencies:
+      vite: 5.4.2(@types/node@18.19.48)
+    transitivePeerDependencies:
+      - postcss
+      - rollup
+      - supports-color
+
   unocss@0.62.3(postcss@8.4.44)(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48)):
     dependencies:
       '@unocss/astro': 0.62.3(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48))
@@ -14479,6 +14711,24 @@ snapshots:
       picocolors: 1.0.1
       sirv: 2.0.4
       vite: 5.4.1(@types/node@18.19.48)
+    optionalDependencies:
+      '@nuxt/kit': 3.12.4(rollup@4.21.2)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
+  vite-plugin-inspect@0.8.5(@nuxt/kit@3.12.4(rollup@4.21.2))(rollup@4.21.2)(vite@5.4.2(@types/node@18.19.48)):
+    dependencies:
+      '@antfu/utils': 0.7.10
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.2)
+      debug: 4.3.6
+      error-stack-parser-es: 0.1.5
+      fs-extra: 11.2.0
+      open: 10.1.0
+      perfect-debounce: 1.0.0
+      picocolors: 1.0.1
+      sirv: 2.0.4
+      vite: 5.4.2(@types/node@18.19.48)
     optionalDependencies:
       '@nuxt/kit': 3.12.4(rollup@4.21.2)
     transitivePeerDependencies:
