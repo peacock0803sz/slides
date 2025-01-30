@@ -7,6 +7,7 @@
   # https://devenv.sh/packages/
   packages = with pkgs; [
     git
+    playwright-driver
   ];
 
   # https://devenv.sh/languages/
