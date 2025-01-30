@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+.slidev-layout:not(.override) {
+  @apply text-ggen-gray1;
+  padding-top: 0px;
+  padding-left: 50px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.slidev-layout:not(.override) h1 {
+  @apply text-ggen-primary;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 0.9;
+  padding-bottom: 5px;
+}
+
+.slidev-layout:not(.override) h2 {
+  @apply text-ggen-primary;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: -5px;
+}
+
+.slidev-layout:not(.override) li {
+  line-height: 1.6;
+}
+
+.slidev-layout:not(.override) strong {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.slidev-layout:not(.override) pre>code {
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-ligatures: none;
+}
+
+.slidev-layout:not(.override) code {
+  font-weight: 500;
+  font-variant-ligatures: none;
+}
+
+.slidev-layout:not(.override) a {
+  color: #00b8a6;
+  border-style: none;
+
+  text-decoration: underline 2px;
+  text-underline-offset: 3px;
+}
