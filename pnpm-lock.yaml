@@ -119,9 +119,9 @@ importers:
 
   talks/2025-03-06_modern-infra-summit-25q1:
     dependencies:
-      '@peacock0803sz/theme-geometricals':
+      '@peacock0803sz/theme-modern-infra-summit-25q1':
         specifier: workspace:*
-        version: link:../../themes/geometricals
+        version: link:../../themes/modern-infra-summit-25q1
       '@slidev/cli':
         specifier: ^51.1.0
         version: 51.1.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.3(rollup@4.32.1))(@types/markdown-it@14.1.2)(@types/node@18.19.74)(@vue/compiler-sfc@3.5.13)(playwright-chromium@1.50.0)(postcss@8.5.1)(rollup@4.32.1)(tsx@4.19.2)
@@ -134,7 +134,7 @@ importers:
     dependencies:
       '@peacock0803sz/theme-g-gen':
         specifier: workspace:*
-        version: link:../../themes/modern-infra-summit-25q1
+        version: link:../../themes/g-gen
       '@slidev/cli':
         specifier: ^51.1.0
         version: 51.1.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.3(rollup@4.32.1))(@types/markdown-it@14.1.2)(@types/node@18.19.74)(@vue/compiler-sfc@3.5.13)(playwright-chromium@1.50.0)(postcss@8.5.1)(rollup@4.32.1)(tsx@4.19.2)
@@ -147,7 +147,7 @@ importers:
     dependencies:
       '@peacock0803sz/theme-g-gen':
         specifier: workspace:*
-        version: link:../../themes/modern-infra-summit-25q1
+        version: link:../../themes/g-gen
       '@slidev/cli':
         specifier: ^51.1.0
         version: 51.1.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.3(rollup@4.32.1))(@types/markdown-it@14.1.2)(@types/node@18.19.74)(@vue/compiler-sfc@3.5.13)(playwright-chromium@1.50.0)(postcss@8.5.1)(rollup@4.32.1)(tsx@4.19.2)
