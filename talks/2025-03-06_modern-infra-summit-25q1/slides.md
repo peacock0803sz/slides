@@ -1,5 +1,5 @@
 ---
-theme: "../../themes/modern-infra-summit-25q1"
+theme: "./"
 titleTemplate: "Google Cloud で IaC: Terraform 開発と運用のイロハ集"
 favicon: https://g-gen.co.jp/favicon.ico
 layout: cover

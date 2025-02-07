@@ -10,6 +10,20 @@
     "build:aws": "slidev build --base /modern-infra-summit-25q1/",
     "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rm -rf dist/_img/"
   },
+  "slidev": {
+    "colorSchema": "light",
+    "highlighter": "shiki",
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 720,
+      "presenter": "dev",
+      "fonts": {
+        "mono": "Noto Sans Mono",
+        "sans": "Noto Sans,Noto Sans Japanese",
+        "local": "Noto Sans,Noto Sans Japanese"
+      }
+    }
+  },
   "dependencies": {
     "@peacock0803sz/theme-modern-infra-summit-25q1": "workspace:*",
     "@slidev/cli": "^51.1.0"
