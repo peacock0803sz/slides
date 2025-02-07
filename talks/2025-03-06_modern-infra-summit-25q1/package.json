@@ -25,10 +25,9 @@
     }
   },
   "dependencies": {
-    "@peacock0803sz/theme-modern-infra-summit-25q1": "workspace:*",
     "@slidev/cli": "^51.1.0"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.50.0"
+    "playwright-chromium": "^1.50.1"
   }
 }
