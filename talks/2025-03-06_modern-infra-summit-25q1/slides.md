@@ -7,11 +7,13 @@ htmlAttrs:
   lang: ja
 ---
 
-### Google Cloud Modern Infra Summit '25
+---
+layout: toc
+---
 
-# Google Cloud で IaC<br />Terraform 開発と運用のイロハ集
-
-## 株式会社G-gen 高井 陽一
+---
+layout: profile
+---
 
 ---
 layout: objective
