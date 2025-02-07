@@ -29,6 +29,6 @@
   "dependencies": {
     "@slidev/types": "^51.1.0",
     "@vitejs/plugin-vue": "^5.2.1",
-    "shiki": "^1.29.2"
+    "shiki": "^1.29.1"
   }
 }
