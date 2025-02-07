@@ -7,13 +7,46 @@ htmlAttrs:
   lang: ja
 ---
 
+# Google Cloud で IaC
+
+## Terraform 開発と運用のイロハ集
+
+### Mar 6, 2025<br />株式会社G-gen<br />高井 陽一
+
 ---
 layout: toc
 ---
 
+# 目次
+
+1. 自己紹介、本セッションの目的・対象者
+1. 開発編: 実装のアンチパターンあれこれ
+1. 運用編: 焦らずトラブルシューティング
+1. まとめ・参考文献など
+
 ---
 layout: profile
 ---
+
+::profile::
+
+- X (Twitter) など各種 SNS: `peacock0803sz`
+- 入社: 2022 年 12 月 (合併前の株式会社トップゲート)
+- 受賞歴
+    - [Partner Tech Blog Challenge (2023 年度)](https://cloud.google.com/blog/ja/topics/partners/google-cloud-partner-tech-blog-challenge-2023-winners?hl=ja)
+    - [Partner Top Engineer 2025 (Serverless App Dev)](https://g-gen.co.jp/news/pte_2025.html)
+- 以前は様々な規模の IaC (Terraform) 案件へ参画
+- アプリケーション開発では Python をよく使用 (たまに Go)
+- 業務外では PyCon JP などのイベント運営活動など
+
+::affiliation::
+
+<img src="https://media.p3ac0ck.net/icons/PyConAPAC2023.jpg" />
+
+## 高井 陽一
+
+クラウドソリューション部  
+クラウドサポート課
 
 ---
 layout: objective

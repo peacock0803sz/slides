@@ -19,8 +19,8 @@
       "presenter": "dev",
       "fonts": {
         "mono": "Noto Sans Mono",
-        "sans": "Noto Sans,Noto Sans Japanese",
-        "local": "Noto Sans,Noto Sans Japanese"
+        "sans": "Product Sans,Noto Sans Japanese",
+        "local": "Product Sans,Noto Sans Japanese"
       }
     }
   },

@@ -1,4 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Mono:wght@100..900&display=swap");
+
+@font-face {
+  font-family: "Product Sans", "Noto Sans Japanese";
+  src: url("../assets/fonts/ProductSans-Regular.ttf"),
+    url("../assets/fonts/ProductSans-Light.ttf"),
+    url("../assets/fonts/ProductSans-Medium.ttf"),
+    url("../assets/fonts/ProductSans-Bold.ttf"),
+    url("../assets/fonts/ProductSans-Black.ttf");
+}
 
 .slidev-layout:not(.override) {
   font-size: 14px;
@@ -11,8 +20,8 @@
   line-height: 1.5;
 }
 
-.slidev-layout:not(.override) ol > li,
-ul > li {
+.slidev-layout:not(.override) ol>li,
+ul>li {
   line-height: 2.25;
 }
 
@@ -20,12 +29,12 @@ ul > li {
   list-style-type: disc;
 }
 
-.slidev-layout:not(.override) ul > li > ul {
+.slidev-layout:not(.override) ul>li>ul {
   list-style-type: circle;
   padding-left: 15px;
 }
 
-.slidev-layout:not(.override) ul > li > ul > li > ul {
+.slidev-layout:not(.override) ul>li>ul>li>ul {
   list-style-type: square;
   padding-left: 15px;
 }
@@ -42,8 +51,8 @@ ul > li {
   margin-bottom: 10px;
 }
 
-.slidev-layout:not(.override) h1 > code,
-h2 > code {
+.slidev-layout:not(.override) h1>code,
+h2>code {
   color: #185abc;
   font-weight: 700 !important;
 }
@@ -54,12 +63,12 @@ h2 > code {
   line-height: 1.5;
 }
 
-.slidev-layout:not(.override) strong > code {
+.slidev-layout:not(.override) strong>code {
   font-weight: 600 !important;
   line-height: 1.25 !important;
 }
 
-.slidev-layout:not(.override) pre > code {
+.slidev-layout:not(.override) pre>code {
   font-size: 11px;
   font-weight: 500;
   font-variant-ligatures: none;
@@ -75,7 +84,7 @@ h2 > code {
 }
 
 .slidev-layout a,
-a > code {
+a>code {
   color: #1a73e8;
   /*color: #fff !important; */
   border-style: none;
@@ -97,11 +106,11 @@ a > code {
   font-size: 12px;
 }
 
-.slidev-layout:not(.override) section.footnotes > ol > li {
+.slidev-layout:not(.override) section.footnotes>ol>li {
   line-height: 0.8;
 }
 
-.slidev-layout:not(.override) section.footnotes > ol > li > p {
+.slidev-layout:not(.override) section.footnotes>ol>li>p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
