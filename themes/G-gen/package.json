@@ -1,0 +1,34 @@
+{
+  "name": "@peacock0803sz/theme-g-gen",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=14.0.0",
+    "slidev": ">=0.19.2"
+  },
+  "scripts": {
+    "dev": "slidev example.md",
+    "format": "slidev format example.md"
+  },
+  "publishConfig": {
+    "@peacock0803sz:registry": "https://npm.pkg.github.com"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "highlighter": "shiki",
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 720,
+      "presenter": "dev",
+      "fonts": {
+        "mono": "Noto Sans Mono",
+        "sans": "Noto Sans,Noto Sans Japanese",
+        "local": "Noto Sans,Noto Sans Japanese"
+      }
+    }
+  },
+  "dependencies": {
+    "@slidev/types": "^51.1.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "shiki": "^1.29.2"
+  }
+}
