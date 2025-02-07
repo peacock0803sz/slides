@@ -27,10 +27,6 @@ layout: objective
     - Terraform で IaC 開発を進めるための設計・構築ノウハウ
     - 実際に Terraform を運用する際の知見
 
-<!--
-まず始めに、本セッションの前提知識と対象者、持ち帰ってほしいことは次のとおりです。
--->
-
 ---
 layout: section-blue
 ---
@@ -38,11 +34,6 @@ layout: section-blue
 # 開発編
 
 ## 実装のアンチパターン集
-
-<!--
-それではさっそく、本編に入っていきたいと思います。  
-まずは「開発編」と題して、Terraformコードの設計や実装についてのTipsを紹介していきます。
--->
 
 ---
 
@@ -57,15 +48,6 @@ layout: section-blue
 - Cloud Storage の機能で復元が可能
 - 複数人での開発へ移行するコストが低い
     - **CI/CD** (Cloud Build / GitHub Actions) **も容易** に構成可能
-
-<!--
-最初は何といっても、状態ファイルを保存する先のバックエンドについてです。
-
-一人でインフラ担当という場合も多いかと思いますが、それでも **Cloud Storageを使うことを強く推奨** します。  
-端末ロストや移行の際のコストが低いことはもちろん、復元ができたりもします。  
-ただし、業務で使用する場合の一番のメリットは **複数人で開発する際への移行コスト** だと思っています。
-一人でローカルに置いているとバケット作って、gsutilコマンドでアップロードして、planで差分を確認して...みたいな手間があるので、最初からCloud Storageを使ってしまうのがオススメです。
--->
 
 ---
 
@@ -83,16 +65,12 @@ terraform {
 
 [^1]: [Backend block > gcs | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/language/backend/gcs)
 
-<!--
-実際のバックエンド設定はこうなります。バケット名は必須ですが、フォルダ階層を表わすプレフィックスは任意です。  
-プレフィックスは、プロジェクトで1つのバケットを使用している場合などで活躍します。
--->
-
 ---
 
 # Google Cloud API の有効化を待つ (Bad 例)
 
-```hcl
+```hcl{all|2-6|8|all}
+// compute_engine.tf
 resource "google_project_service" "compute_api" {
   project            = "my-project"
   service            = "compute.googleapis.com"
@@ -108,13 +86,6 @@ resource "google_compute_instance" "bastion" { } // 引数略
 Error: Error creating: googleapi: Error 403: API has not been used
                                   in project before or it is disabled.
 ```
-
-<!--
-続いて、また初期構築でハマりがちなAPI有効化した後の403エラーの対処です。  
-こんなTerraformを書いて「動かない!?!?」ってなった経験のあるかた、多いんじゃないでしょうか。
-
-2回applyを実行する、というゴリ押し回避策もありますが、全然スマートじゃないですよね。どうすれば良かったのでしょうか。
--->
 
 ---
 
@@ -132,16 +103,12 @@ Google Cloud API を有効化した直後にリソースを作成すると失敗
 
 [^3]: [The depends_on Meta-Argument | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on)
 
-<!--
-答えはこうです。直後だと裏側でAPI有効化の反映がされていなくて、ちょっと待つ必要があるんですよね。
-なので「time_sleepを使って待機させる」という操作を明示的に依存にしてやる必要があります。
--->
-
 ---
 
 # Google Cloud API の有効化を待つ (Good 例)
 
-```hcl
+```hcl{all|2|4-8|6|9-12|11|all}
+// compute_engine.tf
 resource "google_project_service" "compute_api" { } // 引数略
 
 resource "time_sleep" "wait_3m" {
@@ -154,11 +121,6 @@ resource "google_compute_instance" "bastion" {
   depends_on = [time_sleep.wait_3m]
 }
 ```
-
-<!--
-具体的にはこうなります。まずapi有効化の宣言をしたら、それを待つ`time_sleep`を作ってここでは3分待っています。で実際のリソース作成はそれを依存参照するようにすれば、一発で通るようになるはずです。  
-慣れている場合だとモジュール構成にしてやったりもしますが、概要としては同じでモジュールを使用するところに記載してやりましょう。
--->
 
 ---
 
@@ -174,11 +136,6 @@ resource "google_compute_instance" "bastion" {
 
 [^1]: [The count Meta-Argument > When to Use `for_each` Instead of `count` | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/language/meta-arguments/count#when-to-use-for_each-instead-of-count)
 
-<!--
-はい、次です。リソース宣言の引数にカウント使っていませんか? 古いコードを引き継ぐと結構遭遇する場合もありますが、今はあんまり使わない方がよいです。  
-なぜかというと、ステートのアドレスがカウントのインデックス依存になってしまうからなんですよね。どういうことが起きるか具体的に見ていきましょう。
--->
-
 ---
 layout: code
 ---
@@ -186,7 +143,7 @@ layout: code
 # `count` 引数を避ける (Bad 例)
 
 
-```hcl{all|5-10}
+```hcl{all|5-10|7-8|all}
 locals {
   zones = ["asia-northeast1-b", "asia-northeast1-c"]
 }
@@ -200,11 +157,6 @@ resource "google_compute_instance" "bastion" {
 }
 ```
 
-<!--
-はい、これがよくないコードの例です。踏み台のGCEインスタンスを作成するケースで見ていきましょう。
-この引数たちに注目してみてください。次でどうなってしまうか、予想がつく人もいると思います。
--->
-
 ---
 layout: code
 ---
@@ -214,7 +166,7 @@ layout: code
 
 ```hcl{all|2}
 locals {
-  zones = ["asia-northeast1-a", "asia-northeast1-b"]
+  zones = ["asia-northeast1-b", "asia-northeast1-c"]
 }
 
 resource "google_compute_instance" "bastion" {
@@ -225,10 +177,6 @@ resource "google_compute_instance" "bastion" {
   // 他 machine_type など
 }
 ```
-
-<!--
-実際に変えてみましょう。ゾーンからasia-northeast1-cを削除して`asia-northeast1-a`にしたいだけなんですが、どうなってしまうでしょうか。
--->
 
 ---
 layout: code
@@ -255,7 +203,8 @@ Plan: 2 to add, 0 to change, 2 to destroy.
 
 <!--
 あれっ。実行計画を見るとなぜか2つとも作成しなおしてしまうようです。
-本来ならasia-northeast1-cの方を再作成するだけでも良いはずですよね。
+
+どうしてでしょう。お気づきの方はいますか？<切り替え>
 -->
 
 ---
@@ -281,7 +230,7 @@ resource "google_compute_instance" "bastion" {
 ```
 
 <!--
-はい、そうです。引数でインデックスを参照しているため、ズレている引数が変更不可能な場合は強制的に作り直しが走ってしまいます。他に名前でもインデックス参照していますから、ここも弱い箇所になってきます。
+はい、そうです。引数でindexを参照しているため、ズレている引数が変更不可能な場合は
 -->
 
 ---
@@ -290,11 +239,11 @@ layout: code
 
 # `count` より `for_each` (Good 例)
 
-```hcl{all|2-5|8-13}
+```hcl{all|5-10|7-8|all}
 locals {
   bastions = {
     "bastion-1" = { zone = "asia-northeast1-b" }
-    "bastion-2" = { zone = "asia-northeast1-c" }
+    "bastion-2" = { zone = "asia-northeast1-a" }
   }
 }
 
@@ -306,17 +255,17 @@ resource "google_compute_instance" "bastion" {
 }
 ```
 
-<!--
-これをfor_eachで書くとこうなります。bastionsというmap型を渡して、その中身を展開して複数台つくらせる宣言にします。
--->
-
 ---
 layout: code
 ---
 
 # `count` より `for_each` (Good 例・出力)
 
-```{all|1-10|10|11-14}
+```{1-3|2-3|5-14|10|all}
+$ terraform state list
+google_compute_instance.bastion["bastion-1"]
+google_compute_instance.bastion["bastion-2"]
+
 $ terraform plan
 ... (ここから抜粋)
   # google_compute_instance.bastion["bastion-2"] must be replaced
@@ -327,17 +276,7 @@ $ terraform plan
 ... (ここまで抜粋)
 
 Plan: 1 to add, 0 to change, 1 to destroy.
-
-$ terraform state list
-google_compute_instance.bastion["bastion-1"]
-google_compute_instance.bastion["bastion-2"]
 ```
-
-<!--
-では、同じようにbastion-2のzoneをasia-northeast1-aに変更して、またplanを見てみましょう。これは期待通りになっているのではないでしょうか。名称とzoneの対応づけが必須ではない場合はこれでも良いはずですね。  
-
-さて、状態のアドレスがどうなっているかを見てみましょうか。さっきのインデックスが数字ではなく文字列になっているのがミソです。めでたしめでたし
--->
 
 ---
 
