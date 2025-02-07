@@ -8,10 +8,10 @@
     "export:pdf": "mkdir -p dist && slidev export --with-clicks --format pdf --output dist/modern-infra-summit-25q1.pdf",
     "export:pptx": "mkdir -p dist && slidev export --format pptx --output dist/modern-infra-summit-25q1",
     "build:aws": "slidev build --base /modern-infra-summit-25q1/",
-    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rm -rf dist/_img/"
+    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rmdir dist/_img"
   },
   "dependencies": {
-    "@peacock0803sz/theme-modern-infra-summit-25q1": "workspace:*",
+    "@peacock0803sz/theme-geometricals": "workspace:*",
     "@slidev/cli": "^51.1.0"
   },
   "devDependencies": {
