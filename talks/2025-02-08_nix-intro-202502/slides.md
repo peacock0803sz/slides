@@ -47,14 +47,15 @@ hideInToc: true
 
 # お前、誰よ
 
-- 名前: Peacock (Yoichi Takai)
-    - 各種SNS: `peacock0803sz`
+- 名前: Peacock (高井 陽一), SNS -> `peacock0803sz`
 - 仕事: [(株) G-gen](https://g-gen.co.jp/), Google Cloudの技術サポート
     - [Google Cloud Partner Top Engineer 2025受賞](https://g-gen.co.jp/news/pte_2025.html)
 - 2019年9月にPythonコミュニティで職を得て5年経った
 - 技術イベント、カンファレンスが大好き
-    - PyCon JP 2020 - 2025主催メンバー(スタッフ)
+    - PyCon JP 2020 - [2025](https://2025.pycon.jp/)主催メンバー(スタッフ)
+    - [PyCon JP TV](https://tv.pycon.jp)ディレクター
 - 趣味: クラシック音楽、カメラ(α7R III)、ビールなど
+    - 技術カンファレンスの撮影スタッフもやっている
 
 ---
 
@@ -204,7 +205,7 @@ layout: section
 
 以下の機能を使うために、`$HOME/.config/nix/nix.conf` を作成する必要がある
 
-- [Flakes](https://nixos.wiki/wiki/flakes)の有効化: 新しいパッケージの形式・書式に対応するため
+- [Flakes](https://nixos.wiki/wiki/flakes)の有効化: モダンなNixパッケージ定義の方法・書式を使うため
 - [nix-command](https://nixos.wiki/wiki/Nix_command): 新しいコマンド体系を使うため
 
 ```bash {all|2|all}
