@@ -1,6 +1,6 @@
 ---
 theme: "../../themes/simple"
-titleTemplate: "入門 Nix - 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩"
+titleTemplate: "#pyconshizu LT: %s"
 favicon: https://media.p3ac0ck.net/icons/peacock.jpg
 layout: cover
 lineNumbers: true
@@ -9,34 +9,25 @@ htmlAttrs:
 hideInToc: true
 ---
 
-# 入門 Nix
+# 入門 Nix <twemoji-snowflake />
 
 ## 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩
 
 ### 2025-02-08 (Sat)<br />PyCon mini Shizuoka 2024 continue (LT)<br />Peacock (`@peacock0803sz`)
 
+<PoweredBySlidev class="text-lg absolute bottom-5 right-5" />
 ---
 layout: intro
 hideInToc: true
 ---
 
-# まえおき
+# 本日の資料 (URL or QRコード)
 
-<img src="/qrcode.svg" />
+### [`https://slides.p3ac0ck.net/nix-intro-202502/`](https://slides.p3ac0ck.net/nix-intro-202502/)
 
-## 本日の資料 (URL or QRコードから)
+## 写真もご自由に <twemoji-camera />
 
-<div class="url">
-
-[`slides.p3ac0ck.net/nix-intro-202502/`](https://slides.p3ac0ck.net/nix-intro-202502/)
-
-</div>
-
-<div class="box">
-
-**写真もご自由に <twemoji-camera />**  
-
-</div>
+<img src="/qrcode.png" />
 
 ---
 layout: toc
@@ -58,14 +49,12 @@ hideInToc: true
 
 - 名前: Peacock (Yoichi Takai)
     - 各種SNS: `peacock0803sz`
-- 仕事: [株式会社G-gen](https://www.g-gen.co.jp/)で技術サポート
-- 2019年にPythonコミュニティで職を得て5年経った
+- 仕事: [(株) G-gen](https://g-gen.co.jp/), Google Cloudの技術サポート
+    - [Google Cloud Partner Top Engineer 2025受賞](https://g-gen.co.jp/news/pte_2025.html)
+- 2019年9月にPythonコミュニティで職を得て5年経った
 - 技術イベント、カンファレンスが大好き
     - PyCon JP 2020 - 2025主催メンバー(スタッフ)
-
-<!--
-趣味: クラシック音楽、カメラ(α7 R3)、お酒等
--->
+- 趣味: クラシック音楽、カメラ(α7R III)、ビールなど
 
 ---
 
@@ -75,6 +64,7 @@ hideInToc: true
     - 中に関数が書けるJSONだと思っていれば最低限読み書きできるはず
 - [NixOS](https://nixos.org), [nix-darwin](https://daiderd.com/nix-darwin/)について、これらを使用したOSレベルの構成管理方法
 - [Nix Flakes](https://nix.dev/concepts/flakes)とは何か
+    - 雑な解説: モダンなNixパッケージ定義の方法・書式
 - VS Code, IntelliJ IDEAなどのGUIツールのインストール・管理方法
 - [Home Manager](https://github.com/nix-community/home-manager)を使用して全てNix言語で設定を管理する方法
 - [direnv](https://direnv.net) (ディレクトリ移動時に自動でコマンドを実行する)
@@ -99,7 +89,7 @@ layout: section
     - [Homebrew](https://brew.sh)のパッケージ(formula)が増えてしまい、依存関係の衝突が<br>発生していた
 - プロジェクトによって異なるバージョンの言語ランタイムなどを管理したい
     - anyenv, asdf, miseなどのプロジェクトはあるが、更新が遅かったり微妙
-- [「Disposableな環境」](https://masawada.hatenablog.jp/entry/2022/09/09/234159)を構築することに憧れがあった
+- [**「Disposableな環境」**](https://masawada.hatenablog.jp/entry/2022/09/09/234159)を構築することに憧れがあった
 
 <!--
 日常的にdotfilesで管理はしていたけれど、完璧ではない状態でした
@@ -107,7 +97,9 @@ layout: section
 
 ---
 
-## Disposableとは: 英和辞書で引いてみる
+## Disposableとは
+
+### 英和辞書で引いてみる
 
 <img src="/assets/disposable.png" width="840">
 
@@ -120,9 +112,9 @@ Answer: 一定期間おきにクリーンインストールできる状態を保
 - 理由:
     - ローカルに重要なデータを溜めないようにするため
     - 構成管理しているコードを定期的に運用し、陳腐化させないようにするため
-    - 復旧・再構築手順を忘れないようにするため
+    - プロジェクトの復旧・再構築手順を忘れないようにするため
 
--> これをNixによって解決したい (けど、筆者も現時点で全部できていない)
+-> これをNixによって解決したい
 
 出典: [デスクトップ環境をdisposableに保つ - あんパン](https://masawada.hatenablog.jp/entry/2022/09/09/234159)
 
@@ -144,14 +136,13 @@ layout: section
 
 ---
 
-## Nixとは (NixOS公式Wikiより)
+## Nixとは何者なのか
 
-(前略) Nixは、ビルドの結果を完全な依存関係ツリーのハッシュで指定された一意のアドレスに保存し、アトミックなアップグレード、ロールバック、およびパッケージの異なるバージョンの同時インストールを可能にする不変のパッケージ ストアを作成し、本質的に依存関係の地獄を排除します。
+(前略) Nixは、ビルドの結果を完全な依存関係ツリーのハッシュで指定された **一意のアドレスに保存し、アトミックなアップグレード**、ロールバック、およびパッケージの異なるバージョンの同時インストールを可能にする **不変のパッケージ ストア** を作成し、本質的に依存関係の地獄を排除します。
 
-> (前略) Nix stores the results of the build in unique addresses specified by a hash of the complete dependency tree, creating an immutable package store that allows for atomic upgrades, rollbacks and concurrent installation of different versions of a package, essentially eliminating dependency hell.
+> (前略) Nix **stores the results of the build in unique addresses** specified by a hash of the complete dependency tree, creating an **immutable package store that allows for atomic upgrades**, rollbacks and concurrent installation of different versions of a package, essentially eliminating dependency hell.
 
-出典: <https://wiki.nixos.org/wiki/Nix_package_manager>
-
+出典: [NixOS公式Wiki](https://wiki.nixos.org/wiki/Nix_package_manager)
 
 <!--
 公式Wikiから抜粋引用すると、こんなことが書いてあります。
@@ -160,14 +151,16 @@ layout: section
 
 ---
 
-## Nixを導入するメリット・デメリット
+## Nixを導入するPros/Cons
 
 - Pros (メリット)
-    - 新しいマシンのセットアップに時間がかからない
     - 今のマシンが >>>突然の死<<< を迎えても代わりがあれば復旧が容易
-    - 不具合の切り分けが気軽にできる
+    - 複数環境(異なる言語バージョン等)でのデバッグが気軽にできる
+    - Dockerなどの仮想レイヤと比べて軽量に動作する & 再現性が高い
+    - brew, apt などよりも多数(約120,000)のパッケージが収録
 - Cons (デメリット)
-    - 構築に時間がかかる (筆者もまだ完璧な状態ではない)
+    - Nix言語という(関数型の)独自DSLの習得難易度が比較的高い
+    - 構築に時間がかかる(実は筆者もまだ完璧な状態ではない)
     - ストレージ容量を通常より多く消費する
 
 <!--
@@ -190,19 +183,19 @@ layout: section
 
 ## インストール方法
 
-- マシン内のユーザー全員が使える[マルチユーザー モード](https://nix.dev/manual/nix/2.18/installation/multi-user.html)が推奨
-- シングルユーザー(ユーザー空間に閉じた)インストールも可能だが、ストアを `/nix/store` に作成する兼ね合いで推奨されていない
-    - ストア: インストールしたパッケージの実態があるディレクトリ
-
-インストールコマンド(Linux / macOS)
-
+- 前提: マシン内のユーザー全員が使える[マルチユーザー モード](https://nix.dev/manual/nix/2.18/installation/multi-user.html)が推奨
+    - ストアを `/nix/store` に作成する兼ね合いでシングルユーザーは非推奨
+        - ストア = インストールしたパッケージの実態があるディレクトリ
 - Linux: `curl -L https://nixos.org/nix/install | sh -s -- --daemon`
 - macOS: `curl -L https://nixos.org/nix/install | sh`
+- Windows (WSL2): systemdが有効なら後者が推奨
+    1. `curl -L https://nixos.org/nix/install | sh -s -- --no-daemon`
+    1. `curl -L https://nixos.org/nix/install | sh -s -- --daemon`
 
 出典: <https://nix.dev/install-nix>
 
 <!--
-インストール方法についても記載していますが、詳細はこの資料とか公式ドキュメントを参照してください。
+インストール方法についても記載していますが、詳細は公式ドキュメントを参照してください。
 -->
 
 ---
@@ -211,7 +204,7 @@ layout: section
 
 以下の機能を使うために、`$HOME/.config/nix/nix.conf` を作成する必要がある
 
-- Flakesの有効化
+- [Flakes](https://nixos.wiki/wiki/flakes)の有効化: 新しいパッケージの形式・書式に対応するため
 - [nix-command](https://nixos.wiki/wiki/Nix_command): 新しいコマンド体系を使うため
 
 ```bash {all|2|all}
@@ -230,21 +223,21 @@ EOF
 
 ## ユーザーレベルで使うパッケージを管理する
 
-dotfilesリポジトリを運用している(設定ファイルがGit管理されている)場合、`$HOME/dotfiles/flake.nix` を以下のように書く  
-省略なしフルバージョン: [flake.nix - peacock0803sz/dotfiles (GitHub)](https://github.com/peacock0803sz/dotfiles/blob/master/flake.nix)
+dotfilesリポジトリを運用している場合、`$HOME/dotfiles/flake.nix` を作成  
+適用コマンド: `nix profile install .`  
+省略なしフルバージョン: [flake.nix - peacock0803sz/dotfiles | GitHub](https://github.com/peacock0803sz/dotfiles/blob/master/flake.nix)
 
 ```nix{all|3|6|7|9-12|all}
 {
-  description = "My dotfiles flake";
-  inputs = { nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; };
+  description = "My first flake";
+  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable"; };
   outputs = { nixpkgs, ... }:
   let 
     pkgs = import nixpkgs { system = "aarch64-darwin"; };
-    packages = with pkgs; [ fish direnv uv devenv ]; # ここで必要なパッケージを列挙する
   in {
     packages.default = pkgs.buildEnv {
-      name = "my-env";
-      paths = packages;
+      name = "my-first-flake";
+      paths = with pkgs; [ fish direnv uv devenv ]; # 必要なパッケージを列挙
     };
   };
 }
@@ -252,7 +245,7 @@ dotfilesリポジトリを運用している(設定ファイルがGit管理さ�
 
 ---
 
-## プロジェクト個別で使う環境を管理するには?
+## プロジェクト毎の環境を管理する
 
 - プロジェクトで環境構築手順を共有するときの課題
     - Makefileなどでセットアップ手順を簡略化しても、各ツールや言語ランタイムのバージョンまでは保証できない
@@ -262,10 +255,9 @@ dotfilesリポジトリを運用している(設定ファイルがGit管理さ�
 
 ---
 
-## 解法: [devenv](https://devenv.sh)
+### 解法: [devenv](https://devenv.sh)
 
 > Fast, Declarative, Reproducible and Composable Developer Environments using Nix
-
 
 ### メリット
 
@@ -279,7 +271,7 @@ dotfilesリポジトリを運用している(設定ファイルがGit管理さ�
 ### devenv使ってみる
 
 ```bash
-cd path/to/repo
+cd path/to/myapp
 git init  # gitリポジトリでなくてもOK
 devenv init
 ```
@@ -289,10 +281,10 @@ devenv init
 ```nix
 { pkgs, ... }: {
   packages = with pkgs; [ git ];
-  # Ref: https://devenv.sh/languages/
-  languages.python = {
-    enable = true;
-    uv.enable = true;
+  languages.python = { enable = true; uv.enable = true; };
+  services.postgres.enable = true;
+  tasks."myapp:hello" = {
+    exec = "echo 'Hello world from Python!'";
   };
 }
 ```
@@ -306,23 +298,22 @@ hideInToc: true
 - Nix日本語コミュニティ (nix-ja)
     - connpass: <https://nix-ja.connpass.com>
     - Discordサーバー: <https://discord.com/invite/TYytzedtbe>
-    - NixConf読書会(設定ファイルを読む会)をオンラインでやっています
+    - NixConf読書会(設定ファイルを読む会): オンラインで開催中
         - 詳細: <https://scrapbox.io/nix-ja/NixConf読書会>
-- 3/9(日)にNix meetup #2があります
+- 3/9(日), Nix meetup #2開催予定
     - 場所: ピクシブ株式会社(東京・千駄ヶ谷)
     - <https://nix-ja.connpass.com/event/342908/>
-    - 私(Peacock)も登壇します
 
 ---
 
 # 参考文献・リンクまとめ
 
-- [デスクトップ環境をdisposableに保つ - あんパン](https://masawada.hatenablog.jp/entry/2022/09/09/234159)
-- [Nix package manager - NixOS Wiki](https://wiki.nixos.org/wiki/Nix_package_manager)
-- [Multi-User Mode - Nix Reference Manual](https://nix.dev/manual/nix/2.18/installation/multi-user.html)
-- [Install Nix — nix.dev documentation](https://nix.dev/install-nix)
-- [Nix command - NixOS Wiki](https://nixos.wiki/wiki/Nix_command)
-- [flake.nix - peacock0803sz/dotfiles (GitHub)](https://github.com/peacock0803sz/dotfiles/blob/master/flake.nix)
-- [GitHub - nix-community/nix-direnv](https://github.com/nix-community/nix-direnv)
+- [デスクトップ環境をdisposableに保つ | あんパン](https://masawada.hatenablog.jp/entry/2022/09/09/234159)
+- [Nix package manager | NixOS Wiki](https://wiki.nixos.org/wiki/Nix_package_manager)
+- [Multi-User Mode | Nix Reference Manual](https://nix.dev/manual/nix/2.18/installation/multi-user.html)
+- [Install Nix | nix.dev documentation](https://nix.dev/install-nix)
+- [Nix command | NixOS Wiki](https://nixos.wiki/wiki/Nix_command)
+- [flake.nix - peacock0803sz/dotfiles | GitHub](https://github.com/peacock0803sz/dotfiles/blob/master/flake.nix)
+- [nix-community/nix-direnv | GitHub](https://github.com/nix-community/nix-direnv)
 
 <PoweredBySlidev class="text-lg absolute top-5 right-5" />

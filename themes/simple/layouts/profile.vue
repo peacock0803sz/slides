@@ -14,11 +14,13 @@
   font-weight: 700;
 }
 
-.slidev-layout.profile>img {
-  width: 250px;
-  height: 250px;
+.slidev-layout.profile img {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  width: 200px;
+  height: 200px;
   float: right;
   border-radius: 10%;
-  padding: 5px;
 }
 </style>

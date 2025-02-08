@@ -4,6 +4,7 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev",
+    "format": "slidev format slides.md",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-intro-202502.pdf",
     "build:aws": "slidev build --base /nix-intro-202502/",
     "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rm -rf dist/_img"
