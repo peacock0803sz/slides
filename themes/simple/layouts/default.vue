@@ -28,14 +28,14 @@
 }
 
 .slidev-layout.default h2 {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 36px;
   font-weight: 600;
 }
 
 .slidev-layout.default h3 {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 36px;
   font-weight: 700;

@@ -14,15 +14,11 @@
   font-weight: 700;
 }
 
-.slidev-layout.profile>div.box {
-  display: grid;
-  grid-template-columns: 650px 230px;
-  column-gap: 10px;
-}
-
-.slidev-layout.profile>div.box>img {
-  margin-top: 10px;
-  grid-column: 2;
-  border-radius: 15%;
+.slidev-layout.profile>img {
+  width: 250px;
+  height: 250px;
+  float: right;
+  border-radius: 10%;
+  padding: 5px;
 }
 </style>
