@@ -27,7 +27,7 @@ hideInToc: true
 
 ## 写真もご自由に <twemoji-camera />
 
-<img src="/qrcode.png" />
+<img src="https://slides.p3ac0ck.net/nix-intro-202502/qrcode.png" />
 
 ---
 layout: toc
