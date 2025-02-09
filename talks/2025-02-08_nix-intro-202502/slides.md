@@ -228,7 +228,7 @@ dotfilesリポジトリを運用している場合、`$HOME/dotfiles/flake.nix` 
 適用コマンド: `nix profile install .`  
 省略なしフルバージョン: [flake.nix - peacock0803sz/dotfiles | GitHub](https://github.com/peacock0803sz/dotfiles/blob/master/flake.nix)
 
-```nix{all|3|6|7|9-12|all}
+```nix
 {
   description = "My first flake";
   inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable"; };
