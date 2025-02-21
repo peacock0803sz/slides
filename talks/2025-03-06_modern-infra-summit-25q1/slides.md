@@ -58,13 +58,34 @@ layout: objective
     - ある程度 [Provider 公式ドキュメント](https://registry.terraform.io/providers/hashicorp/google/latest/docs)が読める前提
 - 対象者: **Terraform 構築・運用の知見が不足** している人
     - 想定ロール: IaC をやりたいインフラ開発者・情報システム担当者など
-- 目的・持ち帰って欲しいこと
-    - Terraform で IaC 開発を進めるための設計・構築ノウハウ
-    - 実際に Terraform を運用する際の知見
+- 動機・背景: 大規模かつ、複数人が関わった IaC 開発案件で得たノウハウの共有
+    - 案件例 1: Cloud Run を活用したデプロイ頻度が高いアプリケーション基盤の開発
+    - 案件例 2: 短期で数百規模の Google Cloud リソースを Terraform を使用して作成
+- 持ち帰って欲しいこと
+    - Terraform で IaC 開発を進めるための設計や構築に関するベストプラクティス
+    - 実際に Terraform コードを運用する際の知見
 
 <!--
 まず始めに、本セッションの前提知識と対象者、持ち帰ってほしいことは次のとおりです。
 -->
+
+---
+layout: objective
+---
+
+# IaC / Terraform の導入メリット
+
+- IaC (infrastructure as Code): インフラ構成のコード管理
+    - どこの構成をどのように誰が変更したかが分かる
+    - 大規模・複雑な要件や複数人で構築する際のコストが低い
+
+## Terraform の強み
+
+- 複数人で開発する際のコストが低い
+    - 誰かが操作している時は排他処理(ロック)が走る
+- Vagrant で実績のある Hashicorp 社によって開発されている OSS 製品
+    - サードパーティ OSS 含め、周辺エコスシテムが充実している
+- 一般的な設定言語 (JSON, YAML など)より表現力が高く、汎用プログラミング言語 (Python, JavaScript など)より単純明快な言語 HCL (Hashicorp Configu Language) で記述できる
 
 ---
 layout: section-blue
@@ -85,10 +106,9 @@ layout: section-blue
 
 たとえ **開発者が一人でも Cloud Storage (GCS) の使用を推奨**  
 
-(\+ [Google Cloud Storage は 状態ロックをサポート](https://developer.hashicorp.com/terraform/language/state/locking)している)
-
 ## 主な理由・メリット
 
+- 状態ロック(= 他の人が Terraform を操作できないようにする)が可能
 - Cloud Storage の機能で復元が可能
 - 複数人での開発へ移行するコストが低い
     - **CI/CD** (Cloud Build / GitHub Actions) **も容易** に構成可能
@@ -96,10 +116,9 @@ layout: section-blue
 <!--
 最初は何といっても、状態ファイルを保存する先のバックエンドについてです。
 
-一人でインフラ担当という場合も多いかと思いますが、それでも **Cloud Storageを使うことを強く推奨** します。  
-端末ロストや移行の際のコストが低いことはもちろん、復元ができたりもします。  
-ただし、業務で使用する場合の一番のメリットは **複数人で開発する際への移行コスト** だと思っています。
-一人でローカルに置いているとバケット作って、gsutilコマンドでアップロードして、planで差分を確認して...みたいな手間があるので、最初からCloud Storageを使ってしまうのがオススメです。
+一人でインフラ担当という場合も多いかと思いますが、それでも **Cloud Storageを使うことを強く推奨** します。\
+端末ロストや移行の際のコストが低いことはもちろん、復元ができたりもします。あとはやはり **複数人で開発する際への移行コスト** だと思っています。\
+一人でローカルに置いているとバケット作って、gsutilコマンドでアップロードして、planで差分を確認して...みたいな手間があるので、最初からCloud Storageを使ってしまうのがオススメです。\
 -->
 
 ---
@@ -110,8 +129,8 @@ layout: section-blue
 // backend.tf
 terraform {
   backend "gcs" {
-    bucket = "my-project" // 必須
-    prefix = "tfstate"    // 任意
+    bucket = "my-project"      // 必須
+    prefix = "terraform-state" // 任意
   }
 }
 ```
@@ -134,7 +153,9 @@ resource "google_project_service" "compute_api" {
   disable_on_destroy = false
 }
 
-resource "google_compute_instance" "bastion" { } // 引数略
+resource "google_compute_instance" "bastion" { // 引数略
+  depends_on = [google_project_service.compute_api]
+}
 ```
 
 => !?!?
@@ -157,9 +178,9 @@ Error: Error creating: googleapi: Error 403: API has not been used
 
 ## 結局どうすれば良かったのか
 
-Google Cloud API を有効化した直後にリソースを作成すると失敗する[^1]ので、  
-有効化した後に **`time_sleep` [^2]を使用して少し待機させる** 必要がある <twemoji-light-bulb />  
-**\+ `depends_on` [^3]で依存関係を明示的に指定** する
+Google Cloud API を有効化した直後にリソースを作成すると失敗する[^1] ので、  
+有効化した後に **`time_sleep`[^2] を使用して少し待機させる** 必要がある <twemoji-light-bulb />  
+**\+ `depends_on`[^3] で依存関係を明示的に指定** する
 
 [^1]: [User Guide - google_project_service > Newly activated service errors | google provider (Terraform Registry)](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/google_project_service#newly-activated-service-errors)
 
@@ -168,7 +189,7 @@ Google Cloud API を有効化した直後にリソースを作成すると失敗
 [^3]: [The depends_on Meta-Argument | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on)
 
 <!--
-答えはこうです。直後だと裏側でAPI有効化の反映がされていなくて、ちょっと待つ必要があるんですよね。
+答えはこうです。依存関係を明示しても直後は裏側でAPI有効化の反映がされていなくて、ちょっと待つ必要があるんですよね。
 なので「time_sleepを使って待機させる」という操作を明示的に依存にしてやる必要があります。
 -->
 
@@ -222,16 +243,19 @@ layout: code
 
 
 ```hcl{all|5-10}
-locals {
-  zones = ["asia-northeast1-b", "asia-northeast1-c"]
-}
+locals { // zone の中身を変えたい
+  scale         = 2
+  zones         = ["asia-northeast1-a", "asia-northeast1-b"]
+  machine_types = ["e2-micro", "e2-medium"]
+ }
 
 resource "google_compute_instance" "bastion" {
-  count = 2
+  count = local.scale
 
-  name = "bastion-${count.index + 1}"
-  zone = local.zones[count.index]
-  // 他 machine_type など
+  name         = "bastion-${count.index + 1}"
+  zone         = local.zones[count.index]
+  machine_type = local.machine_types[count.index]
+  // 他に boot_disk, network_interface は必要
 }
 ```
 
@@ -248,21 +272,24 @@ layout: code
 
 
 ```hcl{all|2}
-locals {
-  zones = ["asia-northeast1-a", "asia-northeast1-b"]
-}
+locals { // zones を ["asia-northeast1-b", "asia-northeast1-c"] から変更
+  scale         = 2
+  zones         = ["asia-northeast1-a", "asia-northeast1-b"]
+  machine_types = ["e2-micro", "e2-medium"]
+ }
 
 resource "google_compute_instance" "bastion" {
-  count = 2
+  count = local.scale
 
-  name = "bastion-${count.index + 1}"
-  zone = local.zones[count.index]
-  // 他 machine_type など
+  name         = "bastion-${count.index + 1}"
+  zone         = local.zones[count.index]
+  machine_type = local.machine_types[count.index]
+  // 他に boot_disk, network_interface は必要
 }
 ```
 
 <!--
-実際に変えてみましょう。ゾーンからasia-northeast1-cを削除して`asia-northeast1-a`にしたいだけなんですが、どうなってしまうでしょうか。
+実際に変えてみましょう。片方のゾーンをasia-northeast1-cからasia-northeast1-aにしたいだけなんですが、どうなってしまうでしょうか。
 -->
 
 ---
@@ -278,10 +305,11 @@ $ terraform plan
 -/+ resource "google_compute_instance" "bastion" {
         name = "bastion-1"
       ~ zone = "asia-northeast1-b" -> "asia-northeast1-a" # forces replacement
+      ~ machine_type = "e2-medium"
     }
 
-  # google_compute_instance.bastion[1] も zone が "asia-northeast1-b" になる
-... (ここまで抜粋)
+  # google_compute_instance.bastion[1] must be replaced
+    // 同様に zone が "asia-northeast1-b" に、machine_type も "e2-medium" になる
 
 Plan: 2 to add, 0 to change, 2 to destroy.
 ```
@@ -289,34 +317,35 @@ Plan: 2 to add, 0 to change, 2 to destroy.
 **!?!? <twemoji-thinking-face  />**
 
 <!--
-あれっ。実行計画を見るとなぜか2つとも作成しなおしてしまうようです。
-本来ならasia-northeast1-cの方を再作成するだけでも良いはずですよね。
+なぜか zones だけを変えたはずなのに、machine_typeもかわってしまうようです。
 -->
 
 ---
 layout: code
 ---
 
-# どうしてこうなったのか 
+# どうしてこうなったのか (コード再掲)
 
-(コード再掲)
-
-```hcl{8-9}
-locals {
-  zones = ["asia-northeast1-b", "asia-northeast1-c"]
-}
+```hcl{8-12}
+locals { // zones を ["asia-northeast1-b", "asia-northeast1-c"] から変更
+  scale         = 2
+  zones         = ["asia-northeast1-a", "asia-northeast1-b"]
+  machine_types = ["e2-micro", "e2-medium"]
+ }
 
 resource "google_compute_instance" "bastion" {
-  count = 2
+  count = local.scale
 
-  name = "bastion-${count.index + 1}"
-  zone = local.zones[count.index]
-  // 他 machine_type など
+  name         = "bastion-${count.index + 1}"
+  zone         = local.zones[count.index]
+  machine_type = local.machine_types[count.index]
+  // 他に boot_disk, network_interface は必要
 }
 ```
 
 <!--
-はい、そうです。引数でインデックスを参照しているため、ズレている引数が変更不可能な場合は強制的に作り直しが走ってしまいます。他に名前でもインデックス参照していますから、ここも弱い箇所になってきます。
+カンの良い方々は気づいてるかもしれませんけど、配列のインデックスがズレると大変なことになりますね。\
+これは結構単純なパターンですけど、実際にもっと変数が多いと管理が大変になってしまいます。どの配列の何番目の要素が何かを常に把握するのはつらいですね。
 -->
 
 ---
@@ -328,16 +357,17 @@ layout: code
 ```hcl{all|2-5|8-13}
 locals {
   bastions = {
-    "bastion-1" = { zone = "asia-northeast1-b" }
-    "bastion-2" = { zone = "asia-northeast1-c" }
+    "bastion-1" = { zone = "asia-northeast1-b", machine_type = "e2-micro" }
+    "bastion-2" = { zone = "asia-northeast1-c", machine_type = "e2-medium" }
   }
 }
 
 resource "google_compute_instance" "bastion" {
   for_each = local.bastions
 
-  name = each.key
-  zone = each.value.zone
+  name         = each.key
+  zone         = each.value.zone
+  machine_type = each.machine_type
 }
 ```
 
@@ -349,19 +379,48 @@ resource "google_compute_instance" "bastion" {
 layout: code
 ---
 
+# `count` より `for_each` (Good 例・変更後)
+
+```hcl{all|3-5}
+locals {
+  bastions = {
+    "bastion-1" = { zone = "asia-northeast1-a", machine_type = "e2-micro" }  // b から a
+    "bastion-2" = { zone = "asia-northeast1-b", machine_type = "e2-medium" } // c から b
+  }
+}
+
+resource "google_compute_instance" "bastion" {
+  for_each = local.bastions
+
+  name         = each.key
+  zone         = each.value.zone
+  machine_type = each.machine_type
+}
+```
+
+<!--
+変更後はこうなります。\
+これはmachine_typeに影響がないことが自明ですよね。
+-->
+
+---
+layout: code
+---
+
 # `count` より `for_each` (Good 例・出力)
 
-```{all|1-10|10|11-14}
+```{all|5,6,9|12-}
 $ terraform plan
 ... (ここから抜粋)
-  # google_compute_instance.bastion["bastion-2"] must be replaced
+  # google_compute_instance.bastion[0] must be replaced
 -/+ resource "google_compute_instance" "bastion" {
-        name = "bastion-2"
-      ~ zone = "asia-northeast1-c" -> "asia-northeast1-a" # forces replacement
-    }
-... (ここまで抜粋)
+      // zone だけ差分になる
+      ~ zone = "asia-northeast1-b" -> "asia-northeast1-a" # forces replacement
+}
+  # google_compute_instance.bastion[1] must be replaced
+    // 同様に zone だけ "asia-northeast1-b" から "asia-northeast1-c" に
 
-Plan: 1 to add, 0 to change, 1 to destroy.
+Plan: 2 to add, 0 to change, 2 to destroy.
 
 $ terraform state list
 google_compute_instance.bastion["bastion-1"]
@@ -369,32 +428,40 @@ google_compute_instance.bastion["bastion-2"]
 ```
 
 <!--
-では、同じようにbastion-2のzoneをasia-northeast1-aに変更して、またplanを見てみましょう。これは期待通りになっているのではないでしょうか。名称とzoneの対応づけが必須ではない場合はこれでも良いはずですね。  
-
+またplanを見てみましょう。これは期待通りになっているのではないでしょうか。\
+これはmachine_typeも引きづられて変わっていないので安心ですね。\
 さて、状態のアドレスがどうなっているかを見てみましょうか。さっきのインデックスが数字ではなく文字列になっているのがミソです。めでたしめでたし
 -->
 
 ---
 
-# 命名アンチパターン(リソース編)
+# リソース命名アンチパターン
 
 ```hcl
 resource "resouce_type" "ここの命名規則の話" {}
 ```
 
 - 大原則: **名詞形** を使う (形容詞で装飾する場合も、自然な名詞になるように)
-- `kebab-case` ではなく `snake_case` を使う
-- 同じリソース定義が1つの場合は `main` や `default` を使う
-    - 複数ある場合は意味のある名前を使う (マジックナンバーを避ける)
+- `kebab-case` (ハイフン区切り) ではなく `snake_case` (アンダースコア区切り)を使う
+- 同じリソース定義が1つの場合は `main` や `default` を使い、複数ある場合は意味のある名前
 - 単数形を使い、リソースの型 (Type) 名を繰り返さない
+    - リソース参照する際には `resouce_type.ここの命名規則の話` のように使われる
 
 参考: [一般的なスタイルと構造に関するベスト プラクティス > 命名規則を採用する | Terraform on Google Cloud ガイド](https://cloud.google.com/docs/terraform/best-practices/general-style-structure?hl=ja#naming-convention)
+
+<!--
+命名についても触れておきます。  
+まず大前提として、小文字スネークケースの名詞形が基本です。形容詞などで補足しても自然な英語の名詞になるように心掛けましょう。
+結構悩まれる方が多いリソース名にmainやdefaultを使うか問題ですが、使っても良い場合の代表的なのは「そのファイルに同じリソースタイプ定義が1つだけ」のときです。  
+加えてリソースタイプを繰替えさないことでわかりやすく簡潔な名前になるとおもいます。
+繰替えすとダメかというと、参照するときに resouce_type の部分も書くからです。
+-->
 
 ---
 layout: code
 ---
 
-# 命名アンチパターン(リソース編): 実例
+# リソース命名アンチパターン: 実例
 
 ## <twemoji-thumbs-up /> GOOD / 推奨
 
@@ -411,27 +478,95 @@ resource "google_compute_instance" "ComputeEngine-Web1" {}
 resource "google_compute_instance" "ComputeEngine-SQLProxy" {}
 resource "google_service_account" "ServiceAccount-VerySpecialName" {}
 ```
+<!--
+では実際に例をみていきましょう。上が良いパターン、下がダメな方です。  
+大文字小文字や単語区切りはもちろん、マジックナンバーとか VerySpecialName みたいなよくわからない名前はやめてください。本当に
+アプリケーションを普段書いている人が見ると当たり前かもしれないですけど、案外こういう規則を守るのは大事ですよね。
+-->
 
 ---
 
-# 命名ベストプラクティス: モジュール編
+# モジュール設計ベストプラクティス
 
-- 大原則: **Google Cloud のプロダクト単位でモジュールを作成**
-    - `modules/vm` ではなく `modules/compute_engine`
-- 単純なリソース定義であれば Google Cloud 提供モジュールではなく自作してしまう
-    - 複雑で Google Cloud で提供されているモジュールを使用する例: ロードバランサ
+- 大原則: **Google Cloud のプロダクトカテゴリ単位でモジュール名にする**
+    - `modules/vm` や `modules/compute_engine_disk` ではなく `modules/compute_engine`
+        - NG 例 1: プロダクトカテゴリ名称ではなく `vm` や `db` のような名前
+        - NG 例 2: ただ1リソースの定義 (例: `google_compute_instance`) だけを書いている
+- モジュールディレクトリの直下は基本 `main.tf`, `variables.tf`, `outputs.tf` の3ファイルのみ
+- 単純なリソース定義で要件を満たせるなら Google Cloud 提供モジュールではなく自作する
+    - 複雑で Google Cloud で提供されているモジュールを使用する例: ロードバランサ[^1]
+
+[^1]: [Repository: `terraform-google-modules/terraform-google-lb-http` | GitHub](https://github.com/terraform-google-modules/terraform-google-lb-http)
+
+<!--
+つづいて気になっている人も多いモジュール設計・分割の話です。  
+以前AWSの話でブログに話題になっていましたが、Google Cloudでも同じことが言えます。
+書いてないですが、命名は結構さっきの話と同じだと思っていいです。  
+子モジュール(コンポーネント)は作成しないで、必要なら `components/` (モジュール外)へだしましょう。
+-->
+
+---
+layout: compare
+---
+
+# モジュール設計ベストプラクティス (実例)
+
+::left::
+
+## <twemoji-thumbs-up /> GOOD / 推奨
+
+- `environments/dev/`
+    - `providers.tf`, `main.tf`, etc...
+- `modules/`
+    - `compute_engine/`
+        - `main.tf`, `variables.tf`, `outputs.tf` (任意)
+    - `cloud_sql/` (上記と同様)
+    - `vpc_network/` (上記と同様)
+- `components/`
+    - `subnet/` ( `../compute_engine/` 同様)
+
+::right::
+
+## <twemoji-thumbs-down /> BAD / 非推奨
+
+- `environments/dev/`
+    - `providers.tf`, `main.tf`,<br />`DON'T remove.tf`
+- `modules/`
+    - `VPC_networks/`
+        - `subnets/`
+            - `main.tf`, `variables.tf`
+            - `firewalls/`
+                - `allow-ssh.tf`
+    - `compute-instances/`
+        - `alice.tf`, `bob.tf`
+
+<!--
+とても極端ですが、良い例と悪い例を挙げてみました。
+
+DON'T remove.tf なんていうファイルは論外ですが、結構ごちゃごちゃしてしまっていますね。しかも大文字小文字も区切りも揃っていないですね。\
+左側は中身も統一
+-->
 
 ---
 
-# HCL はあくまで DSL: 過度な抽象化は禁物
+# HCL はある種の DSL: 過度な抽象化は禁物
+
+DSL = Domain Specific Language (ドメイン固有言語)の略 ( `Makefile` や `.html` などが含まれる)
 
 - <twemoji-thumbs-down /> 過度な抽象化の例
     1. 抽象化の必要がない値まで変数に切り出している
     1. モジュール定義側で巨大な `list` や `map` 型の変数を受け取って `for_each` で回している
 - <twemoji-thumbs-up /> 現実的な落し所
     1. ハードコートしても構わない引数はモジュール定義側でベタ書きする
-    1. モジュール **定義側では単一のリソースのみ** を宣言する
+    1. モジュール定義側では **同じタイプの複数リソースを作成しない**
         1. 必要な要素(リソースに渡す引数)ごとに `variables.tf` に書き、使用する場所で繰り返す
+
+<!--
+開発編の最後に、これを言っておきます。
+
+普段アプリケーション書いている人はやりたくなっちゃうかもしれないですけど...\
+誤解をおそれず言うと、そんなに表現力の高い言語じゃないのでDon't Repeat Yourselfのしすぎは良くないって話です。
+-->
 
 ---
 layout: section-green
@@ -440,6 +575,31 @@ layout: section-green
 # 運用編
 
 ## 転ばぬ先の Tips あれこれ
+
+<!--
+はい、おまたせしました。ここからは実際に運用していくための色々を話せればと思います。
+-->
+
+---
+
+# 勝手にリソース変更された!? でも慌てないで
+
+勝手に **コンソールでリソースの一部を変更** されてしまい、Apply でコケる <twemoji-fearful-face />  
+リソースの一部 = GCE のマシンタイプや Cloud Run の環境変数など
+
+## 対応方法
+
+1. 一旦対象のリソースを `terraform state rm` で管理下から外す
+1. Terraform コードの該当箇所を修正
+1. 管理下から外したリソースを `terraform import` で戻す
+1. 再度 `terraform plan` で差分に問題ないことを確認
+
+<!--
+次もよくある「知らないところでリソース変更された」問題です。
+
+これも落ち着いて対処すれば問題なく、安全に実際の設定を変えることなく更新できます。\
+マネージャー層の方々向けに言っておくと、だからといって雑にコンソールで設定変更しちゃダメですよ(苦笑)
+-->
 
 ---
 
@@ -456,6 +616,14 @@ Terraform 側では最終的な **イメージ名や sha256 ハッシュを指�
 = Build & Push 後に更新(イメージ指定)だけ実施するような自動デプロイを構成[^1]
 
 [^1]: [プルリクエストをトリガとするCloud Runのプレビュー環境自動デプロイを実装してみた | G-gen Tech Blog](https://blog.g-gen.co.jp/entry/deploy-preview-using-cloud-run-tagged-revision)
+
+<!--
+次に、結構悩んでいる人も多そうな「どこまでTerraformで自動デプロイ管理するか」問題です。
+
+AWS の ECS だと結構認知されてきているような気がしますけど、基本的な考え方は同じです。\
+Cloud Run や GKE の構成と、GitHub ActionsとかCloud Buildの自動デプロイを組むところまではTerraformでよいです。\
+自動デプロイ側でイメージ名やハッシュは指定できるわけですから、そっち側で注入してやりましょう。
+-->
 
 ---
 layout: code
@@ -478,6 +646,12 @@ resource "google_cloud_run_v2_service" "backend" {
   }
 }
 ```
+<!--
+実際のTerraformの方はこうなります。  
+ミソはイメージで中身のない単純なもの(cloudrun/hello)とリビジョンを指定しないで、\
+バージョンとイメージもTerraformで変更を検知しないように明示することです。
+-->
+
 
 ---
 layout: code
@@ -502,20 +676,13 @@ substitutions:
   _IMAGE_REPO: asia-northeast1-docker.pkg.dev/my-project/backend/runner
   _SERVICE: my-project-backend
 ```
+<!--
+ではCloud Buildの例で自動デプロイの構成をみてみます。
 
----
-
-# 勝手にリソース変更された!? でも慌てないで
-
-勝手に **コンソールでリソースの一部を変更** されてしまい、Apply でコケる <twemoji-fearful-face />  
-リソースの一部 = GCE のマシンタイプや Cloud Run の環境変数など
-
-## 対応方法
-
-1. 一旦対象のリソースを `terraform state rm` で管理下から外す
-1. Terraform コードの該当箇所を修正
-1. 管理下から外したリソースを `terraform import` で戻す
-1. 再度 `terraform plan` で差分に問題ないことを確認
+ここもミソはビルド完了を待って、自動的に決定される `$_SHORT_SHA` 変数を使ってプッシュしてから、\
+Cloud Runサービス側の更新をかけています。\
+こうすることでTerraformでは構成管理だけに集中して、アプリケーションのデプロイという責務と分離させることができます。
+-->
 
 ---
 
@@ -528,9 +695,16 @@ substitutions:
 
 ## 解決策
 
-**`terraform state mv` [^1]を理解** する。tfstate 内の **アドレス名を変える**
+**`terraform state mv` [^1] を理解** する。tfstate 内の **アドレス名を変える**
 
 [^1]: [Manage resources in Terraform state > Move a resource to a different state file | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/tutorials/state/state-cli#move-a-resource-to-a-different-state-file)
+
+<!--
+つづいて、これも苦手というか食わずぎらいしている人も多いリファクタリングです。いくらベストプラクティスまもっていても避けられないです。
+
+ベースの考え方は最初に話した「勝手に変更された」ときと同じです。\
+ではひとつずつみていきましょう。
+-->
 
 ---
 layout: code
@@ -542,13 +716,13 @@ layout: code
 $ git diff compute_engine.tf
 @@ -4,7 +4,7 @@
 
--resource "google_compute_instance" "bastion" {
+-resource "google_compute_instance" "VerySpecialName" {
 +resource "google_compute_instance" "default" {
    for_each = local.bastions
 
 $ terraform plan
 ... (中略、以下抜粋)
-  # google_compute_instance.bastion["bastion-1"] will be destroyed
+  # google_compute_instance.VerySpecialName["bastion-1"] will be destroyed
   # google_compute_instance.default["bastion-1"] will be created
 
 Plan: 1 to add, 0 to change, 1 to destroy.
@@ -560,14 +734,17 @@ layout: code
 
 ## 実際に tfstate のアドレスを移動させる <twemoji-delivery-truck />
 
-```{all|1-2|4-9}
+```{all|1-3|4-7|9-12}
 $ terraform state list
-google_compute_instance.bastion["bastion-1"]
+google_compute_instance.VerySpecialName["bastion-1"]
+google_compute_instance.VerySpecialName["bastion-2"]
 
 $ terraform state mv \
-    'google_compute_instance.bastion["bastion-1"]' \
+    'google_compute_instance.VerySpecialName["bastion-1"]' \
     'google_compute_instance.default["bastion-1"]'
-Move "google_compute_instance.bastion[\"bastion-1\"]"
+
+... (中略、以下抜粋)
+Move "google_compute_instance.VerySpecialName[\"bastion-1\"]"
   to "google_compute_instance.default[\"bastion-1\"]"
 Successfully moved 1 object(s).
 ```
@@ -592,11 +769,48 @@ Terraform has compared your real infrastructure against your configuration
 
 ---
 
-# コードレビューを快適に実施するために
+# コードレビュー: よくある課題 1
 
-## 悩み・課題
+## フォーマットの指摘
 
-アプリケーション開発と同じように静的解析などを CI 実行させたいが、どんなのが良いか? <twemoji-face-with-monocle />
+```hcl
+resource "google_compute_instance" "bastion" {
+  name = "bastion-1"
+  zone = "asia-northeast1-b"
+  machine_type = "e2-micro"
+}
+```
+
+レビュワー「イコールの後のスペースは連続行の長いところに揃えなきゃダメじゃない?」  
+レビュイー「でも(マージされている)他の場所はこのスタイルでやってますよ <twemoji-face-with-monocle />」
+
+<!--
+最後はコードレビューの話です。こんなやりとり、嫌ですよね
+-->
+
+---
+
+# コードレビュー: よくある課題 2
+
+## コメントに実行計画 (Plan の差分)を貼って欲しい
+
+レビュワー「`terraform plan` を手元で実行した結果を貼ってください」\
+レビュイー「はい、これです (コードブロックを貼る)」\
+レビュワー「`google_compute_instance.default["bastion-1"]` の `machine_type` が違うよ」\
+レビュイー「(commit, push して) はい、直しました」\
+レビュワー「じゃあまた `terraform plan` を手元で実行した結果を貼ってくれる?」
+
+**=> 両者「面倒なコメント往復だな...」**
+
+<!--
+このplan差分を一々出すのも面倒ですよね。しかも結果をコピペして目視確認ヨシ! ってなんか前時代的ですよね。
+-->
+---
+
+# コードレビュー: あるべき姿は?
+
+アプリケーション開発と同じように **フォーマット確認、静的解析などを CI で実行**\
+\+ **Plan の差分も自動的に出力** できればベストでは...?
 
 ## 答え: 標準コマンド編
 
@@ -605,6 +819,11 @@ Terraform has compared your real infrastructure against your configuration
 
 [^1]: [Terraform CLI > Command: validate | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/cli/commands/validate)
 [^2]: [Terraform CLI > Command: fmt | Terraform (Hashcorp Developer)](https://developer.hashicorp.com/terraform/cli/commands/fmt)
+
+<!--
+そうです。現代の我々はCI/CDという利器がありますから、これを使っていけばいいんです。\
+ご存知の方々もいると思いますが、標準コマンドでもフォーマット実行と基本的な文法チェックをしてくれるんですよね。
+-->
 
 ---
 
@@ -619,6 +838,35 @@ Terraform has compared your real infrastructure against your configuration
 [^1]: <https://github.com/terraform-linters/tflint>
 [^2]: <https://github.com/aquasecurity/tfsec>
 [^3]: <https://github.com/suzuki-shunsuke/tfcmt>
+
+<!--
+アプリケーション畑の人なら、もっと高度に静的解析したりしたいと思うかもしれません。それもできます。\
+それにセキュリティ的にまずいことをやっていないかという検出もできます。\
+具体的な例はあとで紹介しますが、デフォルト サービスアカウントに強い権限渡しちゃっているとかを教えてくれます。
+-->
+
+---
+layout: compare
+---
+
+# 実際の動作例スクショ
+
+::left::
+
+## tfsec
+
+<img src="/tfsec.png" />
+
+::right::
+
+## tfcmt
+
+<img src="/tfcmt.png" />
+
+<!--
+ちょっとtfsecとtfcmtはイメージつきにくいと思うので分かりやすい実際の動作例スクショを貼っておきます。
+こんな感じでtfsecのほうはプルリクにレビューしてくれて、tfcmtのほうはコメントで計画を教えてくれます。
+-->
 
 ---
 layout: code
@@ -645,7 +893,7 @@ layout: code
 
 ## GHA 実装例: tflint / tfsec
 
-```yaml{all|2|6-10|12-14|15-16}
+```yaml
 jobs:
   tflint:
     permissions: {contents: read, id-token: write, pull-request: write}
@@ -715,4 +963,10 @@ layout: refs
 
 ---
 
-# Thank You
+# G-gen Tech Blog あります
+
+- Google Cloud
+
+---
+layout: thanks
+---

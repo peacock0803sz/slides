@@ -1,12 +1,12 @@
 <template>
-  <div class="slidev-layout objective">
+  <div class="slidev-layout thanks">
     <slot />
   </div>
 </template>
 
 <style lang="postcss">
-.slidev-layout.objective {
-  background-image: url("../assets/objective.svg");
+.slidev-layout.thanks {
+  background-image: url("../assets/thanks.svg");
 
   padding-top: 40px;
   padding-left: 50px;
