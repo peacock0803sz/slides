@@ -27,7 +27,7 @@
     }
   },
   "dependencies": {
-    "@slidev/cli": "catalog:"
+    "@slidev/cli": "^51.2.2"
   },
   "devDependencies": {
     "playwright-chromium": "catalog:"

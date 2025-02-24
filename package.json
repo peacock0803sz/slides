@@ -7,10 +7,6 @@
     "build": "pnpm run --workspace-concurrency 2 -r build",
     "export:cover": "pnpm run -r export:cover"
   },
-  "dependencies": {
-    "@iconify-json/twemoji": "^1.2.2",
-    "@slidev/cli": "catalog:"
-  },
   "devDependencies": {
     "playwright-chromium": "catalog:"
   },

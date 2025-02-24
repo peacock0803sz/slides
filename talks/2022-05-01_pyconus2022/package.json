@@ -11,8 +11,10 @@
     "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
-    "@slidev/cli": "catalog:",
-    "@slidev/theme-bricks": "0.0.2"
+    "@slidev/cli": "^0.36.9",
+    "@iconify-json/twemoji": "^1.1.12",
+    "@slidev/theme-bricks": "0.0.2",
+    "@slidev/types": "^0.36.9"
   },
   "devDependencies": {
     "playwright-chromium": "catalog:"

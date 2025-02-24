@@ -11,7 +11,8 @@
     "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
-    "@slidev/cli": "catalog:"
+    "@peacock0803sz/theme-simple": "workspace:*",
+    "@slidev/cli": "^0.49.25"
   },
   "devDependencies": {
     "playwright-chromium": "catalog:"

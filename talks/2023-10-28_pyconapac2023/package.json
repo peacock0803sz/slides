@@ -12,9 +12,11 @@
     "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
-    "@slidev/cli": "catalog:"
+    "@slidev/cli": "^0.43.7",
+    "@iconify-json/twemoji": "^1.1.5",
+    "@peacock0803sz/theme-watercolors": "workspace:*"
   },
   "devDependencies": {
-    "playwright-chromium": "catalog:"
+    "@slidev/types": "^0.43.7"
   }
 }
