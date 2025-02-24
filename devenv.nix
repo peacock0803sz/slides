@@ -2,6 +2,7 @@
 
 {
   # https://devenv.sh/basics/
+  cachix.enable = false;
   env.GREET = "slides";
 
   # https://devenv.sh/packages/
