@@ -8,9 +8,9 @@
     "format": "slidev format slides.md",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-intro-202502.pdf",
     "build:html": "slidev build --base /nix-intro-202502/",
-    "prebuild:cover": "mkdir -p slides-export",
-    "build:cover": "slidev export --format png",
-    "postbuild:cover": "mv slides-export/1.png dist/cover.png"
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
     "@slidev/cli": "catalog:"

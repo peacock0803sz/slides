@@ -7,9 +7,9 @@
     "build:html": "slidev build slides.md --base /pyconus2022/",
     "dev": "slidev slides.md",
     "export": "slidev export slides.md --output ./dist/pyconus2022.pdf",
-    "prebuild:cover": "mkdir -p slides-export",
-    "build:cover": "slidev export --format png",
-    "postbuild:cover": "mv slides-export/1.png dist/cover.png"
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
     "@slidev/cli": "catalog:",

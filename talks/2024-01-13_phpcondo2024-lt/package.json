@@ -8,9 +8,9 @@
     "dev": "slidev slides.md",
     "format": "slidev format slides.md",
     "export": "slidev export slides.md --output ./dist/phpcondo2024-lt.pdf",
-    "prebuild:cover": "mkdir -p slides-export",
-    "build:cover": "slidev export --format png",
-    "postbuild:cover": "mv slides-export/1.png dist/cover.png"
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
     "@slidev/cli": "catalog:"
