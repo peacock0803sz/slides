@@ -1,0 +1,16 @@
+{
+  "name": "techtalk-2021-05",
+  "version": "0.9.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:pdf && npm run build:pptx",
+    "build:pdf": "marp --pdf --allow-local-files --output ../../out/ -I ./",
+    "build:pptx": "marp --pptx --allow-local-files --output ../../out/ -I ./",
+    "build": "marp --allow-local-files --output ../../dist/techtalk-2021-05 -I ./ && cp -r images ../../dist/techtalk-2021-05/images",
+    "dev": "marp -swp --allow-local-files -I ../../"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^1.1.1"
+  },
+  "license": "MIT"
+}
