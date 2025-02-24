@@ -16,7 +16,7 @@
     enable = true;
     corepack.enable = true;
     pnpm.enable = true;
-    package = pkgs.nodejs_20;
+    package = pkgs.nodejs_22;
   };
 
   # https://devenv.sh/processes/

@@ -1,7 +1,17 @@
 {
-  "name": "slidev-slides",
+  "name": "slides",
   "private": true,
+  "scripts": {
+    "build": "pnpm run /^build:*/",
+    "build:html": "pnpm run -r build:html",
+    "build:cover": "pnpm run -r build:cover --wait 36000000",
+    "postbuild": "pnpm run -r postbuild"
+  },
   "dependencies": {
-    "playwright-chromium": "^1.27.1"
+    "@iconify-json/twemoji": "^1.2.2",
+    "@slidev/cli": "catalog:"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
   }
 }

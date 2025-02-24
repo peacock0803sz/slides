@@ -1,18 +1,20 @@
 {
-  "name": "python-toolchains-astral",
+  "name": "nix-meetup2",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "pnpm run /^build:*/",
+    "postbuild": "mv ./dist ../../dist/nix-meetup2",
     "dev": "slidev",
-    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/python-toolchains-astral.pdf",
-    "build:aws": "slidev build --base /python-toolchains-astral/",
-    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rmdir dist/_img"
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-meetup2.pdf",
+    "build:html": "slidev build --base /nix-meetup2/",
+    "prebuild:cover": "mkdir -p slides-export",
+    "build:cover": "slidev export --format png",
+    "postbuild:cover": "mv slides-export/1.png dist/cover.png"
   },
   "dependencies": {
-    "@peacock0803sz/theme-g-gen": "workspace:*",
-    "@slidev/cli": "^51.1.0"
+    "@slidev/cli": "catalog:"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.50.0"
+    "playwright-chromium": "catalog:"
   }
 }

@@ -2,16 +2,20 @@
   "name": "pyconus2022",
   "private": true,
   "scripts": {
-    "build": "slidev build pyconus2022.md",
-    "build:aws": "slidev build pyconus2022.md --base /pyconus2022/",
-    "dev": "slidev pyconus2022.md",
-    "export": "slidev export pyconus2022.md --output ./dist/pyconus2022.pdf",
-    "render:cover": "slidev export pyconus2022.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rm -rf dist/_img"
+    "build": "pnpm run /^build:*/",
+    "postbuild": "mv ./dist ../../dist/pyconus2022",
+    "build:html": "slidev build slides.md --base /pyconus2022/",
+    "dev": "slidev slides.md",
+    "export": "slidev export slides.md --output ./dist/pyconus2022.pdf",
+    "prebuild:cover": "mkdir -p slides-export",
+    "build:cover": "slidev export --format png",
+    "postbuild:cover": "mv slides-export/1.png dist/cover.png"
   },
   "dependencies": {
-    "@slidev/cli": "^0.36.9",
-    "@iconify-json/twemoji": "^1.1.12",
-    "@slidev/theme-bricks": "0.0.2",
-    "@slidev/types": "^0.36.9"
+    "@slidev/cli": "catalog:",
+    "@slidev/theme-bricks": "0.0.2"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
   }
 }

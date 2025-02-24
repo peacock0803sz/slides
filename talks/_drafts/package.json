@@ -4,14 +4,14 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev",
-    "format": "slidev format"
+    "format": "slidev format",
+    "build:html": "echo 'No build:html script specified'",
+    "build:cover": "echo 'No build:cover script specified'"
   },
   "dependencies": {
-    "@iconify-json/twemoji": "^1.1.15",
-    "@peacock0803sz/theme-watercolors": "workspace:*",
-    "@slidev/cli": "^0.46.3"
+    "@slidev/cli": "catalog:"
   },
   "devDependencies": {
-    "@slidev/types": "^0.46.3"
+    "playwright-chromium": "catalog:"
   }
 }

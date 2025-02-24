@@ -2,19 +2,20 @@
   "name": "phpcondo2024-lt",
   "private": true,
   "scripts": {
-    "build": "slidev build slides.md",
-    "build:aws": "slidev build slides.md --base /phpcondo2024-lt/",
+    "build": "pnpm run /^build:*/",
+    "postbuild": "mv ./dist ../../dist/phpcondo2024-lt",
+    "build:html": "slidev build slides.md --base /phpcondo2024-lt/",
     "dev": "slidev slides.md",
     "format": "slidev format slides.md",
     "export": "slidev export slides.md --output ./dist/phpcondo2024-lt.pdf",
-    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
+    "prebuild:cover": "mkdir -p slides-export",
+    "build:cover": "slidev export --format png",
+    "postbuild:cover": "mv slides-export/1.png dist/cover.png"
   },
   "dependencies": {
-    "@iconify-json/twemoji": "^1.1.15",
-    "@peacock0803sz/theme-watercolors": "workspace:*",
-    "@slidev/cli": "^0.46.1"
+    "@slidev/cli": "catalog:"
   },
   "devDependencies": {
-    "@slidev/types": "^0.46.1"
+    "playwright-chromium": "catalog:"
   }
 }
