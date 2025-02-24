@@ -15,7 +15,7 @@
   # languages.rust.enable = true;
   languages.javascript = {
     enable = true;
-    corepack.enable = true;
+    corepack.enable = false;
     pnpm.enable = true;
     package = pkgs.nodejs_22;
   };
