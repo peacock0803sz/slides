@@ -1,5 +1,6 @@
 {
   "name": "slides",
+  "packageManager": "pnpm@10.4.1",
   "private": true,
   "scripts": {
     "build": "pnpm run /^build:*/",
@@ -13,5 +14,12 @@
   },
   "devDependencies": {
     "playwright-chromium": "catalog:"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "playwright-chromium",
+      "vue-demi"
+    ]
   }
 }
