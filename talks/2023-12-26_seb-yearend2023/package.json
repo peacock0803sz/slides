@@ -9,7 +9,7 @@
     "export": "slidev export slides.md --output ./dist/seb_yearend2023.pdf",
     "preexport:cover": "mkdir -p slides-export public",
     "export:cover": "slidev export --format png",
-    "postexport:cover": "mv slides-export/1.png public/cover.png"
+    "postexport:cover": "mv slides-export/001.png public/cover.png"
   },
   "dependencies": {
     "@iconify-json/twemoji": "^1.1.15",

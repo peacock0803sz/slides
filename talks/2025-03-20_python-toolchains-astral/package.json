@@ -11,6 +11,7 @@
     "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
+    "@peacock0803sz/theme-g-gen": "workspace:*",
     "@slidev/cli": "^51.2.2"
   },
   "devDependencies": {
