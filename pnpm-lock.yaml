@@ -17,6 +17,9 @@ importers:
       playwright-chromium:
         specifier: 'catalog:'
         version: 1.50.1
+      vite-plugin-radar:
+        specifier: ^0.10.0
+        version: 0.10.0(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.0))
 
   talks/2021-05-07_techtalk-2021-05:
     devDependencies:
@@ -195,7 +198,7 @@ importers:
         specifier: 'catalog:'
         version: 1.50.1
 
-  talks/2025-03-09-nix-meetup2:
+  talks/2025-03-09_nix-meetup2:
     dependencies:
       '@peacock0803sz/theme-simple':
         specifier: workspace:*
@@ -5724,6 +5727,11 @@ packages:
     peerDependenciesMeta:
       '@nuxt/kit':
         optional: true
+
+  vite-plugin-radar@0.10.0:
+    resolution: {integrity: sha512-PRApileUv7I+bInGbrQM9LvxvrFHELRvyO5yAodGwIgQBRID/hOPqx0pz7VBWFAcPNjJJVAp/LuT1417BuE/9g==}
+    peerDependencies:
+      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
 
   vite-plugin-remote-assets@0.3.2:
     resolution: {integrity: sha512-E0xS2fHpoJffpsU4W82XDaBRxx2Yh4Zwl4Q668V/HXa/b0nNDaQyo5ff5tS6D4pwGBVuAKlGYyUEE63P/RfiwA==}
@@ -13330,6 +13338,10 @@ snapshots:
       '@nuxt/kit': 3.15.4
     transitivePeerDependencies:
       - supports-color
+
+  vite-plugin-radar@0.10.0(vite@6.1.1(@types/node@22.13.5)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.0)):
+    dependencies:
+      vite: 6.1.1(@types/node@22.13.5)(jiti@2.4.2)(tsx@4.19.3)(yaml@2.7.0)
 
   vite-plugin-remote-assets@0.3.2(vite@3.2.11(@types/node@22.13.5)):
     dependencies:
