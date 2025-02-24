@@ -2,11 +2,13 @@
   "name": "pycontw2023",
   "private": true,
   "scripts": {
-    "build": "slidev build pycontw2023.md",
-    "build:aws": "slidev build pycontw2023.md --base /pycontw2023/",
-    "dev": "slidev pycontw2023.md",
-    "export": "slidev export pycontw2023.md --output ./dist/pycontw2023.pdf",
-    "render:cover": "slidev export pycontw2023.md --format png --range 1 --output dist/_img/ && mv dist/_img/001.png dist/cover.png && rmdir dist/_img"
+    "postbuild": "mv ./dist ../../dist/pycontw2023",
+    "build": "slidev build slides.md --base /pycontw2023/",
+    "dev": "slidev slides.md",
+    "export": "slidev export slides.md --output ./dist/pycontw2023.pdf",
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/001.png public/cover.png"
   },
   "dependencies": {
     "@slidev/cli": "^0.43.7",
@@ -14,6 +16,7 @@
     "@peacock0803sz/theme-watercolors": "workspace:*"
   },
   "devDependencies": {
-    "@slidev/types": "^0.43.7"
+    "@slidev/types": "^0.43.7",
+    "playwright-chromium": "catalog:"
   }
 }

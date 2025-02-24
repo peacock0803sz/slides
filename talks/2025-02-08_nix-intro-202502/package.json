@@ -2,18 +2,20 @@
   "name": "nix-intro-202502",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build --base /nix-intro-202502/",
+    "postbuild": "mv ./dist ../../dist/nix-intro-202502",
     "dev": "slidev",
     "format": "slidev format slides.md",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-intro-202502.pdf",
-    "build:aws": "slidev build --base /nix-intro-202502/",
-    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rm -rf dist/_img"
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
     "@peacock0803sz/theme-simple": "workspace:*",
     "@slidev/cli": "^51.1.0"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.50.1"
+    "playwright-chromium": "catalog:"
   }
 }

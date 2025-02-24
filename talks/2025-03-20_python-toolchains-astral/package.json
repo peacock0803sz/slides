@@ -2,17 +2,19 @@
   "name": "python-toolchains-astral",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build --base /python-toolchains-astral/",
+    "postbuild": "mv ./dist ../../dist/python-toolchains-astral",
     "dev": "slidev",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/python-toolchains-astral.pdf",
-    "build:aws": "slidev build --base /python-toolchains-astral/",
-    "render:cover": "slidev export slides.md --format png --range 1 --output dist/_img/ && mv dist/_img/1.png dist/cover.png && rmdir dist/_img"
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
   "dependencies": {
     "@peacock0803sz/theme-g-gen": "workspace:*",
-    "@slidev/cli": "^51.1.0"
+    "@slidev/cli": "^51.2.2"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.50.0"
+    "playwright-chromium": "catalog:"
   }
 }
