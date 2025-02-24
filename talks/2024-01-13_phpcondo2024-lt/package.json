@@ -2,9 +2,8 @@
   "name": "phpcondo2024-lt",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
     "postbuild": "mv ./dist ../../dist/phpcondo2024-lt",
-    "build:html": "slidev build slides.md --base /phpcondo2024-lt/",
+    "build": "slidev build slides.md --base /phpcondo2024-lt/",
     "dev": "slidev slides.md",
     "format": "slidev format slides.md",
     "export": "slidev export slides.md --output ./dist/phpcondo2024-lt.pdf",

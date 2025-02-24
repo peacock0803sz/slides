@@ -2,9 +2,8 @@
   "name": "pyconus2022",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
+    "build": "slidev build slides.md --base /pyconus2022/",
     "postbuild": "mv ./dist ../../dist/pyconus2022",
-    "build:html": "slidev build slides.md --base /pyconus2022/",
     "dev": "slidev slides.md",
     "export": "slidev export slides.md --output ./dist/pyconus2022.pdf",
     "preexport:cover": "mkdir -p slides-export public",

@@ -3,7 +3,8 @@
   "packageManager": "pnpm@10.4.1",
   "private": true,
   "scripts": {
-    "build": "pnpm run -r build",
+    "prebuild": "rm -rf dist && mkdir -p dist",
+    "build": "pnpm run --workspace-concurrency 2 -r build",
     "export:cover": "pnpm run -r export:cover"
   },
   "dependencies": {

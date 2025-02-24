@@ -2,11 +2,10 @@
   "name": "nix-meetup2",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
+    "build": "slidev build --base /nix-meetup2/",
     "postbuild": "mv ./dist ../../dist/nix-meetup2",
     "dev": "slidev",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-meetup2.pdf",
-    "build:html": "slidev build --base /nix-meetup2/",
     "preexport:cover": "mkdir -p slides-export public",
     "export:cover": "slidev export --format png",
     "postexport:cover": "mv slides-export/1.png public/cover.png"

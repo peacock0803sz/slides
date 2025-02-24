@@ -2,11 +2,10 @@
   "name": "odc2024",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
+    "build": "slidev build --base /odc2024/",
     "postbuild": "mv ./dist ../../dist/odc2024",
     "dev": "slidev",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/odc2024.pdf",
-    "build:html": "slidev build --base /odc2024/",
     "preexport:cover": "mkdir -p slides-export public",
     "export:cover": "slidev export --format png",
     "postexport:cover": "mv slides-export/1.png public/cover.png"

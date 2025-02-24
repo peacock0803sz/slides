@@ -2,11 +2,10 @@
   "name": "python-toolchains-astral",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
+    "build": "slidev build --base /python-toolchains-astral/",
     "postbuild": "mv ./dist ../../dist/python-toolchains-astral",
     "dev": "slidev",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/python-toolchains-astral.pdf",
-    "build:html": "slidev build --base /python-toolchains-astral/",
     "preexport:cover": "mkdir -p slides-export public",
     "export:cover": "slidev export --format png",
     "postexport:cover": "mv slides-export/1.png public/cover.png"

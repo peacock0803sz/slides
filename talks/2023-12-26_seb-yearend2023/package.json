@@ -2,9 +2,8 @@
   "name": "seb_yearend2023",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
     "postbuild": "mv ./dist ../../dist/seb_yearend2023",
-    "build:html": "slidev build slides.md --base /seb_yearend2023/",
+    "build": "slidev build slides.md --base /seb_yearend2023/",
     "dev": "slidev slides.md",
     "format": "slidev format slides.md",
     "export": "slidev export slides.md --output ./dist/seb_yearend2023.pdf",

@@ -2,11 +2,10 @@
   "name": "nix-intro-202408",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
+    "build": "slidev build --base /nix-intro-202408/",
     "postbuild": "mv ./dist ../../dist/nix-intro-202408",
     "dev": "slidev",
     "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/nix-intro-202408.pdf",
-    "build:html": "slidev build --base /nix-intro-202408/",
     "preexport:cover": "mkdir -p slides-export public",
     "export:cover": "slidev export --format png",
     "postexport:cover": "mv slides-export/1.png public/cover.png"

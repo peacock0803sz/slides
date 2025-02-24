@@ -2,9 +2,8 @@
   "name": "pycontw2023",
   "private": true,
   "scripts": {
-    "build": "pnpm run /^build:*/",
     "postbuild": "mv ./dist ../../dist/pycontw2023",
-    "build:html": "slidev build slides.md --base /pycontw2023/",
+    "build": "slidev build slides.md --base /pycontw2023/",
     "dev": "slidev slides.md",
     "export": "slidev export slides.md --output ./dist/pycontw2023.pdf",
     "preexport:cover": "mkdir -p slides-export public",
