@@ -569,6 +569,14 @@ DSL = Domain Specific Language (ドメイン固有言語)の略 ( `Makefile` や
 -->
 
 ---
+layout: g-gen
+---
+
+<!--
+休憩しつつ弊社についての紹介を掲載しておきます。
+-->
+
+---
 layout: section-green
 ---
 
@@ -962,10 +970,24 @@ layout: refs
 - [Repository: `suzuki-shunsuke/tfcmt` | GitHub](https://github.com/suzuki-shunsuke/tfcmt)
 
 ---
+layout: blog
+---
 
-# G-gen Tech Blog あります
+<img src="/blog.png" />
 
-- Google Cloud
+# G-gen Tech Blog: <https://blog.g-gen.co.jp>
+
+本セッションの **解説記事も後日公開予定**
+
+## 関連記事
+
+- <img src="/create-direct-workload-identity-for-gha-terraform.png" />[Google CloudとGitHub Actions(Terraform)を連携するDirect Workload Identityを作成するbashスクリプト (2024-12-11)](https://blog.g-gen.co.jp/entry/create-direct-workload-identity-for-gha-terraform)
+- <img src="/using-terraform-via-github-actions.png" />[GitHub Actions を使って Google Cloud 環境に Terraform を実行する方法 (2023-01-23)](https://blog.g-gen.co.jp/entry/using-terraform-via-cloud-build)
+
+<!--
+さいごに、本セッションに関連する弊社ブログの記事を紹介しておきます。  
+今回のフォローアップとして解説記事も考えておりますので、是非ウォッチしていただけると嬉しいです
+-->
 
 ---
 layout: thanks
