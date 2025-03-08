@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .slidev-layout:not(.override) {
-  background-image: linear-gradient(to right,
-      rgba(239, 239, 239, 75%),
-      rgba(239, 239, 239, 75%)),
-    url("../assets/nix-wallpaper-nineish-catppuccin-latte.png");
+  background-image: url("../assets/nix-wallpaper-nineish-catppuccin-latte.png");
   background-size: cover;
   font-size: 24px;
 }
@@ -13,7 +10,11 @@
   font-family: "Noto Sans", "Noto Sans JP", sans-serif;
   font-weight: 400;
   font-size: 24px;
-  color: #333333;
+  color: #222;
+}
+
+.slidev-layout:not(.override) p {
+  line-height: 1.5;
 }
 
 .slidev-layout:not(.override) h1>code,
@@ -39,12 +40,14 @@ h6>code {
 }
 
 .slidev-layout:not(.override) h1 {
+  color: #415e9a;
   margin-bottom: 1.5rem;
   font-size: 36px;
   font-weight: 700;
 }
 
 .slidev-layout:not(.override) h2 {
+  color: #4a6baf;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 36px;
@@ -55,6 +58,10 @@ h6>code {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-size: 36px;
+  font-weight: 700;
+}
+
+.slidev-layout:not(.override) strong {
   font-weight: 700;
 }
 
