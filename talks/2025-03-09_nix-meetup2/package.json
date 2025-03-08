@@ -10,6 +10,20 @@
     "export:cover": "slidev export --format png",
     "postexport:cover": "mv slides-export/1.png public/cover.png"
   },
+  "slidev": {
+    "colorSchema": "light",
+    "highlighter": "shiki",
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 960,
+      "presenter": "dev",
+      "fonts": {
+        "mono": "Roboto Mono",
+        "sans": "Roboto,Noto Sans Japanese",
+        "local": "Roboto,Noto Sans Japanese"
+      }
+    }
+  },
   "dependencies": {
     "@peacock0803sz/theme-simple": "workspace:*",
     "@slidev/cli": "^51.1.0"

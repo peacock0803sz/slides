@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.slidev-layout:not(.override) {
+  background-image: linear-gradient(to right,
+      rgba(239, 239, 239, 75%),
+      rgba(239, 239, 239, 75%)),
+    url("../assets/nix-wallpaper-nineish-catppuccin-latte.png");
+  background-size: cover;
+  font-size: 24px;
+}
+
+.slidev-layout:not(.override) * {
+  font-family: "Noto Sans", "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #333333;
+}
+
+.slidev-layout:not(.override) h1>code,
+h2>code {
+  font-weight: 500 !important;
+}
+
+.slidev-layout:not(.override) h3>code,
+h4>code,
+h5>code,
+h6>code {
+  font-weight: 400 !important;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+}
+
+.slidev-layout:not(.override) code {
+  font-family: "Noto Sans Mono", monospace;
+  font-weight: 450 !important;
+  padding: 0px 0px !important;
+  margin: 0px 2.5px !important;
+  background-color: rgba(239, 239, 239, 0) !important;
+}
+
+.slidev-layout:not(.override) h1 {
+  margin-bottom: 1.5rem;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.slidev-layout:not(.override) h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.slidev-layout:not(.override) h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.slidev-layout:not(.override) blockquote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.slidev-layout:not(.override) pre>code {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.slidev-layout:not(.override) footer {
+  font-size: 16px;
+}
+
+.slidev-layout:not(.override) a {
+  font-size: inherit;
+}
