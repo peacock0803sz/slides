@@ -2,7 +2,7 @@
 
 {
   # https://devenv.sh/basics/
-  cachix.enable = false;
+  # cachix.enable = false;
   env.GREET = "slides";
 
   # https://devenv.sh/packages/
@@ -16,7 +16,10 @@
   languages.javascript = {
     enable = true;
     corepack.enable = true;
-    pnpm.enable = true;
+    pnpm = {
+      enable = true;
+      install.enable = true;
+    };
     package = pkgs.nodejs_22;
   };
 
