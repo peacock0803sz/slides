@@ -103,6 +103,17 @@ layout: section
 1. Cosenseページに気づいたことを色々書いていく
 
 ---
+
+# PyCon JP 2025 宣伝
+
+<https://2025.pycon.jp>
+
+- カンファレンス: 2025-09-26(Fri), 27(Sat) @広島国際会議場
+- [主催メンバー(スタッフ)募集中](https://pyconjp.blogspot.com/2024/12/call-for-organizing-members-ja.html)!!
+
+![](/PyConJP2025.png)
+
+---
 layout: section
 ---
 
