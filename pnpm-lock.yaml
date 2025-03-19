@@ -201,7 +201,7 @@ importers:
         specifier: 'catalog:'
         version: 1.50.1
 
-  talks/2025-03-20_python-toolchains-astral:
+  talks/2025-03-20-techtalk-2025-03:
     dependencies:
       '@peacock0803sz/theme-g-gen':
         specifier: workspace:*
