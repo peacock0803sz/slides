@@ -2,29 +2,29 @@
 
 .slidev-layout:not(.override) {
   @apply text-ggen-gray1;
-  padding-top: 0px;
-  padding-left: 50px;
-  font-size: 18px;
+  padding-top: 30px;
+  padding-left: 80px;
+  font-size: 16pt;
   font-weight: 400;
 }
 
 .slidev-layout:not(.override) h1 {
   @apply text-ggen-primary;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 24pt;
   line-height: 0.9;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
 }
 
 .slidev-layout:not(.override) h2 {
   @apply text-ggen-primary;
   font-weight: 600;
-  font-size: 12px;
-  margin-bottom: -5px;
+  font-size: 10pt;
+  margin-bottom: 2px;
 }
 
 .slidev-layout:not(.override) li {
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .slidev-layout:not(.override) strong {

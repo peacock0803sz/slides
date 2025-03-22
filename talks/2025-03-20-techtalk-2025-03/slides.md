@@ -1,8 +1,7 @@
 ---
 theme: "../../themes/g-gen"
-titleTemplate: ""
 favicon: https://g-gen.co.jp/favicon.ico
-layout: title
+layout: cover
 lineNumbers: true
 htmlAttrs:
   lang: ja

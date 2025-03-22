@@ -17,7 +17,7 @@
     "highlighter": "shiki",
     "defaults": {
       "aspectRatio": "16/9",
-      "canvasWidth": 720,
+      "canvasWidth": 960,
       "presenter": "dev",
       "fonts": {
         "mono": "Noto Sans Mono",

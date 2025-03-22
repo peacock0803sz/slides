@@ -2,13 +2,13 @@
   <div class="rectangle"></div>
 </template>
 
-<style lang="postcss">
+<style>
 .rectangle {
   @apply bg-ggen-primary;
   position: absolute;
-  top: 12px;
-  left: 25px;
-  height: 50px;
-  width: 15px;
+  top: 36px;
+  left: 48px;
+  height: 64px;
+  width: 16px;
 }
 </style>
