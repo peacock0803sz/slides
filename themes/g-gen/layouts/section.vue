@@ -36,6 +36,6 @@
   font-weight: 400;
   line-height: 1.2;
   position: absolute;
-  bottom: 120px;
+  bottom: 180px;
 }
 </style>

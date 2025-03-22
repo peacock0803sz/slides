@@ -16,6 +16,18 @@ htmlAttrs:
 ## クラウドサポート課 高井 陽一
 
 ---
+layout: intro
+---
+
+# 本日の資料はこちら
+
+### [https://slides.p3ac0ck.net/techtalk-2025-03/](https://slides.p3ac0ck.net/techtalk-2025-03/)
+
+## 写真もご自由に <twemoji-camera />
+
+<QRCode text="https://slides.p3ac0ck.net/techtalk-2025-03/" />
+
+---
 layout: toc
 ---
 
@@ -24,15 +36,10 @@ layout: toc
 1. 自己紹介、本セッションの対象者や目的
 1. `pyproject.toml` でプロジェクト情報を管理
 1. uv: プロジェクト管理ツール・インストーラー
-    1. Python 本体のバージョンを管理する
-    1. 仮想環境 (venv) を作成して管理する
-    1. 依存パッケージを追加・更新する
 1. ruff: 静的解析 & フォーマッター
-    1. 静的解析 (Linter) でバグを防ぐ
-    1. Python コードのフォーマット(整形)
 1. GitHub Actions で自動チェック(CI)
 1. まとめ
-1. Appendix: `ruff` の型チェッカー機能(開発中)
+1. おまけ: `ruff` の型検査を実施する機能(開発中)
 
 ---
 layout: profile
@@ -48,9 +55,6 @@ layout: profile
 - X (Twitter) など各種 SNS: `peacock0803sz`
 - 所属: クラウドソリューション部 クラウドサポート課
 - 入社: 2022 年 12 月 (合併前の株式会社トップゲート)
-- 主な保有資格
-    - Professional Cloud Developer
-    - Professional Cloud DevOps Engineer
 - 以前はエンジニアとして様々な規模の IaC (Terraform) 案件へ参画
 - アプリケーション開発では Python をよく使用 (たまに Go)
 - 業務外のコミュニティ活動としては PyCon JP などでイベント運営
@@ -67,7 +71,32 @@ layout: profile
 
 ## はじめに / Introduction
 
-# 本セッションの対象者や目的など
+# 本セッションの概要や目的
+
+[Open Developers Conference 2024](https://slides.p3ac0ck.net/odc2024/1) **(2024-09-07) の更新版**
+
+- Python パッケージ管理ツールの周辺状況が変わってきた
+    - [PEP 621: Storing project metadata in `pyproject.toml`](https://peps.python.org/pep-0621/)
+    - [Poetry](https://python-poetry.org) の普及や [Hatch](https://hatch.pypa.io/latest/), [Rye](https://rye.astral.sh), [uv](https://docs.astral.sh/uv/) などの新しいツールの台頭
+- これらの比較紹介を 2023 年に [PyCon TW](https://tw.pycon.org/2023/en-us/conference/talk/274), [PyCon APAC](https://2023-apac.pycon.jp/timetable?id=XEGZUD) で発表した
+- その中で uv がスタンダードとして落ち着いたので、新しい方法として広めたい
+- 同じ開発元が公開している [Ruff](https://astral.sh/ruff) という静的解析・フォーマッターの情報も紹介
+
+---
+
+## はじめに / Introduction
+
+# 昔の Python 開発のスタンダード
+
+注) 昔 = 2022 年くらいまでの Python 界隈
+
+- `setup.py` or `setup.cfg` でパッケージ定義を書く
+- `pip` や `setuptools` を使って依存関係を管理
+- 静的解析 (Lint) は Flake8
+- フォーマッターは Black, isort
+- 型ヒントも浸透しきっていない
+
+-> これら **全部が違う方法に置き換わ** っている
 
 ---
 layout: section
@@ -88,7 +117,8 @@ layout: section
 - Pipenv: 仮想環境・依存パッケージ管理ツール
 - Poetry: 仮想環境・依存パッケージ管理ツール (後発)
 - Hatch: Pythonプロジェクト管理ツールで PyPA が開発元
-    - [PyPA](https://www.pypa.io/en/latest/): Python Packaging Authority, PyPI や周辺ツールを開発・メンテナンスしている
+    - [PyPA](https://www.pypa.io/en/latest/): Python Packaging Authority, PyPI や周辺ツールを管理している組織
+- uv: 最近 Python 界隈で勢いのある [Astral 社](https://astral.sh/) が開発しているパッケージ管理ツール
 
 ---
 
@@ -132,14 +162,15 @@ make install
 
 # これから: 管理ツール (uv) を使う
 
-最近話題になっている管理ツールを用いる方法で、  
+最近話題になっている uv という管理ツールを用いる方法
+
 **macOS & Linux も今はこちらがスマート**
 
 - 昔は[pyenv](https://github.com/pyenv/pyenv)が主流だったが、少々お行儀が悪い
     - 環境変数 `$PATH`, `$PYTHONPATH` などが汚れる
-- 2024 年 9 月現在は [uv を使う](https://docs.astral.sh/uv/concepts/python-versions/)のがオススメ
-    - `uv venv --python 3.11.6` でインストール & venv 作成
-        - `3.11.6` まで不要なら `--python 3.11` でも問題ない
+- 現在は [uv を使う](https://docs.astral.sh/uv/concepts/python-versions/)のがオススメ
+    - `uv venv --python 3.12.9` でインストール & venv 作成
+        - `3.12.9` まで不要なら `--python 3.12` でも問題ない
 
 ---
 
@@ -150,8 +181,8 @@ make install
 プロジェクト個別に依存ライブラリなどを管理するために venv (仮想環境)を作る必要がある  
 (Node.js で言うと `node_modules` のような役割をするもの)
 
-- uv を使っている場合(前述): `uv venv -p 3.13`
-- uv なしの場合: `./path/to/python -m venv <venv_name>`
+- uv を使っている場合(前述): `uv venv -p 3.12`
+- uv なしの場合: `./path/to/python -m venv .venv`
 
 これでカレント直下の `.venv` に仮想環境フォルダが作成される
 
@@ -161,7 +192,8 @@ make install
 
 # 仮想環境のアクティベート (uvを使わない場合)
 
-Node.js (npm) のように自動で仮想環境を認識はしてくれない。アクティベーションが必要  
+Node.js (npm) のように自動で認識はしてくれない。アクティベーションが必要  
+
 **ただし、uv コマンドを使っている場合は不要**
 
 - Bash, Zsh: `source <venv_name>/bin/activate`
@@ -211,7 +243,8 @@ version = "2025.3.0"
 # ディレクトリ構造の作り方
 
 2種類あるが、スタンダードは "flat layout" (ただし[議論は続いている](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/))  
-以下のような構造になっている (ディレクトリ名は変更する必要アリ)
+
+だいたい以下のような構造になっている (ディレクトリ名は変更する必要アリ)
 
 ```
 .
@@ -235,24 +268,27 @@ version = "2025.3.0"
 
 ## uv: プロジェクト管理ツール
 
-# 依存パッケージの追加: `uv add` (おすすめ)
+# 依存パッケージの追加方法
 
-- `uv add <package_name>` で依存パッケージが追加される
-- `pyproject.toml` もバージョン指定込みで追記される
-- (uv 0.3.0から) `uv.lock` という独自形式のLockファイルが作成される
-    - `package-lock.json` (Node.js)などと同じ役割で、同様にGitで管理して良い
+- (後述) 直接 `pyproject.toml` を編集して `uv sync` を実行する
+- (オススメ) `uv add` コマンドを使う
+    - `uv add <package_name>` で依存パッケージを追加
+    - `pyproject.toml` もバージョン指定込みで追記される
+    - (uv 0.3.0 から) `uv.lock` という独自形式の Lock ファイルが作成される
+        - `package-lock.json` (Node.js) などと同じ役割で、Git 管理下に置く
+        - (参考) Python 標準の Lock ファイルの策定を議論中 ([PEP 751](https://peps.python.org/pep-0751/))
 
 ---
 
 ## uv: プロジェクト管理ツール
 
-# パッケージのバージョンを指定する場合
+# パッケージのバージョンを詳細に指定する方法
 
 - `numpy~=2.1.0` のように記載する必要がある
     - [バージョン指定子は `~=`, `==`, `!=`, `<=`, `>` などが使用可能](https://packaging.python.org/en/latest/specifications/version-specifiers/#id5)
-    - Node.jsでよく見る `^` 表記は `~=` に相当する
+    - Node.js でよく見る `^` 表記は `~=` に相当するが、ほとんど `>=` で OK
 - コマンド例: `uv add 'numpy ~= 2.1.0'`
-    - Node.jsの `"numpy": "^2.1.0"` と等価
+    - Node.js の `"numpy": "^2.1.0"` と等価
     - 文字列として評価されるなら指定子の間のスペースは任意
 
 ---
@@ -261,22 +297,88 @@ version = "2025.3.0"
 
 # `pyproject.toml` を直接編集する
 
-1. `project.dependencies` に文字列の配列として書けば良い
-    - バージョン指定子の有無は問われない
+1. `project.dependencies` に文字列の配列として書くだけ
+    - バージョン指定子は任意
 2. `uv sync` を実行すると仮想環境に同期される
-    - 自動的にLockファイルも更新される
+    - 自動的に Lock ファイルも更新される
 
 ```toml
 [project]
-name = "sandbox"
-dependencies = [
-    "numpy>=2.1.0",
-]
+name = "etude"
+dependencies = ["numpy>=2.1.0"]
 ```
 
 ---
 
+## uv: プロジェクト管理ツール
 
-## おまけ
+# uv を使って開発時だけ使うパッケージを管理する
 
-# 参考リンク集
+- やりたいこと: `ruff` (後述)や `pytest` などの開発時だけに使うパッケージも管理
+- 方法: [Dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/#development-dependencies) を活用する
+    - 実行例: `uv add --dev ruff pytest` (`--dev` は `--group dev` と等価)
+    - `pyproject.toml` に書いてあれば `uv sync --dev` or `uv sync --all-groups`
+
+```toml
+[project]
+name = "etude"
+dependencies = ["numpy>=2.1.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.3.5", "ruff>=0.11.2"]
+```
+
+---
+layout: section
+---
+
+### 2
+
+# Ruff: 静的解析ツール
+
+## *An extremely fast Python linter, written in Rust.*
+
+---
+
+## Ruff: 静的解析ツール
+
+# Ruff とは
+
+[公式ドキュメント](https://docs.astral.sh/ruff/)より抜粋して拙訳すると
+
+- 他の静的解析、フォーマッターより 10 ~ 100 倍高速
+- `pip` でインストール可能 & `pyproject.toml` をサポート
+- 気軽に試すことができる Flake8, isort, Black と同等の OSS
+- エラーの自動修正をサポート(例: 自動で使っていない import 文を消す)
+- flake8-bugbear などの人気 Flake8 プラグインから 800 ルール以上が組み込み
+- 公式で VS Code などのエディタ拡張が公開されている
+
+---
+
+## Ruff: 静的解析ツール
+
+# インストール・初期設定
+
+---
+
+## Ruff: 静的解析ツール
+
+# 使ってみる
+
+---
+
+## まとめ
+
+---
+
+## Appendix (おまけ) 1
+
+# Ruff で型検査の機能が実装中
+
+<Tweet id="1884651482009477368" />
+
+---
+
+## Appendix (おまけ) 2
+
+# `requirements.txt` で全部バージョン固定は NG
