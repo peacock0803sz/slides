@@ -8,6 +8,10 @@
   font-weight: 400;
 }
 
+.slidev-layout p>* {
+  line-height: 1.5;
+}
+
 .slidev-layout:not(.override) h1 {
   @apply text-ggen-primary;
   font-weight: 600;
@@ -23,27 +27,27 @@
   margin-bottom: 2px;
 }
 
-.slidev-layout:not(.override) li {
-  line-height: 1.8;
+.slidev-layout li {
+  line-height: 2.0;
 }
 
-.slidev-layout:not(.override) strong {
-  font-size: 24px;
+.slidev-layout strong {
+  font-size: 24pt;
   font-weight: 700;
 }
 
-.slidev-layout:not(.override) pre>code {
-  font-size: 14px;
+.slidev-layout pre>code {
+  font-size: 14pt;
   font-weight: 500;
   font-variant-ligatures: none;
 }
 
-.slidev-layout:not(.override) code {
+.slidev-layout code {
   font-weight: 500;
   font-variant-ligatures: none;
 }
 
-.slidev-layout:not(.override) a {
+.slidev-layout a {
   color: #00b8a6;
   border-style: none;
 
