@@ -27,8 +27,15 @@
   margin-bottom: 2px;
 }
 
+.slidev-layout:not(.override) h3 {
+  @apply text-ggen-primary;
+  font-weight: 600;
+  font-size: 22pt;
+  margin-bottom: 5px;
+}
+
 .slidev-layout li {
-  line-height: 2.0;
+  line-height: 2;
 }
 
 .slidev-layout strong {
@@ -39,6 +46,13 @@
 .slidev-layout pre>code {
   font-size: 14pt;
   font-weight: 500;
+  font-variant-ligatures: none;
+}
+
+.slidev-layout h1>code,
+h3>code,
+h4>code {
+  font-weight: 600;
   font-variant-ligatures: none;
 }
 

@@ -334,13 +334,13 @@ layout: section
 
 ### 2
 
-# Ruff: 静的解析ツール
+# Ruff: 静的解析・フォーマッター
 
 ## *An extremely fast Python linter, written in Rust.*
 
 ---
 
-## Ruff: 静的解析ツール
+## Ruff: 静的解析・フォーマッター
 
 # Ruff とは
 
@@ -355,19 +355,102 @@ layout: section
 
 ---
 
-## Ruff: 静的解析ツール
+## Ruff: 静的解析・フォーマッター
 
 # インストール・初期設定
 
+**目標:** Flake8, Black, isort 相当のタスクを実行できるようになる
+
+1. uv で追加: `uv add --dev ruff` を実行
+1. `pyproject.toml` に以下を追記
+    - 設定オプションの一覧: <https://docs.astral.sh/ruff/settings/>
+    - 静的解析 (Lint) のルール一覧: <https://docs.astral.sh/ruff/rules/>
+
+```toml
+[tool.ruff]
+target-version = "py313"  # Python 3.12 なら py312
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]  # E=pycodestyle, F=Pyflakes, I=isort
+```
+
 ---
 
-## Ruff: 静的解析ツール
+## Ruff: 静的解析・フォーマッター
 
 # 使ってみる
 
+```python
+import sys
+
+def main():
+    number = 42
+    print(3*   19 )
+    print(os.environ.get("HOME"))
+
+if __name__ == "__main__":
+    main()
+```
+
+上記を `main.py` (`pyproject.toml` と同じ階層)に保存して `ruff check .` を実行
+
 ---
 
-## まとめ
+## Ruff: 静的解析・フォーマッター
+
+# 実行結果例
+
+```
+(demo) $ ruff check .
+demo/main.py:1:1: I001 [*] Import block is un-sorted or un-formatted
+  |
+1 | import sys
+  | ^^^^^^^^^^ I001
+2 |
+3 | def main():
+  |
+  = help: Organize imports
+
+(中略)
+
+Found 4 errors.
+[*] 2 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).
+```
+
+---
+
+## Ruff: 静的解析・フォーマッター
+
+# 実際のエディタ画面
+
+<img src="/ruff.png" />
+
+---
+
+## Ruff: 静的解析・フォーマッター
+
+# 修正するには
+
+- 静的解析: `ruff check --fix .` で可能なものは自動修正
+    - エディタの Code Action 機能で修正も可能 (スクショ)
+- フォーマット崩れ: `ruff format .` or エディタのフォーマット機能を使う
+
+<img src="/ruff-action.png" />
+
+---
+
+## さいごに
+
+# まとめ
+
+- `pyproject.toml` & uv でプロジェクト情報や依存パッケージを管理する
+    - プロジェクト初期化は `uv init` を実行して `pyproject.toml` を修正
+    - 依存パッケージの追加は `uv add` コマンドを使用
+    - グローバルに uv をインストールすると Python のバージョンも管理できて便利
+- Ruff で静的解析・フォーマットを行う
+    - `ruff check` でエラーを検出
+    - `ruff format` でフォーマットを行う
+    - エディタ拡張 (VS Code など) も公開されているので活用する
 
 ---
 
@@ -382,3 +465,13 @@ layout: section
 ## Appendix (おまけ) 2
 
 # `requirements.txt` で全部バージョン固定は NG
+
+詳細: <https://zenn.dev/peacock0803sz/articles/acd723d5a5fa0b>
+
+### TL;DR
+
+- **今なら uv にお任せで問題ない**
+- `pip freeze > requirements.txt` で全てのバージョンを固定するのはダメ
+    - `-r requirements.txt` ではパッケージ自体の指定も含んでしまうため
+- `pip install -c constraints.txt` で [Constraints Files](https://pip.pypa.io/en/stable/user_guide/#constraints-files) を使う
+    - こちらは `-r requirements.txt` とは違って「バージョン指定のみ」をする
