@@ -1,5 +1,5 @@
 <template>
-  <div class="slidev-layout title text-ggen-white">
+  <div class="slidev-layout override title text-ggen-white">
     <slot />
   </div>
 </template>
