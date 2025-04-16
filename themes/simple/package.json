@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "@slidev/types": "^0.49.24",
-    "shiki": "^1.12.1"
+    "shiki": "^1.12.1",
+    "qrcode": "^1.5.4"
   },
   "devDependencies": {
     "@slidev/cli": "^0.49.24"
