@@ -1,0 +1,21 @@
+{
+  "name": "osunc25kg",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /osunc25kg/",
+    "postbuild": "mv ./dist ../../dist/osunc25kg",
+    "dev": "slidev",
+    "format": "slidev format slides.md",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/osunc25kg.pdf",
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
+  },
+  "dependencies": {
+    "@peacock0803sz/theme-simple": "workspace:*",
+    "@slidev/cli": "^51.5.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
+  }
+}
