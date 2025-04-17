@@ -6,6 +6,17 @@ layout: cover
 lineNumbers: true
 htmlAttrs:
   lang: ja
+seoMeta:
+  # ogTitle: 入門 Nix - 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩
+  ogDescription: Peacock (Yoichi Takai), at 2025-04-26 Open Source un-Conference 2025 Kawagoe
+  ogImage: https://slides.p3ac0ck.net/osunc25kg/cover.png
+  ogUrl: https://slides.p3ac0ck.net/osunc25kg/index.html
+  twitterCard: summary_large_image
+  # twitterTitle: 入門 Nix - 純粋関数型パッケージマネージャでDisposableな環境を構築するための第一歩
+  twitterDescription: Peacock (Yoichi Takai), at 2025-04-26 Open Source un-Conference 2025 Kawagoe
+  twitterImage: https://slides.p3ac0ck.net/osunc25kg/cover.png
+  twitterSite: https://slides.p3ac0ck.net/
+  twitterUrl: https://slides.p3ac0ck.net/osunc25kg/index.html
 hideInToc: true
 ---
 
