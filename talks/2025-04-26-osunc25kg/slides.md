@@ -340,4 +340,6 @@ hideInToc: true
 - カンファレンス: 2025-09-26(Fri), 27(Sat) @広島国際会議場
 - [主催メンバー(スタッフ)募集中](https://pyconjp.blogspot.com/2024/12/call-for-organizing-members-ja.html)!!
 
+<QRCode text="https://pyconjp.blogspot.com/2024/12/call-for-organizing-members-ja.html" />
+
 ![](/PyConJP2025.png)
