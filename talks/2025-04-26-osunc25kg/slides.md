@@ -26,8 +26,6 @@ hideInToc: true
 
 ### 2025-04-26 (Sat)<br />Open Source un-Conference 2025 Kawagoe (LT)<br />Peacock (`@peacock0803sz`)
 
-<PoweredBySlidev class="text-lg absolute bottom-5 right-5" />
-
 ---
 layout: intro
 hideInToc: true
@@ -315,3 +313,31 @@ devenv init
 - [nix-community/nix-direnv | GitHub](https://github.com/nix-community/nix-direnv)
 
 <PoweredBySlidev class="text-lg absolute top-5 right-5" />
+
+---
+hideInToc: true
+---
+
+## 宣伝: Nix 日本語コミュニティ + Nix meetup #2
+
+- Nix日本語コミュニティ (nix-ja)
+    - connpass: <https://nix-ja.connpass.com>
+    - Discordサーバー: <https://discord.com/invite/TYytzedtbe>
+    - NixConf読書会(設定ファイルを読む会): オンラインで開催中
+        - 詳細: <https://scrapbox.io/nix-ja/NixConf読書会>
+- 5/24(土), Nix meetup #3が大阪で開催
+    - 場所: BABY JOB株式会社 ()
+    - <https://nix-ja.connpass.com/event/353532/>
+
+---
+hideInToc: true
+---
+
+# 宣伝: PyCon JP 2025
+
+<https://2025.pycon.jp>
+
+- カンファレンス: 2025-09-26(Fri), 27(Sat) @広島国際会議場
+- [主催メンバー(スタッフ)募集中](https://pyconjp.blogspot.com/2024/12/call-for-organizing-members-ja.html)!!
+
+![](/PyConJP2025.png)
