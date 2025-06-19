@@ -1,0 +1,20 @@
+{
+  "name": "techtalk-2025-06",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /techtalk-2025-06/",
+    "postbuild": "mv ./dist ../../dist/techtalk-2025-06",
+    "dev": "slidev",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/techtalk-2025-06.pdf",
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
+  },
+  "dependencies": {
+    "@peacock0803sz/theme-g-gen": "workspace:*",
+    "@slidev/cli": "^51.8.2"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
+  }
+}
