@@ -1,0 +1,29 @@
+:lang(en) {
+  font-family: "Nunito Sans";
+}
+
+:lang(ja) {
+  font-family: "BIZ UDPGothic";
+}
+
+.slidev-layout {
+  background-color: #efefef;
+}
+
+h1>code,
+h2>code,
+h3>code,
+h4>code,
+h5>code,
+h6>code {
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+}
+
+ol>li>ol>li {
+  list-style-type: lower-alpha;
+}
+
+code>span.line>span {
+  font-family: "JetBrains Mono", monospace;
+}

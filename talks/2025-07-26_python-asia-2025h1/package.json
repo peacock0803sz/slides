@@ -1,0 +1,36 @@
+{
+  "name": "python-asia-2025h1",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /python-asia-2025h1/",
+    "postbuild": "mv ./dist ../../dist/python-asia-2025h1/",
+    "dev": "slidev",
+    "format": "slidev format slides.md",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/python-asia-2025h1.pdf",
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.0.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
+  },
+  "//": "Learn more: https://sli.dev/themes/write-a-theme.html",
+  "slidev": {
+    "colorSchema": "light",
+    "highlighter": "shiki",
+    "defaults": {
+      "presenter": "dev",
+      "aspectRatio": "16/9",
+      "canvasWidth": 960,
+      "transition": "slide-left",
+      "fonts": {
+        "sans": "Nunito Sans,BIZ UDPGothic",
+        "mono": "JetBrains Mono, monospace",
+        "weights": "400,600,700"
+      }
+    }
+  }
+}
