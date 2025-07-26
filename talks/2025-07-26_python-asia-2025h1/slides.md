@@ -61,6 +61,20 @@ layout: statement
 Here's my main message today - and I really want to emphasize this - organizing tech events is FUN! Yes, it's work, yes it can be challenging, but the joy and satisfaction you get from it is incredible. Let me share my journey with you.
 -->
 
+---
+layout: profile
+---
+
+<img src="https://media.p3ac0ck.net/icons/PyConAPAC2023.jpg" />
+
+# Who am I?
+
+- Name: Peacock / Yoichi Takai
+- Social media names: `peacock0803sz`
+- 24 Years Old, 5+ Years of Python Experience
+- Work: [G-gen Co., Ltd.](https://g-gen.co.jp)
+- Vice-Chair & Sponsors Lead of [PyCon JP 2025](https://2025.pycon.jp)
+- Likes: Classical Music <twemoji-musical-note /> / Cameras <twemoji-camera /> /  Drinking <twemoji-clinking-beer-mugs />
 
 ---
 layout: section
