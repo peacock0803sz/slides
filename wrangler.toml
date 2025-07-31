@@ -1,0 +1,6 @@
+name = "slides-p3ac0ck"
+compatibility_date = "2025-04-01"
+preview_urls = true
+
+[assets]
+directory = "./dist/"
