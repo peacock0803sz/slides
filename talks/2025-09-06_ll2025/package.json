@@ -1,0 +1,21 @@
+{
+  "name": "ll2025",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /ll2025/",
+    "postbuild": "mv ./dist ../../dist/ll2025/",
+    "dev": "slidev",
+    "format": "slidev format slides.md",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/ll2025.pdf",
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
+  },
+  "dependencies": {
+    "@peacock0803sz/theme-simple": "workspace:*",
+    "@slidev/cli": "^52.1.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
+  }
+}
