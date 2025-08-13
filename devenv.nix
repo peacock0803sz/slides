@@ -9,7 +9,7 @@
   packages = with pkgs; [
     git
     playwright-driver
-    wrangler
+    # wrangler
   ];
 
   # https://devenv.sh/languages/
