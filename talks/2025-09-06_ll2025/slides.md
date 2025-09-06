@@ -48,7 +48,7 @@ layout: toc
 1. 他言語のパッケージマネージャとの違い
 1. 主要なPythonパッケージマネージャの比較
 1. 急浮上のパッケージマネージャ「uv」
-1. 2025年版 ツール選択ガイド
+1. 2025年版パッケージマネージャ選択ガイド
 
 ---
 layout: profile
@@ -65,8 +65,19 @@ layout: profile
     - PyCon JP 2020 - [2025](https://2025.pycon.jp/)主催メンバー(スタッフ)
     - [PyCon JP TV](https://tv.pycon.jp)ディレクター
 - 趣味: クラシック音楽、カメラ(α7R III)、ビールなど
-    - 技術カンファレンスの撮影スタッフもやっている
-    - Open Source Conferenceで2020年ころに配信スタッフ業
+    - 技術カンファレンスの撮影スタッフ
+    - Open Source Conferenceで2020年ころに配信スタッフ
+---
+
+# こんな人に届いてほしい (想定している聴講者)
+
+* ターゲット
+    * 最近あまりPythonのパッケージング事情に追い付けていない
+        * 様々な言語・ランタイムを薄く広く書いている
+    * Pythonを最近触りはじめたけど、パッケージ管理について分からない
+    * Pipenv/Poetryが流行した時に導入したが、今は追い付けていない
+* -> 2つのPyConで以前「Comparison of Packaging Tools in 2023 (2023年版パッケージング ツール比較)」として発表した内容から、<br />過去の歴史や非Pythonista向けの解説を追加 + 2025版でお届け
+    * [資料](https://slides.p3ac0ck.net/pyconapac2023/index.html) / 動画: [PyCon TW 2023](https://www.youtube.com/watch?v=h694YaqhP8Y) / [PyCon APAC 2023](https://www.youtube.com/watch?v=909hErbppUo)
 
 ---
 layout: section
@@ -119,7 +130,7 @@ layout: section
 # Easy Install時代
 
 * 大昔(2004 - 2008年ころ)は[Easy Install](https://setuptools.pypa.io/en/latest/deprecated/easy_install.html)というPythonモジュールでパッケージのダウンロード、ビルド、インストールなどをやっていた
-    * PyPI(パッケージレジストリ)に登録されているパッケージの場合は`easy_install SQLObject`でインストールする
+    * PyPI(パッケージレジストリ)に登録されているパッケージの場合は`easy_install SQLObject`のようにインストールする
 * 基本的にはEgg形式のパッケージをインストールできるのみの単純なもの
 * 以下のような場合は手動で特定のディレクトリに配置する必要がある
     * 既にインストールしたパッケージのアンインストール
@@ -141,10 +152,13 @@ layout: section
 
 # 補足: 誤解されがちな`requirement.txt`の用法
 
-* `requirements.txt`は**アプリケーション**の依存関係を固定(バージョンピニング)するためのもの
-    * `pip freeze > requirements.txt`で生成されるファイルは、その環境を正確に再現するためのもの
-* **ライブラリ**開発で依存関係を記述する場合は、`pyproject.toml`の`dependencies`にバージョン範囲を緩やかに指定するべき
-    * ライブラリに`requirements.txt`を含めてしまうと、利用側のアプリケーションで依存関係の衝突を引き起こす原因になる
+* 本来は`pip freeze`の結果をそのまま`requirement.txt`として使わない
+    * (環境再現で`pip install -r requirement.txt`を実行)
+* `pip install`コマンドの`-r`オプションは「依存関係を全て指定する」もの
+    * **パッケージ列挙・バージョン指定の役割が混在**している
+* ので`constraints.txt`と`pip install -c`を使いましょう
+    * これは「バージョンだけ」を指定するもの(=パッケージ列挙はしない)
+    * 参考(拙著): [📦 pip installの-c/--constraintオプション使ってますか?](https://p3ac0ck.net/posts/20220315-pip-install-constraint/)
 
 ---
 
@@ -154,6 +168,7 @@ layout: section
     * pipでは[Constraintsを使う必要](https://p3ac0ck.net/posts/20220315-pip-install-constraint/)があったが、手順が煩雑で浸透していない
     * ただし`setup.py`や`setup.cfg`で指定することはできず、独自の`Pipfile`というTOML形式のファイルで記述・管理する
 * `pyproject.toml`(後述)が浸透してきた2019年ころから、このファイルを使える[Poetry](https://python-poetry.org)のシェアが伸びてきた
+    * こちらもロックファイルで管理可能だが、独自フォーマット(`poetry.lock`)
 
 <!--
 スピーカーノート:
@@ -213,7 +228,7 @@ layout: section
 | 開発用パッケージ管理 |    △    |    ○   |  ○  |    ×    |     ○    |    ○   |
 | パッケージ更新       |    △    |    ○   |  ○  |    △    |     ○    |    ○   |
 | パッケージ削除       |    △    |    ○   |  ○  |    △    |     ○    |    ○   |
-| タスク定義・実行     |    ×    |    ○   |  ○  |    ○    |     ○    |    ○   |
+| タスク定義・実行     |    ×    |    ○   |  ○  |    ×    |     △    |    ×   |
 
 <!--
 * `pip`はあくまで**パッケージインストーラー**であり、npmやcargoのようなプロジェクト管理機能は持たない
@@ -371,8 +386,6 @@ layout: sectionImg
 
 <!--
 3つ目はPDMです。
-
-このトークのプロポーザルを書くまでこのツールを知りませんでしたが、非常に興味深いツールのようです。
 -->
 
 ---
@@ -478,14 +491,25 @@ layout: sectionImg
 -->
 
 ---
-layout: section
+layout: sectionImg
+---
+
+<div class="box">
+<div class="inner">
+
+# uv
+
+## <https://docs.astral.sh/uv/>
+
+
+</div>
+
+<img src="https://docs.astral.sh/uv/assets/logo-letter.svg" />
+</div>
+
 ---
 
 # 急浮上のパッケージマネージャ「uv」
-
----
-
-# uvの機能・特徴
 
 * **圧倒的なパフォーマンス**
     * Rust製で、依存関係の解決やパッケージのダウンロード・ビルドを並列で実行
@@ -497,23 +521,55 @@ layout: section
 * **Pythonバージョン管理**: 複数バージョンの自動インストール・切り替え
 
 ---
+
+# 単発のスクリプトでもuvが使えます!
+
+Shebangで`#!/usr/bin/env -S uv run --script`と指定することで  
+uv管理のPython環境を使用できる
+
+外部パッケージの追加も `uv add --script ./path/to/exec <PACKAGE>`で可能
+
+## uvでなくpipの場合でも
+
+* uvを使わない場合においても、依存パッケージがインストールされていればOK
+    * 標準仕様([PEP 723](https://peps.python.org/pep-0723/))に準拠した定義方法(次ページ)、ツールに依存しない
+
+---
+
+# 実行ファイルの中身イメージ例
+
+```python
+#!/usr/bin/env -S uv run --script
+#
+# /// script
+# requires-python = ">=3.13"
+# dependencies = ["httpx>=0.28.1"]
+# ///
+
+import httpx
+
+if __name__ == "__main__":
+    print(httpx.get("https://example.com"))
+```
+
+---
 layout: section
 ---
 
-# あなたのプロジェクトに最適なツールは？
+# 最適なツールは?
 
 ---
 
 # 2025年版 ツール選択ガイド
 
-「で、結局何を使えばいいの？」という疑問に答えます。
+「で、結局何を使えばいいの?」という疑問に答えます。
 
-| ユースケース | 推奨ツール | 理由 |
-| :--- | :--- | :--- |
-| **Webアプリ開発**<br/>(Django, FastAPI) | **Poetry** or **uv** | ロックファイルによる厳格な環境再現性が不可欠。`uv`の速度はデプロイ時間短縮に直結。 |
-| **ライブラリ開発・公開** | **Hatch** or **PDM** | ビルド、バージョン管理、PyPI公開までのワークフローが洗練されている。PEP 621準拠。 |
-| **データサイエンス**<br/>(Jupyter, scikit-learn) | **uv** or (`pip` + `pip-tools`) | 多数のバイナリパッケージを高速にインストールできる`uv`が有利。伝統的な`requirements.in`も依然有効。 |
-| **ちょっとしたスクリプト** | `pip` + `venv` | 標準ライブラリだけで完結。シンプルで追加インストール不要。 |
+1. Web開発やデータ分析: **uv**
+    * 高速に動作しストレスフリー、かつロックファイルで環境再現性を担保しやすい
+1. スクリプトや自動化: **uv** or **pip**
+    * shebangからuvで外部依存を指定しパッケージ定義なしで実行も可能
+1. ライブラリ開発: **uv** or **Hatch**
+    * Rust製ツール、特定企業(Astral社)に抵抗がなければuvでも十分
 
 ---
 
@@ -533,11 +589,15 @@ hideInToc: true
 
 # まとめ
 
-* Pythonのパッケージ管理は、**標準化(PEP)と多様なツールの競争**によって進化してきた
-* `setup.py`の課題を`pyproject.toml`が解決し、ロックファイルが環境再現性を実現
-* 特に**uv**は、既存のエコシステムとの互換性を保ちつつ、圧倒的なパフォーマンスで新たなスタンダードになりつつある
-* **ツールの選択に銀の弾丸はない**。自分のプロジェクトの特性を理解し、適切なツールを選択・活用することが最も重要
+* Pythonはパッケージングにおいても、**標準化(PEP)と多様なツールの競争**<br />によって進化してきた
+* `setup.py`の課題を`pyproject.toml`が解決し、ロックファイルが環境再現性を向上
+* 特に**uv**は、既存のエコシステムとの互換性を保ちつつ、圧倒的なパフォーマンスと豊富な機能で新たなスタンダードになりつつある
+* **ツールの選択に銀の弾丸はない**。自分のプロジェクトの特性を理解し、<br />適切なツールを選択・活用することが最も重要
 
 ---
+layout: image
+---
 
-# PyCon JP 2025
+# See you at PyCon JP 2025!
+
+![](https://2025.pycon.jp/common/ogp/default.png)
