@@ -292,7 +292,7 @@ importers:
         specifier: ^0.22.7
         version: 0.22.7
       codemirror-theme-vars:
-        specifier: ^0.1.1
+        specifier: ^0.1.2
         version: 0.1.2
       prism-theme-vars:
         specifier: ^0.2.2
