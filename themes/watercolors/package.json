@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@slidev/types": "^0.22.7",
-    "codemirror-theme-vars": "^0.1.1",
+    "codemirror-theme-vars": "^0.1.2",
     "prism-theme-vars": "^0.2.2",
     "theme-vitesse": "^0.1.12"
   },
