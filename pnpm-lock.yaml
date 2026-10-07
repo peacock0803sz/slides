@@ -295,7 +295,7 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2
       prism-theme-vars:
-        specifier: ^0.2.2
+        specifier: ^0.2.5
         version: 0.2.5
       theme-vitesse:
         specifier: ^0.1.12
