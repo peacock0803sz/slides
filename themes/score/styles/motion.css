@@ -1,0 +1,86 @@
+/* Page transition: a slow fade, andante. Slides use it through the `transition: fade` default */
+:root {
+  --slidev-transition-duration: 600ms;
+}
+
+/* Reveal: v-click targets fade in while settling from the right */
+.slidev-layout .slidev-vclick-target {
+  transition:
+    opacity 400ms ease-out,
+    transform 400ms ease-out;
+}
+
+.slidev-layout .slidev-vclick-hidden {
+  transform: translateX(24px);
+}
+
+/* A list revealed by a single click plays its items left to right at a steady 120ms tempo */
+@keyframes score-enter {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+.slidev-layout .slidev-vclick-target:not(.slidev-vclick-hidden) > li {
+  animation: score-enter 400ms ease-out both;
+}
+
+.slidev-layout .slidev-vclick-target > li:nth-child(2) { animation-delay: 120ms; }
+.slidev-layout .slidev-vclick-target > li:nth-child(3) { animation-delay: 240ms; }
+.slidev-layout .slidev-vclick-target > li:nth-child(4) { animation-delay: 360ms; }
+.slidev-layout .slidev-vclick-target > li:nth-child(5) { animation-delay: 480ms; }
+.slidev-layout .slidev-vclick-target > li:nth-child(6) { animation-delay: 600ms; }
+.slidev-layout .slidev-vclick-target > li:nth-child(n + 7) { animation-delay: 720ms; }
+
+/* Emphasis: <Crescendo> steps its text from faint to full */
+.score-crescendo {
+  transition: opacity 400ms ease-out;
+}
+
+.score-crescendo[data-step="0"] {
+  opacity: 0.4;
+}
+
+.score-crescendo[data-step="1"] {
+  opacity: 0.7;
+}
+
+/* Reduced motion keeps only the fade between slides, whatever transition a slide asks for */
+@media (prefers-reduced-motion: reduce) {
+  .slidev-layout .slidev-vclick-target,
+  .score-crescendo {
+    transition: none;
+  }
+
+  .slidev-layout .slidev-vclick-hidden {
+    transform: none;
+  }
+
+  .slidev-layout .slidev-vclick-target:not(.slidev-vclick-hidden) > li {
+    animation: none;
+  }
+
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active,
+  .slide-up-enter-active,
+  .slide-up-leave-active,
+  .slide-down-enter-active,
+  .slide-down-leave-active {
+    transition: opacity var(--slidev-transition-duration) ease;
+  }
+
+  .slide-left-enter-from,
+  .slide-left-leave-to,
+  .slide-right-enter-from,
+  .slide-right-leave-to,
+  .slide-up-enter-from,
+  .slide-up-leave-to,
+  .slide-down-enter-from,
+  .slide-down-leave-to {
+    opacity: 0;
+    transform: none;
+  }
+}

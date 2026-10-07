@@ -258,6 +258,15 @@ importers:
         specifier: ^52.1.0
         version: 52.1.0(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.18)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.8.3)(vite@7.0.6(@types/node@22.13.5)(jiti@2.5.1)(tsx@4.19.3)(yaml@2.8.0))
 
+  themes/score:
+    devDependencies:
+      '@slidev/cli':
+        specifier: ^52.1.0
+        version: 52.1.0(@babel/parser@7.28.0)(@nuxt/kit@3.16.2)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vue/compiler-sfc@3.5.18)(markdown-it-async@2.2.0)(playwright-chromium@1.50.1)(postcss@8.5.6)(tsx@4.19.3)
+      '@slidev/types':
+        specifier: ^52.1.0
+        version: 52.1.0(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.18)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.8.3)(vite@7.0.6(@types/node@22.13.5)(jiti@2.5.1)(tsx@4.19.3)(yaml@2.8.0))
+
   themes/simple:
     dependencies:
       '@slidev/types':
