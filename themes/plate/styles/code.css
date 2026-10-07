@@ -1,0 +1,55 @@
+.slidev-layout {
+  --slidev-code-background: var(--plate-surface-2);
+  --slidev-code-foreground: var(--plate-ink);
+  --slidev-code-font-family: var(--plate-font-mono);
+  --slidev-code-font-size: 24px;
+  --slidev-code-line-height: 1.5;
+  --slidev-code-padding: 28px 32px;
+  --slidev-code-radius: 6px;
+  --slidev-code-margin: 0 0 20px;
+}
+
+/* ```lang [file] titles become a plain caption above the block */
+.slidev-layout .slidev-code-block-title {
+  display: block;
+  margin-bottom: 12px;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-family: var(--plate-font-mono);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--plate-ink-2);
+}
+
+.slidev-layout .slidev-code-block-title > :not(.leading-1em) {
+  display: none;
+}
+
+.slidev-layout .slidev-code-block-title > .leading-1em {
+  line-height: inherit;
+}
+
+.slidev-layout .slidev-code-block-title + .slidev-code {
+  border-radius: var(--slidev-code-radius) !important;
+}
+
+.slidev-layout .slidev-code-line-numbers .slidev-code code .line::before {
+  color: var(--plate-muted);
+}
+
+.slidev-layout :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--plate-surface-2);
+  font-family: var(--plate-font-mono);
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.slidev-layout :is(td, th) > code {
+  padding: 0;
+  background: none;
+  font-size: 1em;
+}
