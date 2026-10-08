@@ -1,0 +1,263 @@
+/* How far the color plates are off register, from 0 to 1 (6px). Registered so the page transition can animate it */
+@property --riso-misregister {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+:root {
+  --riso-ink: #1e1e1e;
+  --riso-ink-2: #333333;
+  --riso-muted: #5e5e5e;
+  --riso-paper: #ffffff;
+  --riso-green: #44d62c;
+  --riso-green-text: #0e8a3e;
+  --riso-green-tint: #e2f8dc;
+  --riso-blue: #0078bf;
+  --riso-yellow: #ffe800;
+  --riso-yellow-deep: #f2d600;
+  --riso-shadow: rgb(68 214 44 / 70%);
+
+  --riso-font-display: "Dela Gothic One", sans-serif;
+  --riso-font-numeral: "Bricolage Grotesque", sans-serif;
+  --riso-font-body: "BIZ UDPGothic", sans-serif;
+  --riso-font-subtitle: "Zen Kaku Gothic New", sans-serif;
+  /* Space Mono has no Japanese */
+  --riso-font-meta: "Space Mono", "BIZ UDPGothic", monospace;
+  --riso-font-mono: "JetBrains Mono", monospace;
+
+  --slidev-theme-primary: var(--riso-green-text);
+}
+
+/*
+ * Isolation keeps the ink circles (z-index: -1) between the paper and the text, multiplying only with
+ * each other. The title shadow is declared here rather than on :root so that it follows
+ * --riso-misregister while the page transition changes it on the slide wrapper.
+ */
+.slidev-layout {
+  --riso-text-shadow: calc(-3px + 6px * var(--riso-misregister)) calc(3px - 3px * var(--riso-misregister)) 0 var(--riso-shadow);
+
+  position: relative;
+  isolation: isolate;
+  height: 100%;
+  padding: 56px 88px 98px;
+  background: var(--riso-paper);
+  color: var(--riso-ink);
+  font-family: var(--riso-font-body);
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* The first heading is the slide title at any level, so `##` sub-slides nest in <Toc> yet look the same */
+.slidev-layout :where(h1),
+.slidev-layout > :where(h2, h3, h4):first-child {
+  margin: 0 0 32px;
+  font-family: var(--riso-font-display);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-shadow: var(--riso-text-shadow);
+}
+
+.slidev-layout :where(h2) {
+  margin: 0 0 28px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.slidev-layout :where(h3, h4, h5, h6) {
+  margin: 0 0 12px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.slidev-layout :where(* + h2, * + h3, * + h4) {
+  margin-top: 32px;
+}
+
+.slidev-layout :where(p) {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.slidev-layout :where(strong, b) {
+  font-weight: 700;
+}
+
+.slidev-layout :where(a) {
+  color: var(--riso-green-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.slidev-layout :where(img) {
+  max-width: 100%;
+}
+
+.slidev-layout :where(hr) {
+  margin: 0 0 20px;
+  border: 0;
+  border-top: 1px solid var(--riso-ink);
+}
+
+/* Lists */
+
+.slidev-layout :where(ul, ol) {
+  margin: 0 0 20px;
+}
+
+.slidev-layout :where(li) {
+  position: relative;
+  padding-left: 26px;
+}
+
+.slidev-layout :where(li + li) {
+  margin-top: var(--riso-list-gap, 20px);
+}
+
+.slidev-layout :where(li > p) {
+  margin: 0;
+  line-height: inherit;
+}
+
+.slidev-layout :where(ul > li)::before {
+  content: "";
+  position: absolute;
+  top: calc(0.7em - 5px);
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--riso-green);
+}
+
+.slidev-layout :where(ol) {
+  counter-reset: riso-ol;
+}
+
+.slidev-layout :where(ol > li) {
+  padding-left: 44px;
+  counter-increment: riso-ol;
+}
+
+.slidev-layout :where(ol > li)::before {
+  content: counter(riso-ol, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--riso-font-numeral);
+  font-weight: 800;
+  color: var(--riso-green-text);
+}
+
+.slidev-layout :where(li) > :where(ul, ol) {
+  margin: 8px 0 0;
+}
+
+.slidev-layout :where(li li) {
+  padding-left: 24px;
+  font-size: 24px;
+  color: var(--riso-ink-2);
+}
+
+.slidev-layout :where(li li + li) {
+  margin-top: 4px;
+}
+
+.slidev-layout :where(li ul > li)::before {
+  top: calc(0.7em - 3px);
+  left: 2px;
+  width: 6px;
+  height: 6px;
+}
+
+/* Quotes and tables */
+
+.slidev-layout :where(blockquote) {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.slidev-layout :where(blockquote > p) {
+  margin: 0;
+}
+
+.slidev-layout :where(blockquote > p + p) {
+  margin-top: 12px;
+}
+
+/* A paragraph right after a quote or a table reads as its source */
+.slidev-layout :where(blockquote, table) + :where(p) {
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--riso-ink-2);
+}
+
+.slidev-layout :where(table) {
+  width: 100%;
+  margin: 0 0 12px;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.slidev-layout :where(th, td) {
+  padding: 10px 16px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.slidev-layout :where(thead th) {
+  border-bottom: 2px solid var(--riso-ink);
+  background: var(--riso-green-tint);
+  font-weight: 700;
+}
+
+.slidev-layout :where(tbody td) {
+  border-bottom: 1px solid var(--riso-ink);
+}
+
+.slidev-layout :where(tbody td:first-child) {
+  font-weight: 700;
+}
+
+.riso-page-number {
+  position: absolute;
+  right: 88px;
+  bottom: 48px;
+  font-family: var(--riso-font-body);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--riso-ink-2);
+}
+
+/* Ink circles: each color is its own plate, offset in its own direction while off register */
+
+.riso-ink {
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.riso-ink-green {
+  top: -110px;
+  right: -110px;
+  background: var(--riso-green);
+  translate: calc(6px * var(--riso-misregister)) calc(-3px * var(--riso-misregister));
+}
+
+.riso-ink-blue {
+  background: var(--riso-blue);
+  translate: calc(-6px * var(--riso-misregister)) calc(3px * var(--riso-misregister));
+}
+
+.riso-ink-yellow {
+  background: var(--riso-yellow);
+  translate: calc(-3px * var(--riso-misregister)) calc(-6px * var(--riso-misregister));
+}

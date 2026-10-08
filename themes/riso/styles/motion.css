@@ -1,0 +1,100 @@
+/*
+ * Page transition `riso-register`, the theme default: the page fades in while every ink plate, the
+ * circles and the title shadows, slides back into register from 6px off.
+ */
+:root {
+  --slidev-transition-duration: 300ms;
+}
+
+.riso-register-enter-active {
+  transition:
+    opacity var(--slidev-transition-duration) ease-out,
+    --riso-misregister var(--slidev-transition-duration) ease-out;
+}
+
+.riso-register-leave-active {
+  transition: opacity var(--slidev-transition-duration) ease-out;
+}
+
+.riso-register-enter-from {
+  --riso-misregister: 1;
+
+  opacity: 0;
+}
+
+.riso-register-leave-to {
+  opacity: 0;
+}
+
+/* Reveal: a v-click target prints in two passes, its ink (markers, tints, shadows) first and its text 100ms later */
+.slidev-layout .slidev-vclick-target {
+  transition: opacity 200ms ease-out;
+}
+
+@keyframes riso-print {
+  from {
+    color: transparent;
+  }
+}
+
+/* Zero specificity, so an element with an animation of its own keeps it */
+:where(.slidev-layout .slidev-vclick-target:not(.slidev-vclick-hidden)),
+:where(.slidev-layout .slidev-vclick-target:not(.slidev-vclick-hidden)) * {
+  animation: riso-print 200ms ease-out 100ms backwards;
+}
+
+/* Emphasis: <Misregister> gives text the title shadow, which jumps 8px off register and settles back */
+.riso-misregister-on {
+  text-shadow: var(--riso-text-shadow);
+}
+
+.riso-misregister-kick {
+  animation: riso-kick 240ms ease-out;
+}
+
+@keyframes riso-kick {
+  50% {
+    text-shadow: -8px 8px 0 var(--riso-shadow);
+  }
+}
+
+/* Print and export capture the settled state */
+html.print :where(.slidev-layout .slidev-vclick-target),
+html.print :where(.slidev-layout .slidev-vclick-target) *,
+html.print .riso-misregister-kick {
+  animation: none;
+}
+
+/* Reduced motion keeps only the fade between slides, whatever transition a slide asks for */
+@media (prefers-reduced-motion: reduce) {
+  .riso-register-enter-from {
+    --riso-misregister: 0;
+  }
+
+  .riso-misregister-kick {
+    animation: none;
+  }
+
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active,
+  .slide-up-enter-active,
+  .slide-up-leave-active,
+  .slide-down-enter-active,
+  .slide-down-leave-active {
+    transition: opacity var(--slidev-transition-duration) ease;
+  }
+
+  .slide-left-enter-from,
+  .slide-left-leave-to,
+  .slide-right-enter-from,
+  .slide-right-leave-to,
+  .slide-up-enter-from,
+  .slide-up-leave-to,
+  .slide-down-enter-from,
+  .slide-down-leave-to {
+    opacity: 0;
+    transform: none;
+  }
+}

@@ -1,0 +1,2 @@
+/* Loaded here instead of Slidev's font provider, which requests the same weights for every family */
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Dela+Gothic+One&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Space+Mono&family=Zen+Kaku+Gothic+New:wght@700&display=swap");

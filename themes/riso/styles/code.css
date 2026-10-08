@@ -1,0 +1,51 @@
+.slidev-layout {
+  --slidev-code-background: var(--riso-green-tint);
+  --slidev-code-foreground: var(--riso-ink);
+  --slidev-code-font-family: var(--riso-font-mono);
+  --slidev-code-font-size: 24px;
+  --slidev-code-line-height: 1.5;
+  --slidev-code-padding: 28px 32px;
+  --slidev-code-radius: 0;
+  --slidev-code-margin: 0 0 20px;
+}
+
+/* ```lang [file] titles become a plain caption above the block */
+.slidev-layout .slidev-code-block-title {
+  display: block;
+  margin-bottom: 12px;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-family: var(--riso-font-mono);
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--riso-ink-2);
+}
+
+.slidev-layout .slidev-code-block-title > :not(.leading-1em) {
+  display: none;
+}
+
+.slidev-layout .slidev-code-block-title > .leading-1em {
+  line-height: inherit;
+}
+
+.slidev-layout .slidev-code-line-numbers .slidev-code code .line::before {
+  color: var(--riso-muted);
+}
+
+.slidev-layout :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: 0;
+  background: var(--riso-green-tint);
+  font-family: var(--riso-font-mono);
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.slidev-layout :is(td, th) > code {
+  padding: 0;
+  background: none;
+  font-size: 1em;
+}
