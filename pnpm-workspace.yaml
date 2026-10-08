@@ -3,3 +3,5 @@ packages:
   - "themes/*"
 catalog:
   playwright-chromium: ^1.63.0
+overrides:
+  "magic-string@^1": 1.4.2
