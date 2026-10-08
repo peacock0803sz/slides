@@ -2,4 +2,4 @@ packages:
   - "talks/*"
   - "themes/*"
 catalog:
-  playwright-chromium: ^1.50.1
+  playwright-chromium: ^1.63.0
