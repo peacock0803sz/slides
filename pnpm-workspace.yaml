@@ -5,3 +5,11 @@ catalog:
   playwright-chromium: ^1.63.0
 overrides:
   "magic-string@^1": 1.4.2
+onlyBuiltDependencies:
+  - esbuild
+  - playwright-chromium
+  - vue-demi
+allowBuilds:
+  esbuild: true
+  playwright-chromium: true
+  vue-demi: true

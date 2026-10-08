@@ -10,12 +10,5 @@
   "devDependencies": {
     "playwright-chromium": "catalog:",
     "vite-plugin-radar": "^0.10.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "playwright-chromium",
-      "vue-demi"
-    ]
   }
 }
