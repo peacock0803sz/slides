@@ -15,8 +15,8 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             git
-            nodejs_22
-            corepack_22
+            nodejs
+            corepack
           ];
         };
       }
