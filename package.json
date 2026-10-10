@@ -1,6 +1,6 @@
 {
   "name": "slides",
-  "packageManager": "pnpm@10.34.6",
+  "packageManager": "pnpm@12.10.1",
   "private": true,
   "scripts": {
     "prebuild": "rm -rf dist && mkdir -p dist",
