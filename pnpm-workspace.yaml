@@ -2,7 +2,7 @@ packages:
   - "talks/*"
   - "themes/*"
 catalog:
-  playwright-chromium: ^1.63.0
+  playwright-chromium: ^1.64.1
 overrides:
   "magic-string@^1": 1.4.2
 onlyBuiltDependencies:
