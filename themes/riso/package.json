@@ -17,7 +17,7 @@
     "@peacock0803sz:registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@slidev/cli": "^52.1.0",
+    "@slidev/cli": "^52.20.1",
     "@slidev/types": "^52.1.0"
   },
   "slidev": {
