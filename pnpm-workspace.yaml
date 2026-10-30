@@ -4,7 +4,7 @@ packages:
 catalog:
   playwright-chromium: ^1.64.1
 overrides:
-  "magic-string@^1": 1.4.2
+  "magic-string@^1": 1.4.5
 onlyBuiltDependencies:
   - esbuild
   - playwright-chromium
