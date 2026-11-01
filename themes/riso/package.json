@@ -6,7 +6,7 @@
     "slidev"
   ],
   "engines": {
-    "node": ">=24.22.1",
+    "node": ">=24.22.2",
     "slidev": ">=52.0.0"
   },
   "scripts": {
