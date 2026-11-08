@@ -256,13 +256,13 @@ importers:
     devDependencies:
       '@slidev/cli':
         specifier: ^53.0.0
-        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.1.0)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
+        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
       '@slidev/types':
         specifier: ^53.0.0
         version: 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(markdown-it-async@2.2.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.0
+        specifier: ^14.3.3
+        version: 14.3.3
 
   themes/riso:
     devDependencies:
@@ -277,13 +277,13 @@ importers:
     devDependencies:
       '@slidev/cli':
         specifier: ^53.0.0
-        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.1.0)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
+        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
       '@slidev/types':
         specifier: ^53.0.0
         version: 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(markdown-it-async@2.2.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.0
+        specifier: ^14.3.3
+        version: 14.3.3
 
   themes/simple:
     dependencies:
@@ -299,13 +299,13 @@ importers:
     devDependencies:
       '@slidev/cli':
         specifier: ^53.0.0
-        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.1.0)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
+        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
       '@types/qrcode':
         specifier: ^1.5.6
         version: 1.5.6
       markdown-it:
-        specifier: ^14.1.0
-        version: 14.1.0
+        specifier: ^14.3.3
+        version: 14.3.3
 
   themes/watercolors:
     dependencies:
@@ -6084,6 +6084,10 @@ packages:
     resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
     hasBin: true
 
+  markdown-it@14.3.3:
+    resolution: {integrity: sha512-L//tDAkjTjJCU6pBUSBTgs3Kg4InVaZuUZog/b6V12UKhcDQ7S78877ibbCanRExwPuYP1CZD7Gd2dxSy1GXRg==}
+    hasBin: true
+
   markdown-it@15.0.2:
     resolution: {integrity: sha512-q4IGxMv56jCqT4OCRCADBoDP3LO4MhmTXjFbphHPXs4g3j9Xg5RDnxqN8IF/3vIWEU+VCnUq+7JUg/cfy2E6Qw==}
     hasBin: true
@@ -9749,11 +9753,11 @@ snapshots:
       fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
 
-  '@comark/markdown-it@0.3.4(@types/markdown-it@14.1.2)(markdown-it@14.1.0)':
+  '@comark/markdown-it@0.3.4(@types/markdown-it@14.1.2)(markdown-it@14.3.3)':
     dependencies:
       '@types/markdown-it': 14.1.2
       js-yaml: 4.3.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@comark/markdown-it@0.3.4(@types/markdown-it@14.1.2)(markdown-it@15.0.2)':
     dependencies:
@@ -10307,17 +10311,17 @@ snapshots:
   '@mdit-vue/plugin-component@2.1.3':
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@mdit-vue/plugin-component@2.1.4':
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@mdit-vue/plugin-component@3.0.2':
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@mdit-vue/plugin-frontmatter@0.12.1':
     dependencies:
@@ -10338,21 +10342,21 @@ snapshots:
       '@mdit-vue/types': 2.1.0
       '@types/markdown-it': 14.1.2
       gray-matter: 4.0.3
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@mdit-vue/plugin-frontmatter@2.1.4':
     dependencies:
       '@mdit-vue/types': 2.1.4
       '@types/markdown-it': 14.1.2
       gray-matter: 4.0.3
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@mdit-vue/plugin-frontmatter@3.0.2':
     dependencies:
       '@mdit-vue/types': 3.0.2
       '@types/markdown-it': 14.1.2
       gray-matter: 4.0.3
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   '@mdit-vue/types@0.12.0': {}
 
@@ -10862,19 +10866,19 @@ snapshots:
 
   '@shikijs/markdown-it@1.29.2':
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       shiki: 1.29.2
 
   '@shikijs/markdown-it@3.3.0(markdown-it-async@2.2.0)':
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       shiki: 3.3.0
     optionalDependencies:
       markdown-it-async: 2.2.0
 
   '@shikijs/markdown-it@3.8.1(markdown-it-async@2.2.0)':
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       shiki: 3.8.1
     optionalDependencies:
       markdown-it-async: 2.2.0
@@ -11891,11 +11895,11 @@ snapshots:
       - unloader
       - webpack
 
-  '@slidev/cli@53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.1.0)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)':
+  '@slidev/cli@53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)':
     dependencies:
       '@antfu/ni': 30.6.0
       '@antfu/utils': 9.3.0
-      '@comark/markdown-it': 0.3.4(@types/markdown-it@14.1.2)(markdown-it@14.1.0)
+      '@comark/markdown-it': 0.3.4(@types/markdown-it@14.1.2)(markdown-it@14.3.3)
       '@iconify-json/carbon': 1.2.28
       '@iconify-json/ph': 1.2.2
       '@iconify-json/svg-spinners': 1.2.4
@@ -11906,7 +11910,7 @@ snapshots:
       '@shikijs/markdown-it': 4.5.0(markdown-it-async@2.2.0)
       '@shikijs/twoslash': 4.5.0(typescript@6.0.3)
       '@shikijs/vitepress-twoslash': 4.5.0(@nuxt/kit@3.16.2)(typescript@6.0.3)
-      '@slidev/client': 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.1.0)(oxc-parser@0.150.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
+      '@slidev/client': 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       '@slidev/parser': 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(markdown-it-async@2.2.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       '@slidev/types': 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(markdown-it-async@2.2.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       '@unocss/extractor-mdc': 66.10.5
@@ -11931,7 +11935,7 @@ snapshots:
       magic-string-stack: 2.0.0
       markdown-exit: 1.3.0
       markdown-it-footnote: 4.0.0
-      markdown-it-github-alerts: 1.0.1(markdown-it@14.1.0)
+      markdown-it-github-alerts: 1.0.1(markdown-it@14.3.3)
       mlly: 1.8.2
       monaco-editor: 0.56.0
       obug: 3.0.0
@@ -12439,7 +12443,7 @@ snapshots:
       - vite
       - webpack
 
-  '@slidev/client@53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.1.0)(oxc-parser@0.150.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))':
+  '@slidev/client@53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))':
     dependencies:
       '@antfu/utils': 9.3.0
       '@fix-webm-duration/fix': 1.0.1
@@ -12469,7 +12473,7 @@ snapshots:
       fuse.js: 7.5.0
       katex: 0.18.10
       lz-string: 1.5.0
-      markdown-it-github-alerts: 1.0.1(markdown-it@14.1.0)
+      markdown-it-github-alerts: 1.0.1(markdown-it@14.3.3)
       mermaid: 12.1.0
       monaco-editor: 0.56.0
       nanotar: 0.3.0
@@ -16141,7 +16145,7 @@ snapshots:
       birpc: 4.2.0
       crossws: 0.4.15(srvx@1.0.5)
       destr: 2.0.5
-      h3: 2.0.2(crossws@0.4.15)
+      h3: 2.0.2(crossws@0.4.15(srvx@1.0.5))
       mrmime: 2.0.1
       nostics: 1.3.0
       pathe: 2.0.3
@@ -16156,7 +16160,7 @@ snapshots:
   devframe@1.2.3(cac@7.0.1)(srvx@1.0.5):
     dependencies:
       crossws: 0.4.15(srvx@1.0.5)
-      h3: 2.0.2(crossws@0.4.15)
+      h3: 2.0.2(crossws@0.4.15(srvx@1.0.5))
       nostics: 1.3.0
       pathe: 2.0.3
     optionalDependencies:
@@ -16897,7 +16901,7 @@ snapshots:
     dependencies:
       duplexer: 0.1.2
 
-  h3@2.0.2(crossws@0.4.15):
+  h3@2.0.2(crossws@0.4.15(srvx@1.0.5)):
     dependencies:
       rou3: 1.0.0
       srvx: 1.0.5
@@ -17455,12 +17459,12 @@ snapshots:
   markdown-it-async@2.0.0:
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   markdown-it-async@2.2.0:
     dependencies:
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   markdown-it-emoji@2.0.2: {}
 
@@ -17470,9 +17474,9 @@ snapshots:
 
   markdown-it-front-matter@0.2.4: {}
 
-  markdown-it-github-alerts@1.0.1(markdown-it@14.1.0):
+  markdown-it-github-alerts@1.0.1(markdown-it@14.3.3):
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
 
   markdown-it-github-alerts@1.0.1(markdown-it@15.0.2):
     dependencies:
@@ -17500,7 +17504,7 @@ snapshots:
 
   markdown-it-shikiji@0.9.19:
     dependencies:
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       shikiji: 0.9.19
 
   markdown-it@13.0.2:
@@ -17512,6 +17516,15 @@ snapshots:
       uc.micro: 1.0.6
 
   markdown-it@14.1.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.2
+      mdurl: 2.1.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
+
+  markdown-it@14.3.3:
     dependencies:
       argparse: 2.0.1
       entities: 4.5.0
@@ -20233,7 +20246,7 @@ snapshots:
       '@mdit-vue/types': 2.1.0
       '@rollup/pluginutils': 5.1.4(rollup@4.40.0)
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       unplugin: 1.16.1
       vite: 5.4.14(@types/node@22.13.5)(lightningcss@1.33.0)
     transitivePeerDependencies:
@@ -20245,7 +20258,7 @@ snapshots:
       '@mdit-vue/plugin-frontmatter': 2.1.3
       '@mdit-vue/types': 2.1.0
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       markdown-it-async: 2.0.0
       unplugin: 2.2.0
       unplugin-utils: 0.2.4
@@ -20257,7 +20270,7 @@ snapshots:
       '@mdit-vue/plugin-frontmatter': 2.1.4
       '@mdit-vue/types': 2.1.4
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       markdown-it-async: 2.2.0
       unplugin: 2.3.5
       unplugin-utils: 0.2.4
@@ -20269,7 +20282,7 @@ snapshots:
       '@mdit-vue/plugin-frontmatter': 2.1.4
       '@mdit-vue/types': 2.1.4
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       markdown-it-async: 2.2.0
       unplugin: 2.3.5
       unplugin-utils: 0.2.4
@@ -20281,7 +20294,7 @@ snapshots:
       '@mdit-vue/plugin-frontmatter': 2.1.4
       '@mdit-vue/types': 2.1.4
       '@types/markdown-it': 14.1.2
-      markdown-it: 14.1.0
+      markdown-it: 14.3.3
       markdown-it-async: 2.2.0
       unplugin: 2.3.5
       unplugin-utils: 0.2.4
