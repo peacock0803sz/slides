@@ -9,6 +9,6 @@
   },
   "devDependencies": {
     "playwright-chromium": "catalog:",
-    "vite-plugin-radar": "^0.10.0"
+    "vite-plugin-radar": "^0.11.0"
   }
 }
