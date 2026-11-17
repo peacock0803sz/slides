@@ -1,0 +1,38 @@
+{
+  "name": "@peacock0803sz/theme-on-air",
+  "version": "0.1.0",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=24.22.3",
+    "slidev": ">=52.0.0"
+  },
+  "scripts": {
+    "dev": "slidev example.md",
+    "format": "slidev format example.md"
+  },
+  "publishConfig": {
+    "@peacock0803sz:registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/types": "^53.0.0",
+    "markdown-it": "^14.3.3"
+  },
+  "slidev": {
+    "colorSchema": "light",
+    "highlighter": "shiki",
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 1280,
+      "codeCopy": false,
+      "fonts": {
+        "sans": "BIZ UDPGothic",
+        "mono": "JetBrains Mono",
+        "provider": "none"
+      }
+    }
+  }
+}

@@ -1,0 +1,329 @@
+:root {
+  --oa-ground: #f2f3f5;
+  --oa-surface: #ffffff;
+  --oa-surface-2: #e2e5ea;
+  --oa-text: #0e1116;
+  --oa-text-2: #454d57;
+  --oa-muted: #6e7782;
+  --oa-line: #c8cdd5;
+  /* Tally colors of a vision mixer: program (on air), preview and standby */
+  --oa-pgm: #e5322d;
+  --oa-pvw: #19c98f;
+  --oa-standby: #f2b134;
+
+  --oa-font-display: "Noto Sans JP", sans-serif;
+  --oa-font-body: "BIZ UDPGothic", sans-serif;
+  /* Barlow Condensed, Chivo and Geist Mono have no Japanese */
+  --oa-font-numeral: "Barlow Condensed", "Noto Sans JP", sans-serif;
+  --oa-font-meta: "Chivo", "BIZ UDPGothic", sans-serif;
+  --oa-font-readout: "Geist Mono", "BIZ UDPGothic", monospace;
+  --oa-font-mono: "JetBrains Mono", monospace;
+
+  --slidev-theme-primary: var(--oa-pgm);
+}
+
+/*
+ * The background draws the safe-area marks of a broadcast monitor: corner brackets and center ticks.
+ * The design was drawn for a 1920×1080 output, where they are 1px thick and 40px in from the edges.
+ */
+.slidev-layout {
+  --oa-mark: linear-gradient(var(--oa-line) 0 0);
+
+  position: relative;
+  height: 100%;
+  padding: 56px 88px 98px;
+  background:
+    var(--oa-mark) left 26.67px top 26.67px / 32px 0.67px no-repeat,
+    var(--oa-mark) left 26.67px top 26.67px / 0.67px 32px no-repeat,
+    var(--oa-mark) right 26.67px top 26.67px / 32px 0.67px no-repeat,
+    var(--oa-mark) right 26.67px top 26.67px / 0.67px 32px no-repeat,
+    var(--oa-mark) left 26.67px bottom 26.67px / 32px 0.67px no-repeat,
+    var(--oa-mark) left 26.67px bottom 26.67px / 0.67px 32px no-repeat,
+    var(--oa-mark) right 26.67px bottom 26.67px / 32px 0.67px no-repeat,
+    var(--oa-mark) right 26.67px bottom 26.67px / 0.67px 32px no-repeat,
+    var(--oa-mark) center top 26.67px / 1.33px 10.67px no-repeat,
+    var(--oa-mark) center bottom 26.67px / 1.33px 10.67px no-repeat,
+    var(--oa-ground);
+  color: var(--oa-text);
+  font-family: var(--oa-font-body);
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* The first heading is the slide title at any level, so `##` sub-slides nest in <Toc> yet look the same */
+.slidev-layout :where(h1),
+.slidev-layout > :where(h2, h3, h4):first-child {
+  position: relative;
+  margin: 0 0 32px;
+  padding-left: 28px;
+  font-family: var(--oa-font-display);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* The tally: a red bar beside the title, like the lamp on a camera that is on air */
+.slidev-layout :where(h1)::before,
+.slidev-layout > :where(h2, h3, h4):first-child::before {
+  content: "";
+  position: absolute;
+  top: 0.025em;
+  bottom: 0.025em;
+  left: 0;
+  width: 8px;
+  background: var(--oa-pgm);
+}
+
+.slidev-layout :where(h2) {
+  margin: 0 0 28px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.slidev-layout :where(h3, h4, h5, h6) {
+  margin: 0 0 12px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.slidev-layout :where(* + h2, * + h3, * + h4) {
+  margin-top: 32px;
+}
+
+.slidev-layout :where(p) {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.slidev-layout :where(strong, b) {
+  font-weight: 700;
+}
+
+.slidev-layout :where(a) {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--oa-pgm);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.slidev-layout :where(img) {
+  max-width: 100%;
+}
+
+.slidev-layout :where(hr) {
+  margin: 0 0 20px;
+  border: 0;
+  border-top: 1px solid var(--oa-line);
+}
+
+/* Lists */
+
+.slidev-layout :where(ul, ol) {
+  margin: 0 0 20px;
+}
+
+.slidev-layout :where(li) {
+  position: relative;
+  padding-left: 26px;
+}
+
+.slidev-layout :where(li + li) {
+  margin-top: var(--oa-list-gap, 20px);
+}
+
+.slidev-layout :where(li > p) {
+  margin: 0;
+  line-height: inherit;
+}
+
+.slidev-layout :where(ul > li)::before {
+  content: "";
+  position: absolute;
+  top: calc(0.7em - 5px);
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--oa-pgm);
+}
+
+.slidev-layout :where(ol) {
+  counter-reset: oa-ol;
+}
+
+.slidev-layout :where(ol > li) {
+  padding-left: 40px;
+  counter-increment: oa-ol;
+}
+
+.slidev-layout :where(ol > li)::before {
+  content: counter(oa-ol, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--oa-font-numeral);
+  font-weight: 700;
+  color: var(--oa-pgm);
+}
+
+.slidev-layout :where(li) > :where(ul, ol) {
+  margin: 8px 0 0;
+}
+
+.slidev-layout :where(li li) {
+  padding-left: 24px;
+  font-size: 24px;
+  color: var(--oa-text-2);
+}
+
+.slidev-layout :where(li li + li) {
+  margin-top: 4px;
+}
+
+.slidev-layout :where(li ul > li)::before {
+  top: calc(0.7em - 3px);
+  left: 2px;
+  width: 6px;
+  height: 6px;
+}
+
+/* Quotes and tables */
+
+.slidev-layout :where(blockquote) {
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.slidev-layout :where(blockquote > p) {
+  margin: 0;
+}
+
+.slidev-layout :where(blockquote > p + p) {
+  margin-top: 12px;
+}
+
+/* A paragraph right after a quote or a table reads as its source */
+.slidev-layout :where(blockquote, table) + :where(p) {
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--oa-text-2);
+}
+
+.slidev-layout :where(table) {
+  width: 100%;
+  margin: 0 0 12px;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+/* The design draws each rule inside the row's 10px bottom padding, so the padding gives that pixel back */
+.slidev-layout :where(th, td) {
+  padding: 10px 16px 9px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.slidev-layout :where(thead th) {
+  border-bottom: 2px solid var(--oa-text);
+  background: var(--oa-surface);
+  font-weight: 700;
+}
+
+.slidev-layout :where(tbody td) {
+  border-bottom: 1px solid var(--oa-line);
+}
+
+.slidev-layout :where(tbody td:first-child) {
+  font-weight: 700;
+}
+
+.oa-page-number {
+  position: absolute;
+  right: 88px;
+  bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--oa-font-readout);
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: var(--oa-text-2);
+}
+
+.oa-page-number::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--oa-pgm);
+}
+
+/*
+ * Lower third: a white caption box hanging off an 8px tally. The tally covers the box's 1px top and
+ * bottom borders, so it runs the full height like a separate bar.
+ */
+.slidev-layout.cover > h3,
+.slidev-layout.profile > :is(h1, h2, h3, h4):first-child {
+  position: relative;
+  padding-left: 32px;
+  border: 1px solid var(--oa-line);
+  border-left: 0;
+  background: var(--oa-surface);
+}
+
+.slidev-layout.cover > h3::before,
+.slidev-layout.profile > :is(h1, h2, h3, h4):first-child::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: 0;
+  width: 8px;
+  background: var(--oa-pgm);
+}
+
+.oa-shot {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+  box-shadow: inset 0 0 0 4px var(--oa-pgm);
+}
+
+.oa-chip {
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: rgb(10 12 15 / 80%);
+  font-family: var(--oa-font-readout);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.oa-chip-pgm {
+  background: var(--oa-pgm);
+}
+
+/* REC lamp: unlit until something switches it on, then it blinks (see motion.css) */
+.oa-rec-lamp {
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  margin-right: 0.6em;
+  border-radius: 50%;
+  background: var(--oa-pgm);
+  opacity: 0.12;
+  /* Centers the lamp on the Japanese text, whose glyphs sit higher than the x-height */
+  vertical-align: 0.18em;
+}
+
+.oa-rec-on > .oa-rec-lamp {
+  opacity: 1;
+}

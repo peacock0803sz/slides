@@ -252,6 +252,18 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0
 
+  themes/on-air:
+    devDependencies:
+      '@slidev/cli':
+        specifier: ^53.0.0
+        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.153.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.0.1)(srvx@1.0.5)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.150.0)(playwright-chromium@1.64.1)(postcss@8.5.29)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(tsx@4.19.3)
+      '@slidev/types':
+        specifier: ^53.0.0
+        version: 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.43)(cac@7.0.1)(markdown-it-async@2.2.0)(rolldown@1.2.13)(rollup@4.40.0)(srvx@1.0.5)(typescript@6.0.3)(vite@8.3.4(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
+      markdown-it:
+        specifier: ^14.3.3
+        version: 14.3.3
+
   themes/plate:
     devDependencies:
       '@slidev/cli':

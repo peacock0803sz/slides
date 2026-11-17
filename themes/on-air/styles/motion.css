@@ -1,0 +1,96 @@
+/*
+ * Slides cut from one to the next like a vision mixer, which is Slidev's behavior when `transition`
+ * is unset, so the theme sets no default.
+ */
+
+/*
+ * Reveal: a v-click target wipes in from its left edge, the way a lower third leaves its tally.
+ * Targets given an animation through `v-click.up` or `clickAnimation` keep Slidev's own.
+ */
+.slidev-layout .slidev-vclick-target:not([class*="slidev-vclick-anim-"]) {
+  transition: none;
+}
+
+@keyframes oa-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+/* Zero specificity, so an element with an animation of its own keeps it */
+:where(.slidev-layout .slidev-vclick-target:not(.slidev-vclick-hidden, [class*="slidev-vclick-anim-"])) {
+  animation: oa-wipe 200ms ease-out;
+}
+
+/* The lower thirds wipe out of their tally every time their slide comes up */
+@keyframes oa-lower-third {
+  from {
+    clip-path: inset(0 calc(100% - 8px) 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+.slidev-layout.cover > h3,
+.slidev-layout.profile > :is(h1, h2, h3, h4):first-child {
+  animation: oa-lower-third 200ms ease-out;
+}
+
+/* Emphasis: a lit REC lamp blinks once a second, half on and half dimmed */
+@keyframes oa-blink {
+  to {
+    opacity: 0.12;
+  }
+}
+
+.oa-rec-on > .oa-rec-lamp {
+  animation: oa-blink 1s steps(2, jump-none) infinite;
+}
+
+/* Print and export capture the settled state, lamps lit. `oa-still` marks print mode where html.print is missing */
+html.print :where(.slidev-layout .slidev-vclick-target),
+html.print .slidev-layout.cover > h3,
+html.print .slidev-layout.profile > :is(h1, h2, h3, h4):first-child,
+html.print .oa-rec-lamp,
+.oa-still .oa-rec-lamp {
+  animation: none;
+}
+
+/* Reduced motion stops the wipes and the blinking, and turns any sliding transition into a fade */
+@media (prefers-reduced-motion: reduce) {
+  :where(.slidev-layout .slidev-vclick-target:not(.slidev-vclick-hidden, [class*="slidev-vclick-anim-"])),
+  .slidev-layout.cover > h3,
+  .slidev-layout.profile > :is(h1, h2, h3, h4):first-child,
+  .oa-rec-on > .oa-rec-lamp {
+    animation: none;
+  }
+
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active,
+  .slide-up-enter-active,
+  .slide-up-leave-active,
+  .slide-down-enter-active,
+  .slide-down-leave-active {
+    transition: opacity var(--slidev-transition-duration) ease;
+  }
+
+  .slide-left-enter-from,
+  .slide-left-leave-to,
+  .slide-right-enter-from,
+  .slide-right-leave-to,
+  .slide-up-enter-from,
+  .slide-up-leave-to,
+  .slide-down-enter-from,
+  .slide-down-leave-to {
+    opacity: 0;
+    transform: none;
+  }
+}
