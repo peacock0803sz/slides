@@ -18,7 +18,8 @@
   },
   "devDependencies": {
     "@slidev/cli": "^52.20.1",
-    "@slidev/types": "^52.20.1"
+    "@slidev/types": "^52.20.1",
+    "markdown-it": "^14.3.3"
   },
   "slidev": {
     "colorSchema": "light",
