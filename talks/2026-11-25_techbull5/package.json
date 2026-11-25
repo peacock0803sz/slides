@@ -1,0 +1,22 @@
+{
+  "name": "techbull5",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /techbull5/",
+    "postbuild": "mv ./dist ../../dist/techbull5/",
+    "dev": "slidev",
+    "format": "slidev format slides.md",
+    "export:pdf": "mkdir -p dist && slidev export --format pdf --output dist/techbull5.pdf",
+    "preexport:cover": "mkdir -p slides-export public",
+    "export:cover": "slidev export --format png",
+    "postexport:cover": "mv slides-export/1.png public/cover.png"
+  },
+  "dependencies": {
+    "@peacock0803sz/theme-score": "workspace:*",
+    "@slidev/cli": "^53.1.0",
+    "markdown-it": "^14.3.3"
+  },
+  "devDependencies": {
+    "playwright-chromium": "catalog:"
+  }
+}
