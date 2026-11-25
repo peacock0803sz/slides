@@ -7,6 +7,7 @@ layout: cover
 lineNumbers: true
 htmlAttrs:
   lang: ja
+presenter: dev
 seoMeta:
   ogTitle: 手動反映は初回だけ
   ogDescription: Peacock (Yoichi Takai), at 2026-11-25 TechBull mini LT&交流会！#5
