@@ -21,8 +21,8 @@ importers:
         specifier: 'catalog:'
         version: 1.64.1
       vite-plugin-radar:
-        specifier: ^0.10.0
-        version: 0.10.0(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
+        specifier: ^0.11.0
+        version: 0.11.0(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
 
   talks/2021-05-07_techtalk-2021-05:
     devDependencies:
@@ -272,10 +272,10 @@ importers:
     devDependencies:
       '@slidev/cli':
         specifier: ^53.0.0
-        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.156.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.4.0)(cac@7.1.0)(srvx@1.0.8)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.153.0)(playwright-chromium@1.64.1)(postcss@8.5.33)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(tsx@4.19.3)
+        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.156.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.1.0)(srvx@1.0.8)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.153.0)(playwright-chromium@1.64.1)(postcss@8.5.33)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(tsx@4.19.3)
       '@slidev/types':
         specifier: ^53.0.0
-        version: 53.0.0(@modelcontextprotocol/server@2.4.0)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(markdown-it-async@2.2.0)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(typescript@6.0.3)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
+        version: 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(markdown-it-async@2.2.0)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(typescript@6.0.3)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       markdown-it:
         specifier: ^14.3.3
         version: 14.3.3
@@ -284,10 +284,10 @@ importers:
     devDependencies:
       '@slidev/cli':
         specifier: ^53.0.0
-        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.156.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.3.1)(cac@7.1.0)(srvx@1.0.8)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.153.0)(playwright-chromium@1.64.1)(postcss@8.5.33)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(tsx@4.19.3)
+        version: 53.0.0(@nuxt/kit@3.16.2)(@oxc-project/types@0.156.0)(@types/markdown-it@14.1.2)(@types/node@22.13.5)(@vitejs/devtools-kit@0.4.12(@modelcontextprotocol/server@2.4.0)(cac@7.1.0)(srvx@1.0.8)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)))(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(lightningcss@1.33.0)(markdown-it-async@2.2.0)(markdown-it@14.3.3)(oxc-parser@0.153.0)(playwright-chromium@1.64.1)(postcss@8.5.33)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(tsx@4.19.3)
       '@slidev/types':
         specifier: ^53.0.0
-        version: 53.0.0(@modelcontextprotocol/server@2.3.1)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(markdown-it-async@2.2.0)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(typescript@6.0.3)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
+        version: 53.0.0(@modelcontextprotocol/server@2.4.0)(@nuxt/kit@3.16.2)(@vue/compiler-sfc@3.5.45)(cac@7.1.0)(markdown-it-async@2.2.0)(rolldown@1.2.19)(rollup@4.40.0)(srvx@1.0.8)(typescript@6.0.3)(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1))
       markdown-it:
         specifier: ^14.3.3
         version: 14.3.3
@@ -8983,10 +8983,10 @@ packages:
       '@nuxt/kit':
         optional: true
 
-  vite-plugin-radar@0.10.0:
-    resolution: {integrity: sha512-PRApileUv7I+bInGbrQM9LvxvrFHELRvyO5yAodGwIgQBRID/hOPqx0pz7VBWFAcPNjJJVAp/LuT1417BuE/9g==}
+  vite-plugin-radar@0.11.0:
+    resolution: {integrity: sha512-h1bf0lIlSI+O3g/LYSpEp4mk4IdszPNCJSRTeSCgcUBqsMRQd+Own0oDWq2vWnDIGucQ8lKQBtC27ABksJLFtw==}
     peerDependencies:
-      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+      vite: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
   vite-plugin-remote-assets@0.3.2:
     resolution: {integrity: sha512-E0xS2fHpoJffpsU4W82XDaBRxx2Yh4Zwl4Q668V/HXa/b0nNDaQyo5ff5tS6D4pwGBVuAKlGYyUEE63P/RfiwA==}
@@ -18379,7 +18379,7 @@ snapshots:
       birpc: 4.2.0
       crossws: 0.4.15(srvx@1.0.8)
       destr: 2.0.5
-      h3: 2.0.2(crossws@0.4.15)
+      h3: 2.0.2(crossws@0.4.15(srvx@1.0.8))
       mrmime: 2.0.1
       nostics: 1.3.0
       pathe: 2.0.3
@@ -18397,7 +18397,7 @@ snapshots:
       birpc: 4.2.0
       crossws: 0.4.15(srvx@1.0.8)
       destr: 2.0.5
-      h3: 2.0.2(crossws@0.4.15)
+      h3: 2.0.2(crossws@0.4.15(srvx@1.0.8))
       mrmime: 2.0.1
       nostics: 1.3.0
       pathe: 2.0.3
@@ -18412,7 +18412,7 @@ snapshots:
   devframe@1.2.3(cac@7.1.0)(srvx@1.0.8):
     dependencies:
       crossws: 0.4.15(srvx@1.0.8)
-      h3: 2.0.2(crossws@0.4.15)
+      h3: 2.0.2(crossws@0.4.15(srvx@1.0.8))
       nostics: 1.3.0
       pathe: 2.0.3
     optionalDependencies:
@@ -19182,7 +19182,7 @@ snapshots:
     dependencies:
       duplexer: 0.1.2
 
-  h3@2.0.2(crossws@0.4.15):
+  h3@2.0.2(crossws@0.4.15(srvx@1.0.8)):
     dependencies:
       rou3: 1.0.0
       srvx: 1.0.5
@@ -23240,7 +23240,7 @@ snapshots:
       - ocache
       - srvx
 
-  vite-plugin-radar@0.10.0(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)):
+  vite-plugin-radar@0.11.0(vite@8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)):
     dependencies:
       vite: 8.3.8(@types/node@22.13.5)(jiti@2.7.0)(tsx@4.19.3)(yaml@2.9.1)
 
